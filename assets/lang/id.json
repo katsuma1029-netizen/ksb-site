@@ -1,0 +1,119 @@
+{
+  "site": {
+    "title": "KSB｜Situs Resmi (JP/ID)",
+    "brand": "KSB",
+    "footer": "© KSB - LPK Karya Sejahtera Bersama"
+  },
+  "nav": {
+    "home": "Beranda",
+    "company": "Tentang Kami",
+    "services": "Layanan",
+    "news": "Berita",
+    "contact": "Kontak"
+  },
+  "home": {
+    "hero_title": "Jembatan SDM antara Jepang dan Indonesia",
+    "hero_desc": "Pengiriman magang & Tokutei Ginou, pelatihan, dan dukungan hidup secara menyeluruh.",
+    "cta_contact": "Hubungi Kami",
+    "cta_whatsapp": "Konsultasi via WhatsApp",
+    "badge1": "Rekam jejak sejak 2017",
+    "badge2": "Operasional transparan",
+    "badge3": "Pendampingan setelah tiba di Jepang",
+    "reasons_title": "Mengapa Memilih KSB",
+    "reason1_title": "Pendampingan menyeluruh",
+    "reason1_desc": "Rekrutmen, pelatihan, dokumen & visa, hingga dukungan setelah tiba.",
+    "reason2_title": "Kualitas pelatihan",
+    "reason2_desc": "Pembinaan kehidupan, etika kerja, dan pemahaman budaya.",
+    "reason3_title": "Respons cepat",
+    "reason3_desc": "Alur eskalasi & kontak yang jelas.",
+    "reason4_title": "Transparansi",
+    "reason4_desc": "Biaya, jadwal, dan hasil belajar dibagikan secara jelas.",
+    "kpi_title": "Capaian (isi angkanya nanti)",
+    "kpi1_num": "—",
+    "kpi1_label": "Total peserta terkirim",
+    "kpi2_num": "—",
+    "kpi2_label": "Perusahaan mitra aktif",
+    "kpi3_num": "—",
+    "kpi3_label": "Bidang utama",
+    "flow_title": "Alur Pengiriman"
+  },
+  "flow": {
+    "s1": "Rekrutmen & seleksi",
+    "s1_desc": "Pencarian dan wawancara kandidat sesuai kebutuhan.",
+    "s2": "Pelatihan bahasa & kehidupan",
+    "s2_desc": "Percakapan praktis, bimbingan hidup, pemahaman budaya.",
+    "s3": "Dokumen & visa",
+    "s3_desc": "Persiapan dokumen dan proses visa.",
+    "s4": "Keberangkatan & dukungan",
+    "s4_desc": "Jemput bandara, pendampingan adaptasi, kontak bantuan."
+  },
+  "testi": {
+    "t1": "“Pelatihannya rapi dan retensinya tinggi.”",
+    "t1_by": "Perwakilan Perusahaan A",
+    "t2": "“Respon cepat, aman saat ada masalah.”",
+    "t2_by": "Perwakilan Kumiai B",
+    "t3": "“Persiapan sebelum berangkat sangat mulus.”",
+    "t3_by": "Alumni Magang C"
+  },
+  "company": {
+    "title": "Tentang Kami",
+    "lead": "KSB menyediakan solusi SDM yang menghubungkan Jepang dan Indonesia.",
+    "item": "Item",
+    "value": "Detail",
+    "name": "Nama Badan Hukum",
+    "jp_addr": "Kantor Jepang",
+    "jp_addr_val": "(alamat akan diisi nanti)",
+    "id_addr": "Kantor Indonesia",
+    "id_addr_val": "(alamat akan diisi nanti)",
+    "license": "Registrasi/Izin",
+    "license_val": "(nomor akan diisi nanti)",
+    "map_title": "Lokasi (ganti ke Google Maps nanti)"
+  },
+  "services": {
+    "title": "Layanan",
+    "intl_title": "Pengiriman Peserta Magang",
+    "intl_desc": "Rekrutmen & seleksi, pendidikan bahasa Jepang, dukungan dokumen & visa.",
+    "ssw_title": "Tokutei Ginou",
+    "ssw_desc": "Persiapan ujian keterampilan hingga dukungan pasca kedatangan.",
+    "training_title": "Pelatihan & Dukungan Hidup",
+    "training_desc": "Bimbingan hidup, etika kerja, program pemahaman budaya."
+  },
+  "news": {
+    "title": "Berita",
+    "lead": "Untuk update, cukup edit halaman HTML ini langsung di GitHub.",
+    "sample_date": "2025-11-12",
+    "sample_item": "Memulai pembaruan situs multibahasa KSB."
+  },
+  "contact": {
+    "title": "Kontak",
+    "lead": "Silakan hubungi melalui formulir di bawah ini atau WhatsApp.",
+    "name_label": "Nama",
+    "email_label": "Email",
+    "msg_label": "Pesan",
+    "submit": "Kirim",
+    "thanks": "Terima kasih. Kami akan menghubungi Anda segera.",
+    "direct": "Kontak Langsung"
+  },
+  "footer": {
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat & Ketentuan"
+  },
+  "policy": {
+    "title": "Kebijakan Privasi (Template)",
+    "lead": "Silakan sesuaikan dengan operasional yang sebenarnya.",
+    "item1": "Data yang dikumpulkan (nama, email, isi pesan)",
+    "item2": "Tujuan penggunaan (respon & komunikasi)",
+    "item3": "Pemberian kepada pihak ketiga",
+    "item4": "Keamanan data",
+    "item5": "Prosedur akses, koreksi, penghapusan"
+  },
+  "terms": {
+    "title": "Syarat & Ketentuan (Template)",
+    "lead": "Tambahkan poin sesuai kebutuhan.",
+    "item1": "Tujuan situs",
+    "item2": "Larangan",
+    "item3": "Disclaimer",
+    "item4": "Hak cipta",
+    "item5": "Hukum yang berlaku"
+  }
+}
