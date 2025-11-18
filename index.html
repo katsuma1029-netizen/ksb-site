@@ -10,6 +10,7 @@
       --light-bg: #f7f9fc;
       --border: #e0e0e0;
       --accent: #ff4b6a;
+      --accent-soft: #ffe3ea;
     }
     * { box-sizing: border-box; }
     body {
@@ -43,7 +44,7 @@
     }
     header h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       letter-spacing: 0.04em;
     }
     header p {
@@ -67,7 +68,7 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      opacity: 0.85;
+      opacity: 0.9;
     }
     .lang-btn.active {
       background: #fff;
@@ -116,6 +117,7 @@
     }
     h3 { margin-top: 0; font-size: 1.1rem; }
     p { margin: 0 0 10px; font-size: 0.95rem; }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -123,12 +125,21 @@
     }
     .card {
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 18px 16px;
       background: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .card.soft { background: var(--light-bg); }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    }
+    .card.soft {
+      background: var(--light-bg);
+      box-shadow: none;
+    }
+
     .tag {
       display: inline-block;
       padding: 2px 8px;
@@ -138,41 +149,144 @@
       font-size: 0.7rem;
       margin-right: 4px;
     }
-    .jobs-list {
+
+    /* ホーム用バッジ */
+    .service-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
+      margin-bottom: 18px;
     }
-    .job-pill {
-      padding: 6px 10px;
+    .service-badge {
+      padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      font-size: 0.85rem;
-      background: #fff;
-    }
-    .stats-box {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .stats-item {
-      flex: 1 1 220px;
-      border-radius: 10px;
-      background: var(--light-bg);
-      padding: 16px;
-      border: 1px dashed var(--border);
-    }
-    .stats-item span.label {
+      border: 1px solid #ffffff55;
+      background: #ffffff22;
       font-size: 0.8rem;
-      color: #555;
     }
-    .stats-item span.value {
-      display: block;
+
+    /* 実績・分野デザイン */
+    .stats-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .stats-hero-main {
+      border-radius: 14px;
+      padding: 20px 18px;
+      background: radial-gradient(circle at top left, #ff8aa3, #ff4b6a);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-hero-main::after {
+      content: "";
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 18px solid #ffffff22;
+      right: -40px;
+      bottom: -40px;
+    }
+    .stats-hero-label {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    .stats-hero-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 8px 0 4px;
+    }
+    .stats-hero-sub {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    .stats-hero-detail {
+      border-radius: 14px;
+      padding: 16px 18px;
+      background: var(--light-bg);
+      border: 1px dashed var(--border);
+      font-size: 0.9rem;
+    }
+    .stats-hero-list {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+    }
+    .stats-hero-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    .stats-hero-role {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* 分野カード */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+    .job-card {
+      border-radius: 12px;
+      padding: 12px 12px 10px;
+      border: 1px solid var(--border);
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .job-card::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--light-bg);
+      right: -18px;
+      top: -18px;
+      opacity: 0.7;
+    }
+    .job-count {
       font-size: 1.4rem;
-      margin-top: 6px;
       font-weight: 700;
       color: var(--main-blue);
     }
+    .job-label-ja {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .job-label-id {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    /* 簡易バー表示 */
+    .job-bar {
+      margin-top: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+    .job-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--main-blue), #3f8bff);
+    }
+
     .placeholder {
       font-size: 0.9rem;
       color: #666;
@@ -191,12 +305,18 @@
     .page-section { display: none; }
     .page-section.active { display: block; }
 
+    @media (max-width: 900px) {
+      .stats-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 700px) {
       .brand-row {
         flex-direction: column;
         align-items: flex-start;
       }
-      header h1 { font-size: 1.3rem; }
+      header h1 { font-size: 1.35rem; }
       header p { font-size: 0.85rem; }
     }
   </style>
@@ -251,6 +371,29 @@
     <section id="home" class="page-section active">
       <h2 class="lang-ja">事業内容</h2>
       <h2 class="lang-id">Layanan KSB</h2>
+
+      <div class="card soft" style="margin-bottom: 20px;">
+        <div class="service-badges">
+          <span class="service-badge lang-ja">技能実習生</span>
+          <span class="service-badge lang-ja">特定技能</span>
+          <span class="service-badge lang-ja">語学留学</span>
+          <span class="service-badge lang-ja">日本への就職</span>
+          <span class="service-badge lang-id">Pemagang Teknis</span>
+          <span class="service-badge lang-id">Tokutei Ginou</span>
+          <span class="service-badge lang-id">Studi Bahasa</span>
+          <span class="service-badge lang-id">Kerja ke Jepang</span>
+        </div>
+        <p class="lang-ja">
+          KSBは、日本での就労・留学・実習を目指す若者と、受け入れ企業・教育機関を
+          トータルでサポートする「ワンストップ窓口」です。
+        </p>
+        <p class="lang-id">
+          KSB adalah “one stop service” yang mendukung generasi muda Indonesia
+          yang ingin magang, belajar, atau bekerja di Jepang, sekaligus menjadi
+          mitra bagi perusahaan dan lembaga pendidikan di Jepang.
+        </p>
+      </div>
+
       <div class="grid">
         <div class="card">
           <h3 class="lang-ja">技能実習生送り出し</h3>
@@ -464,42 +607,124 @@
     <section id="trainees" class="page-section">
       <h2 class="lang-ja">実績</h2>
       <h2 class="lang-id">Rekam Jejak</h2>
-      <div class="stats-box">
-        <div class="stats-item">
-          <span class="label lang-ja">送り出した実習生の人数</span>
-          <span class="label lang-id">Jumlah pemagang yang sudah berangkat</span>
-          <span class="value">XXX 名</span>
-          <p class="placeholder lang-ja">
-            ※GitHub でこの数字部分「XXX 名」を編集して最新数に更新してください。
+
+      <!-- 合計人数のハイライト -->
+      <div class="stats-hero">
+        <div class="stats-hero-main">
+          <div class="stats-hero-label lang-ja">これまでに日本へ送り出した実習生</div>
+          <div class="stats-hero-label lang-id">Total pemagang yang sudah berangkat ke Jepang</div>
+          <div class="stats-hero-number">170</div>
+          <div class="stats-hero-sub lang-ja">
+            農業・介護・建設・縫製・食品加工・養豚など、様々な分野で活躍しています。
+          </div>
+          <div class="stats-hero-sub lang-id">
+            Mereka bekerja di berbagai bidang seperti pertanian, kaigo, konstruksi,
+            garmen, pengolahan makanan, dan peternakan babi.
+          </div>
+        </div>
+
+        <div class="stats-hero-detail">
+          <p class="lang-ja">
+            分野別の内訳（例）：
           </p>
-          <p class="placeholder lang-id">
-            *Silakan ubah angka “XXX 名” ini di GitHub sesuai jumlah terbaru.
+          <p class="lang-id">
+            Contoh pembagian per bidang:
+          </p>
+          <ul class="stats-hero-list">
+            <li>
+              <span class="stats-hero-role">
+                <span class="dot"></span>
+                <span class="lang-ja">農業</span>
+                <span class="lang-id">Pertanian</span>
+              </span>
+              <span>70</span>
+            </li>
+            <li>
+              <span class="stats-hero-role">
+                <span class="dot"></span>
+                <span class="lang-ja">介護</span>
+                <span class="lang-id">Keperawatan lansia</span>
+              </span>
+              <span>50</span>
+            </li>
+            <li>
+              <span class="stats-hero-role">
+                <span class="dot"></span>
+                <span class="lang-ja">建設</span>
+                <span class="lang-id">Konstruksi</span>
+              </span>
+              <span>20</span>
+            </li>
+            <li>
+              <span class="stats-hero-role">
+                <span class="dot"></span>
+                <span class="lang-ja">縫製・食品加工・養豚</span>
+                <span class="lang-id">Garmen, makanan, peternakan babi</span>
+              </span>
+              <span>30</span>
+            </li>
+          </ul>
+          <p class="placeholder lang-ja" style="margin-top: 8px;">
+            ※実際の最新データに合わせて、数字はいつでも編集可能です。
+          </p>
+          <p class="placeholder lang-id" style="margin-top: 8px;">
+            *Angka-angka di atas bisa diubah kapan saja sesuai data terbaru.
           </p>
         </div>
       </div>
 
-      <br />
-
       <h2 class="lang-ja">実習生・就職先の主な職種</h2>
       <h2 class="lang-id">Bidang Kerja Utama Peserta</h2>
-      <div class="jobs-list">
-        <div class="job-pill lang-ja">農業</div>
-        <div class="job-pill lang-id">Pertanian</div>
 
-        <div class="job-pill lang-ja">介護</div>
-        <div class="job-pill lang-id">Keperawatan lansia (Kaigo)</div>
-
-        <div class="job-pill lang-ja">建設</div>
-        <div class="job-pill lang-id">Konstruksi</div>
-
-        <div class="job-pill lang-ja">縫製</div>
-        <div class="job-pill lang-id">Garmen / Jahit</div>
-
-        <div class="job-pill lang-ja">食品加工</div>
-        <div class="job-pill lang-id">Pengolahan makanan</div>
-
-        <div class="job-pill lang-ja">養豚</div>
-        <div class="job-pill lang-id">Peternakan babi</div>
+      <div class="jobs-grid">
+        <div class="job-card">
+          <div class="job-count">70</div>
+          <div class="job-label-ja lang-ja">農業</div>
+          <div class="job-label-id lang-id">Pertanian</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+        <div class="job-card">
+          <div class="job-count">50</div>
+          <div class="job-label-ja lang-ja">介護</div>
+          <div class="job-label-id lang-id">Keperawatan lansia (Kaigo)</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 71%;"></div>
+          </div>
+        </div>
+        <div class="job-card">
+          <div class="job-count">20</div>
+          <div class="job-label-ja lang-ja">建設</div>
+          <div class="job-label-id lang-id">Konstruksi</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 29%;"></div>
+          </div>
+        </div>
+        <div class="job-card">
+          <div class="job-count">10</div>
+          <div class="job-label-ja lang-ja">縫製</div>
+          <div class="job-label-id lang-id">Garmen / Jahit</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 14%;"></div>
+          </div>
+        </div>
+        <div class="job-card">
+          <div class="job-count">10</div>
+          <div class="job-label-ja lang-ja">食品加工</div>
+          <div class="job-label-id lang-id">Pengolahan makanan</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 14%;"></div>
+          </div>
+        </div>
+        <div class="job-card">
+          <div class="job-count">10</div>
+          <div class="job-label-ja lang-ja">養豚</div>
+          <div class="job-label-id lang-id">Peternakan babi</div>
+          <div class="job-bar">
+            <div class="job-bar-fill" style="width: 14%;"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -555,6 +780,7 @@
     langButtons.forEach((btn) => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
+    // 初期表示は日本語
     setLanguage("ja");
 
     // タブ切り替え
