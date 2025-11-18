@@ -1,87 +1,583 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>KSB | Karya Sejahtera Bersama</title>
-<style>
- body { font-family: Arial, sans-serif; line-height: 1.7; margin: 0; padding: 0; }
- header { background: #0b4a8f; color: white; padding: 40px 20px; text-align: center; }
- section { padding: 40px 20px; max-width: 1100px; margin: auto; }
- h2 { color: #0b4a8f; margin-top: 0; }
- .features, .stats, .jobs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); grid-gap: 20px; }
- .card { border: 1px solid #ddd; border-radius: 10px; padding: 20px; background: #fafafa; }
- footer { background: #eee; padding: 30px 20px; text-align: center; font-size: 14px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KSB | Karya Sejahtera Bersama</title>
+  <style>
+    :root {
+      --main-blue: #0b4a8f;
+      --light-bg: #f7f9fc;
+      --border: #e0e0e0;
+      --accent: #ff4b6a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
+        "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      background: #ffffff;
+      color: #222;
+    }
+
+    /* ===== ヘッダー・ナビ ===== */
+    header {
+      background: var(--main-blue);
+      color: white;
+      padding: 16px 16px 8px;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .brand-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      letter-spacing: 0.04em;
+    }
+    header p {
+      margin: 0;
+      font-size: 0.88rem;
+      opacity: 0.9;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+    }
+    .lang-btn {
+      border-radius: 999px;
+      border: 1px solid #ffffff66;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      background: transparent;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0.85;
+    }
+    .lang-btn.active {
+      background: #fff;
+      color: var(--main-blue);
+      opacity: 1;
+      font-weight: 600;
+    }
+
+    nav {
+      margin-top: 8px;
+      border-top: 1px solid #ffffff33;
+      padding-top: 6px;
+      overflow-x: auto;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .nav-tab {
+      cursor: pointer;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      color: #f3f3f3;
+    }
+    .nav-tab.active {
+      border-bottom-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ===== 全体レイアウト ===== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px;
+    }
+    h2 {
+      color: var(--main-blue);
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.4rem;
+      border-left: 4px solid var(--main-blue);
+      padding-left: 8px;
+    }
+    h3 { margin-top: 0; font-size: 1.1rem; }
+    p { margin: 0 0 10px; font-size: 0.95rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 16px;
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+    .card.soft { background: var(--light-bg); }
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e3eefb;
+      color: var(--main-blue);
+      font-size: 0.7rem;
+      margin-right: 4px;
+    }
+    .jobs-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .job-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      background: #fff;
+    }
+    .stats-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .stats-item {
+      flex: 1 1 220px;
+      border-radius: 10px;
+      background: var(--light-bg);
+      padding: 16px;
+      border: 1px dashed var(--border);
+    }
+    .stats-item span.label {
+      font-size: 0.8rem;
+      color: #555;
+    }
+    .stats-item span.value {
+      display: block;
+      font-size: 1.4rem;
+      margin-top: 6px;
+      font-weight: 700;
+      color: var(--main-blue);
+    }
+    .placeholder {
+      font-size: 0.9rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    footer {
+      background: #f2f2f2;
+      padding: 20px 16px 28px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 24px;
+    }
+
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+
+    .lang-ja { display: none; }
+    .lang-id { display: none; }
+
+    @media (max-width: 700px) {
+      .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header h1 { font-size: 1.3rem; }
+      header p { font-size: 0.85rem; }
+    }
+  </style>
 </head>
 <body>
-<header>
-  <h1>KARYA SEJAHTERA BERSAMA（KSB）</h1>
-  <p>技能実習生・特定技能・語学留学・日本就職・日本語教育センター</p>
-</header>
+  <header>
+    <div class="header-inner">
+      <div class="brand-row">
+        <div>
+          <h1>KARYA SEJAHTERA BERSAMA（KSB）</h1>
+          <p class="lang-ja">
+            技能実習生・特定技能・語学留学・日本への就職・日本語教育センターとして、
+            インドネシアと日本をつなぐ架け橋になります。
+          </p>
+          <p class="lang-id">
+            KSB adalah lembaga pengirim pemagang teknis, dukungan Tokutei Ginou,
+            studi bahasa, penyaluran kerja ke Jepang, sekaligus sekolah bahasa Jepang
+            yang menjadi jembatan antara Indonesia dan Jepang.
+          </p>
+        </div>
+        <div class="lang-switch">
+          <button class="lang-btn active" data-lang="ja">日本語</button>
+          <button class="lang-btn" data-lang="id">Bahasa Indonesia</button>
+        </div>
+      </div>
 
-<section>
-  <h2>事業内容</h2>
-  <div class="features">
-    <div class="card"><h3>技能実習生送り出し</h3><p>日本企業と連携し、技術習得を目的とした技能実習生を育成・送り出しています。</p></div>
-    <div class="card"><h3>特定技能サポート</h3><p>特定技能の取得支援、面接調整、渡航前後のフォローアップを行っています。</p></div>
-    <div class="card"><h3>語学留学</h3><p>日本で学びたい若者へ向け、語学留学のサポートを提供しています。</p></div>
-    <div class="card"><h3>日本への就職斡旋</h3><p>企業ニーズに合った即戦力を紹介し、安定したキャリア形成を支援します。</p></div>
-    <div class="card"><h3>日本語学校（教育センター）</h3><p>N5〜N3レベルの日本語教育を提供し、質の高い学習環境を整備しています。</p></div>
-  </div>
-</section>
+      <nav>
+        <div class="nav-tabs">
+          <div class="nav-tab active" data-section="home">
+            <span class="lang-ja">トップ</span>
+            <span class="lang-id">Beranda</span>
+          </div>
+          <div class="nav-tab" data-section="about">
+            <span class="lang-ja">KSBについて</span>
+            <span class="lang-id">Tentang KSB</span>
+          </div>
+          <div class="nav-tab" data-section="trainees">
+            <span class="lang-ja">実績・分野</span>
+            <span class="lang-id">Rekam Jejak</span>
+          </div>
+          <div class="nav-tab" data-section="contact">
+            <span class="lang-ja">アクセス・連絡先</span>
+            <span class="lang-id">Akses & Kontak</span>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<section>
-  <h2>KSBの強み</h2>
-  <div class="features">
-    <div class="card"><h3>1. 日本国内常駐担当者</h3><p>組合や企業との調整をスムーズに行うため、日本国内事務所に日本人担当者を配置しています。</p></div>
-    <div class="card"><h3>2. 豊富なリソース</h3><p>政府職業訓練所、労働局、高専などとの連携により、幅広い候補者をご紹介できます。</p></div>
-    <div class="card"><h3>3. 高品質な日本語教育</h3><p>N2以上の有資格講師が常駐し、学習レビューと指導を実施しています。</p></div>
-    <div class="card"><h3>4. 労働省認定の送り出し機関</h3><p>インドネシア労働省から正式に認定された正規の送り出し機関です。</p></div>
-  </div>
-</section>
+  <main class="container">
+    <!-- トップ：事業内容＋強み -->
+    <section id="home" class="page-section active">
+      <h2 class="lang-ja">事業内容</h2>
+      <h2 class="lang-id">Layanan KSB</h2>
+      <div class="grid">
+        <div class="card">
+          <h3 class="lang-ja">技能実習生送り出し</h3>
+          <h3 class="lang-id">Pengiriman Pemagang Teknis</h3>
+          <p class="lang-ja">
+            日本企業と連携し、技術習得を目的とした技能実習生を育成・送り出しています。
+          </p>
+          <p class="lang-id">
+            Kami bekerja sama dengan perusahaan Jepang untuk menyiapkan dan
+            mengirim pemagang yang siap belajar teknik dan cara kerja di Jepang。
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="lang-ja">特定技能サポート</h3>
+          <h3 class="lang-id">Dukungan Tokutei Ginou</h3>
+          <p class="lang-ja">
+            特定技能の取得支援、面接調整、渡航前後のフォローアップを行っています。
+          </p>
+          <p class="lang-id">
+            Kami membantu proses Tokutei Ginou: persiapan dokumen, latihan
+            wawancara, serta pendampingan sebelum dan sesudah berangkat。
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="lang-ja">語学留学</h3>
+          <h3 class="lang-id">Studi Bahasa ke Jepang</h3>
+          <p class="lang-ja">
+            日本で学びたい若者へ、語学学校の紹介から手続きまでをトータルサポートします。
+          </p>
+          <p class="lang-id">
+            Untuk yang ingin belajar di Jepang, kami membantu pemilihan sekolah
+            bahasa dan mengurus proses pendaftaran hingga keberangkatan。
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="lang-ja">日本への就職斡旋</h3>
+          <h3 class="lang-id">Penyaluran Kerja ke Jepang</h3>
+          <p class="lang-ja">
+            企業ニーズに合った人材をご紹介し、安定したキャリア形成をサポートします。
+          </p>
+          <p class="lang-id">
+            Kami menyalurkan kandidat yang sesuai kebutuhan perusahaan Jepang
+            dan mendukung terbentuknya karier jangka panjang yang stabil。
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="lang-ja">日本語学校（教育センター）</h3>
+          <h3 class="lang-id">Sekolah Bahasa Jepang (Training Center)</h3>
+          <p class="lang-ja">
+            N5〜N3レベルの日本語教育を提供し、実習・就職に必要な日本語力とマナーを身につけます。
+          </p>
+          <p class="lang-id">
+            Kami mengajarkan bahasa Jepang level N5–N3 serta kebiasaan kerja di
+            Jepang, sehingga peserta siap untuk kerja maupun studi。
+          </p>
+        </div>
+      </div>
 
-<section>
-  <h2>ビジョン</h2>
-  <p>インドネシア共和国の社会発展に寄与し、日本で技能と知識を取得した若者がより良い未来を築ける世界を目指します。</p>
+      <br />
 
-  <h2>ミッション</h2>
-  <p>若者が技術・専門知識・独立性を身につけられる環境を整え、日本で学ぶ機会を提供し、グローバル競争力を持つ人材の育成に貢献します。</p>
-</section>
+      <h2 class="lang-ja">KSBの強み</h2>
+      <h2 class="lang-id">Keunggulan KSB</h2>
+      <div class="grid">
+        <div class="card soft">
+          <h3 class="lang-ja">1. 日本国内常駐担当者の配置</h3>
+          <h3 class="lang-id">1. Staf Tetap di Jepang</h3>
+          <p class="lang-ja">
+            組合様との円滑なコミュニケーションのため、日本国内に駐在事務所を設置し、
+            日本人担当者を配置しております。
+          </p>
+          <p class="lang-id">
+            Untuk komunikasi yang lancar dengan koperasi dan perusahaan di
+            Jepang, kami memiliki kantor perwakilan dan staf Jepang yang
+            selalu siap membantu。
+          </p>
+        </div>
+        <div class="card soft">
+          <h3 class="lang-ja">2. 豊富なリソース</h3>
+          <h3 class="lang-id">2. Sumber Kandidat yang Luas</h3>
+          <p class="lang-ja">
+            地元政府の職業訓練所、労働局や高専と協力関係を結び、ニーズにお応えできる
+            候補者をご紹介出来ます。
+          </p>
+          <p class="lang-id">
+            Kami bekerja sama dengan BLK, dinas tenaga kerja, dan lembaga
+            pendidikan setempat sehingga dapat menyediakan kandidat sesuai
+            kebutuhan perusahaan。
+          </p>
+        </div>
+        <div class="card soft">
+          <h3 class="lang-ja">3. 高品質な日本語教育</h3>
+          <h3 class="lang-id">3. Pendidikan Bahasa Jepang Berkualitas</h3>
+          <p class="lang-ja">
+            経験豊富な日本語検定２級（N2）以上の資格を持った日本語教師が常勤しており、
+            教育の質を高めるため日本人教師によるレビューも行っています。
+          </p>
+          <p class="lang-id">
+            Pengajar kami berpengalaman dan memiliki sertifikat JLPT minimal
+            N2. Materi dan kemajuan belajar juga direview oleh guru orang
+            Jepang。
+          </p>
+        </div>
+        <div class="card soft">
+          <h3 class="lang-ja">4. 送り出し機関としての認証取得</h3>
+          <h3 class="lang-id">4. Lembaga Resmi Terakreditasi</h3>
+          <p class="lang-ja">
+            全てのLPKがインドネシア労働省から送り出し機関として認証されているわけではありません。
+            KSBはインドネシア労働省から正規の送り出し機関として認定されています。
+          </p>
+          <p class="lang-id">
+            Tidak semua LPK memiliki izin sebagai lembaga pengirim resmi.
+            KSB telah terdaftar dan diakui secara resmi oleh Kementerian
+            Ketenagakerjaan Indonesia。
+          </p>
+        </div>
+      </div>
+    </section>
 
-<section>
-  <h2>代表挨拶</h2>
-  <div class="features">
-    <div class="card"><h3>代表取締役（日本） KOJI SHIMONO</h3><p>日本企業とインドネシアの架け橋として、実習生と企業双方に価値のあるパートナーシップを築くことを目指しています。</p></div>
-    <div class="card"><h3>代表取締役（インドネシア） AHMAD ROZIKIN</h3><p>KSBの技能実習プログラムが多くの企業様のニーズに応え、より良い未来へ導けるよう尽力してまいります。</p></div>
-  </div>
-</section>
+    <!-- KSBについて -->
+    <section id="about" class="page-section">
+      <h2 class="lang-ja">KSBについて</h2>
+      <h2 class="lang-id">Tentang KSB</h2>
+      <div class="card">
+        <p class="lang-ja">
+          Karya Sejahtera Bersama（カルヤ スジャトラ ブルサマ）は、日本とインドネシアの
+          合弁会社であり、インドネシアから日本への技能実習生送り出し機関です。
+          また、日本への語学留学や就職などのサポートも行っております。
+        </p>
+        <p class="lang-id">
+          Karya Sejahtera Bersama adalah perusahaan joint venture Indonesia–Jepang
+          yang bergerak sebagai lembaga pengirim pemagang teknis ke Jepang.
+          Selain itu kami juga mendukung studi bahasa serta penyaluran kerja ke Jepang。
+        </p>
+      </div>
 
-<section>
-  <h2>実績</h2>
-  <div class="stats">
-    <div class="card"><h3>送り出した実習生の人数</h3><p>※ここは編集可能ゾーン（後で数字入力）</p></div>
-  </div>
+      <br />
 
-  <h2>就職した職種</h2>
-  <div class="jobs">
-    <div class="card">農業</div>
-    <div class="card">介護</div>
-    <div class="card">建設</div>
-    <div class="card">縫製</div>
-    <div class="card">食品加工</div>
-    <div class="card">養豚</div>
-  </div>
-</section>
+      <h2 class="lang-ja">ビジョン</h2>
+      <h2 class="lang-id">Visi</h2>
+      <div class="card">
+        <p class="lang-ja">
+          インドネシア共和国の社会の発展に貢献。先進国・日本で様々な技能や知識を取得し、
+          インドネシアのより良い未来に貢献できる人材を育成します。
+        </p>
+        <p class="lang-id">
+          Berkontribusi pada pembangunan masyarakat Indonesia dengan
+          menyiapkan generasi muda yang memperoleh ilmu dan keterampilan di
+          Jepang dan kemudian berkontribusi bagi masa depan Indonesia yang lebih baik。
+        </p>
+      </div>
 
-<section>
-  <h2>アクセス・連絡先</h2>
-  <p>※KSBインドネシア・KSB日本の住所、電話番号、Email、Instagramリンクを後で追加するスペース</p>
-</section>
+      <br />
 
-<footer>
-  © 2025 KSB - Karya Sejahtera Bersama
-</footer>
+      <h2 class="lang-ja">ミッション</h2>
+      <h2 class="lang-id">Misi</h2>
+      <div class="card">
+        <p class="lang-ja">
+          インドネシアの若い世代に、実習を通じて様々な技術・専門知識・主体性を身につけてもらうための架け橋になること。
+          先進国である日本について学ぶ機会を提供し、グローバル時代の競争にも適応できる人材を育成します。
+        </p>
+        <p class="lang-id">
+          Menjadi jembatan bagi generasi muda Indonesia untuk memperoleh
+          keterampilan, pengetahuan, dan kemandirian melalui kerja praktik di
+          Jepang. Dengan memberikan kesempatan belajar di negara maju, kami
+          membantu mereka siap bersaing di era global。
+        </p>
+      </div>
 
+      <br />
+
+      <h2 class="lang-ja">代表挨拶</h2>
+      <h2 class="lang-id">Sambutan Direktur</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag lang-ja">代表取締役（日本）</span>
+          <span class="tag lang-id">Direktur Utama (Jepang)</span>
+          <h3>KOJI SHIMONO</h3>
+          <p class="lang-ja">
+            KSBは、日本とインドネシアの「人」と「企業」をつなぐ架け橋です。
+            日本で頑張る実習生と、受け入れてくださる企業の双方にとって、
+            価値のあるパートナーであり続けられるよう、誠実で透明性の高い
+            サービスを提供してまいります。
+          </p>
+          <p class="lang-id">
+            KSB adalah jembatan yang menghubungkan orang Indonesia dengan
+            perusahaan di Jepang. Kami ingin menjadi mitra yang bermanfaat
+            baik bagi peserta magang maupun perusahaan penerima, dengan layanan
+            yang jujur dan transparan。
+          </p>
+        </div>
+
+        <div class="card">
+          <span class="tag lang-ja">代表取締役（インドネシア）</span>
+          <span class="tag lang-id">Direktur Utama (Indonesia)</span>
+          <h3>AHMAD ROZIKIN</h3>
+          <p class="lang-ja">
+            私たちKSBの技能実習プログラムが、各組合様ならびに企業様のご要望に沿い、
+            最適なソリューションとなることで、皆様の益々のご発展につながることを
+            心より願っております。
+          </p>
+          <p class="lang-id">
+            Kami berharap program pemagangan KSB dapat menjadi solusi yang
+            sesuai dengan kebutuhan koperasi dan perusahaan, sehingga dapat
+            mendukung perkembangan dan kesuksesan mitra-mitra kami ke depannya。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 実績・分野 -->
+    <section id="trainees" class="page-section">
+      <h2 class="lang-ja">実績</h2>
+      <h2 class="lang-id">Rekam Jejak</h2>
+      <div class="stats-box">
+        <div class="stats-item">
+          <span class="label lang-ja">送り出した実習生の人数</span>
+          <span class="label lang-id">Jumlah pemagang yang sudah berangkat</span>
+          <span class="value">XXX 名</span>
+          <p class="placeholder lang-ja">
+            ※GitHub でこの数字部分「XXX 名」を編集して最新数に更新してください。
+          </p>
+          <p class="placeholder lang-id">
+            *Silakan ubah angka “XXX 名” ini di GitHub sesuai jumlah terbaru.
+          </p>
+        </div>
+      </div>
+
+      <br />
+
+      <h2 class="lang-ja">実習生・就職先の主な職種</h2>
+      <h2 class="lang-id">Bidang Kerja Utama Peserta</h2>
+      <div class="jobs-list">
+        <div class="job-pill lang-ja">農業</div>
+        <div class="job-pill lang-id">Pertanian</div>
+
+        <div class="job-pill lang-ja">介護</div>
+        <div class="job-pill lang-id">Keperawatan lansia (Kaigo)</div>
+
+        <div class="job-pill lang-ja">建設</div>
+        <div class="job-pill lang-id">Konstruksi</div>
+
+        <div class="job-pill lang-ja">縫製</div>
+        <div class="job-pill lang-id">Garmen / Jahit</div>
+
+        <div class="job-pill lang-ja">食品加工</div>
+        <div class="job-pill lang-id">Pengolahan makanan</div>
+
+        <div class="job-pill lang-ja">養豚</div>
+        <div class="job-pill lang-id">Peternakan babi</div>
+      </div>
+    </section>
+
+    <!-- アクセス・連絡先 -->
+    <section id="contact" class="page-section">
+      <h2 class="lang-ja">アクセス・連絡先</h2>
+      <h2 class="lang-id">Alamat & Kontak</h2>
+      <div class="card">
+        <p class="placeholder lang-ja">
+          ※KSBインドネシア（住所・電話番号・Email・Instagram など）、
+          KSB日本（住所・電話番号・Email）をここに追記してください。
+        </p>
+        <p class="placeholder lang-id">
+          *Silakan tambahkan alamat kantor KSB Indonesia & KSB Jepang,
+          nomor telepon, email, dan akun Instagram di bagian ini.
+        </p>
+      </div>
+      <br />
+      <div class="card">
+        <p class="placeholder lang-ja">
+          ※地図画像や事務所・教室の写真も、このセクション内に追加できます。
+        </p>
+        <p class="placeholder lang-id">
+          *Foto kantor, ruang kelas, atau peta lokasi juga bisa ditambahkan di sini.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 KSB - Karya Sejahtera Bersama
+  </footer>
+
+  <script>
+    // 言語切り替え
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const jaElems = document.querySelectorAll(".lang-ja");
+    const idElems = document.querySelectorAll(".lang-id");
+
+    function setLanguage(lang) {
+      if (lang === "ja") {
+        jaElems.forEach((el) => (el.style.display = ""));
+        idElems.forEach((el) => (el.style.display = "none"));
+      } else {
+        jaElems.forEach((el) => (el.style.display = "none"));
+        idElems.forEach((el) => (el.style.display = ""));
+      }
+      langButtons.forEach((btn) =>
+        btn.classList.toggle("active", btn.dataset.lang === lang)
+      );
+    }
+
+    langButtons.forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+    setLanguage("ja");
+
+    // タブ切り替え
+    const tabs = document.querySelectorAll(".nav-tab");
+    const sections = document.querySelectorAll(".page-section");
+
+    function setSection(id) {
+      sections.forEach((sec) =>
+        sec.classList.toggle("active", sec.id === id)
+      );
+      tabs.forEach((tab) =>
+        tab.classList.toggle("active", tab.dataset.section === id)
+      );
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => setSection(tab.dataset.section));
+    });
+  </script>
 </body>
 </html>
+
