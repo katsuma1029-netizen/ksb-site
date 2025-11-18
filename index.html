@@ -5,6 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KSB | Karya Sejahtera Bersama</title>
   <style>
+        /* 会社概要用レイアウト */
+    .company-card {
+      padding: 20px 20px 16px;
+    }
+    .company-row {
+      display: flex;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e3e3e3;
+      align-items: flex-start;
+    }
+    .company-row:last-child {
+      border-bottom: none;
+    }
+    .company-label {
+      width: 120px;
+      min-width: 120px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .company-value {
+      flex: 1;
+      font-size: 0.95rem;
+    }
+    .company-list {
+      margin: 4px 0 0;
+      padding-left: 1.1em;
+    }
+    .company-list li {
+      margin-bottom: 2px;
+    }
+
     :root {
       --main-blue: #0b4a8f;
       --light-bg: #f7f9fc;
@@ -537,37 +570,76 @@
       <h2 class="lang-ja">会社概要</h2>
       <h2 class="lang-id">Profil Perusahaan</h2>
 
-      <div class="card">
-        <p>
-          <strong class="lang-ja">会社名：</strong>
-          <strong class="lang-id">Nama Perusahaan：</strong><br>
-          LPK Karya Sejahtera Bersama<br>
-          <span class="lang-ja">職業訓練所 カルヤ スジャトラ ブルサマ</span>
-          <span class="lang-id">Lembaga Pelatihan Kerja Karya Sejahtera Bersama</span>
-        </p>
-
-        <p>
-          <strong class="lang-ja">設立：</strong>
-          <strong class="lang-id">Didirikan：</strong>
-          2019
-        </p>
-
-        <p>
-          <strong class="lang-ja">所在地：</strong>
-          <strong class="lang-id">Alamat：</strong><br>
-          ・インドネシア：Jl. Ciater Raya No. 9A, Ciater, Serpong, Tangerang Selatan, Banten 15310, Indonesia<br>
-          ・Jepang：4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
-        </p>
-
-        <p>
-          <strong class="lang-ja">代表取締役：</strong>
-          <strong class="lang-id">Direktur Utama：</strong><br>
-          ・Indonesia：Ahmad Rozikin<br>
-          ・Jepang：Koji Shimono（下野 浩二）
-        </p>
-      </div>
-
       <br />
+<div class="card company-card"> 
+        <!-- 会社名 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">会社名</span>
+            <span class="lang-id">Nama Perusahaan</span>
+          </div>
+          <div class="company-value">
+            LPK Karya Sejahtera Bersama<br> 
+            <span class="lang-ja">職業訓練所 カルヤ スジャトラ ブルサマ</span><br>
+            <span class="lang-id">Lembaga Pelatihan Kerja Karya Sejahtera Bersama</span>
+          </div>
+        </div>
+
+        <!-- 設立 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">設立</span>
+            <span class="lang-id">Didirikan</span>
+          </div>
+          <div class="company-value">
+            2019
+          </div>
+        </div>
+
+        <!-- 所在地 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">所在地</span>
+            <span class="lang-id">Alamat</span>
+          </div>
+          <div class="company-value">
+            <ul class="company-list">
+              <li>
+                <span class="lang-ja">インドネシア：</span>
+                <span class="lang-id">Indonesia:</span>
+                Jl. Ciater Raya No. 9A, Ciater, Serpong, Tangerang Selatan, Banten 15310, Indonesia
+              </li>
+              <li>
+                <span class="lang-ja">日本：</span>
+                <span class="lang-id">Jepang:</span>
+                4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 代表取締役 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">代表取締役</span>
+            <span class="lang-id">Direktur Utama</span>
+          </div>
+          <div class="company-value">
+            <ul class="company-list">
+              <li>
+                <span class="lang-ja">インドネシア：</span>
+                <span class="lang-id">Indonesia:</span>
+                Ahmad Rozikin
+              </li>
+              <li>
+                <span class="lang-ja">日本：</span>
+                <span class="lang-id">Jepang:</span>
+                Koji Shimono（下野 浩二）
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <!-- KSBの説明（もともとの文章） -->
       <div class="card">
