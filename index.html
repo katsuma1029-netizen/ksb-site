@@ -20,12 +20,15 @@
       border-bottom: none;
     }
     .company-label {
-      width: 120px;
-      min-width: 120px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #555;
-    }
+  width: 120px;
+  min-width: 120px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #555;
+  background: #f5f5f5;  /* ← 追加：薄いグレー背景 */
+  padding: 6px 10px;    /* ← 追加：内側の余白 */
+  border-radius: 6px;   /* ← 追加：角を少し丸く */
+}
     .company-value {
       flex: 1;
       font-size: 0.95rem;
@@ -376,6 +379,8 @@
       <div class="brand-row">
         <div>
           <h1>KARYA SEJAHTERA BERSAMA（KSB）</h1>
+           <p class="lang-ja">KSBからはじまるより良い未来へ。</p>
+  <p class="lang-id">Menuju masa depan yang lebih baik, dimulai dari KSB.</p>
           <p class="lang-ja">
             技能実習生・特定技能・語学留学・日本への就職・日本語教育センターとして、
             インドネシアと日本をつなぐ架け橋になります。
@@ -561,7 +566,7 @@
       </div>
     </section>
 
-        <!-- KSBについて -->
+            <!-- KSBについて -->
     <section id="about" class="page-section">
       <h2 class="lang-ja">KSBについて</h2>
       <h2 class="lang-id">Tentang KSB</h2>
@@ -571,7 +576,7 @@
       <h2 class="lang-id">Profil Perusahaan</h2>
 
       <br />
-<div class="card company-card"> 
+      <div class="card company-card"> 
         <!-- 会社名 -->
         <div class="company-row">
           <div class="company-label">
@@ -592,46 +597,45 @@
             <span class="lang-id">Didirikan</span>
           </div>
           <div class="company-value">
-            2019
+            2019年
           </div>
         </div>
 
-       <!-- 所在地（修正版） -->
-<div class="company-row">
-  <div class="company-label">
-    <span class="lang-ja">所在地</span>
-    <span class="lang-id">Alamat</span>
-  </div>
-  <div class="company-value">
-    <ul class="company-list">
-      <li>
-        <!-- インドネシア住所 -->
-        <span class="lang-ja">
-          インドネシア：  
-          Banten州 Tangerang Selatan市 Serpong区 Ciater  
-          Jl. Ciater Raya No. 9A（15310）
-        </span>
-        <span class="lang-id">
-          Indonesia:  
-          Jl. Ciater Raya No. 9A, Ciater, Serpong, Tangerang Selatan,  
-          Banten 15310, Indonesia
-        </span>
-      </li>
-      <li>
-        <!-- 日本住所 -->
-        <span class="lang-ja">
-          日本：  
-          京都府京都市伏見区葭島矢倉町4-45
-        </span>
-        <span class="lang-id">
-          Jepang:  
-          4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
-
+        <!-- 所在地 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">所在地</span>
+            <span class="lang-id">Alamat</span>
+          </div>
+          <div class="company-value">
+            <ul class="company-list">
+              <li>
+                <!-- インドネシア住所 -->
+                <span class="lang-ja">
+                  インドネシア：  
+                  Banten州 Tangerang Selatan市 Serpong区 Ciater  
+                  Jl. Ciater Raya No. 9A（15310）
+                </span>
+                <span class="lang-id">
+                  Indonesia:  
+                  Jl. Ciater Raya No. 9A, Ciater, Serpong, Tangerang Selatan,  
+                  Banten 15310, Indonesia
+                </span>
+              </li>
+              <li>
+                <!-- 日本住所 -->
+                <span class="lang-ja">
+                  日本：  
+                  京都府京都市伏見区葭島矢倉町4-45
+                </span>
+                <span class="lang-id">
+                  Jepang:  
+                  4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
         <!-- 代表取締役 -->
         <div class="company-row">
@@ -654,9 +658,20 @@
             </ul>
           </div>
         </div>
+
+        <!-- 送り出し許可番号 -->
+        <div class="company-row">
+          <div class="company-label">
+            <span class="lang-ja">送り出し許可番号</span>
+            <span class="lang-id">No. Izin Pengiriman</span>
+          </div>
+          <div class="company-value">
+            2/2266/HK.03.01/V/2024
+          </div>
+        </div>
       </div>
 
-      <!-- KSBの説明（もともとの文章） -->
+      <!-- KSBの説明 -->
       <div class="card">
         <p class="lang-ja">
           Karya Sejahtera Bersama（カルヤ スジャトラ ブルサマ）は、日本とインドネシアの
@@ -743,6 +758,7 @@
         </div>
       </div>
     </section>
+
 
 
       <!-- 実績・分野 -->
