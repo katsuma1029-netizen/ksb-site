@@ -7,39 +7,62 @@
   <style>
         /* 会社概要用レイアウト */
     .company-card {
-      padding: 20px 20px 16px;
-    }
-    .company-row {
-      display: flex;
-      gap: 16px;
-      padding: 8px 0;
-      border-bottom: 1px dashed #e3e3e3;
-      align-items: flex-start;
-    }
-    .company-row:last-child {
-      border-bottom: none;
-    }
-    .company-label {
-  width: 120px;
-  min-width: 120px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: #555;
-  background: #f5f5f5;  /* ← 追加：薄いグレー背景 */
-  padding: 6px 10px;    /* ← 追加：内側の余白 */
-  border-radius: 6px;   /* ← 追加：角を少し丸く */
+  padding: 20px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
-    .company-value {
-      flex: 1;
-      font-size: 0.95rem;
-    }
-    .company-list {
-      margin: 4px 0 0;
-      padding-left: 1.1em;
-    }
-    .company-list li {
-      margin-bottom: 2px;
-    }
+
+.company-row {
+  display: flex;
+  gap: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid #eeeeee;
+  align-items: flex-start;
+}
+
+.company-row:last-child {
+  border-bottom: none;
+}
+    .company-label {
+  width: 160px;         /* ← ラベル幅を広くして折り返しを防ぐ */
+  min-width: 160px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #333;
+  background: #f3f5f8;
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.company-value {
+  flex: 1;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.company-list {
+  margin: 4px 0 0;
+  padding-left: 1.1em;
+}
+
+/* スマホ時は縦積み表示に */
+@media (max-width: 640px) {
+  .company-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .company-label {
+    width: 100%;
+    min-width: 100%;
+    text-align: left;
+  }
+}
+.company-list li {
+  margin-bottom: 3px;
+}
 
     :root {
       --main-blue: #0b4a8f;
