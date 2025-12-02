@@ -84,16 +84,21 @@
 
     /* ===== ヘッダー・ナビ ===== */
     header {
-      background: var(--main-blue);
-      color: white;
-      padding: 16px 16px 8px;
-    }
+    position: relative;
+  color: #fff;
+  padding: 56px 16px 20px;
+  background:
+    linear-gradient(to right, rgba(0, 57, 128, 0.75), rgba(0, 57, 128, 0.75)),
+    url("images/header.png") center/cover no-repeat;
+}
     .header-inner {
       max-width: 1100px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       gap: 8px;
+        position: relative;
+  z-index: 2;
     }
     .brand-row {
       display: flex;
