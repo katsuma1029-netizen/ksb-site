@@ -1155,7 +1155,7 @@ header .catchcopy {
 document.addEventListener("DOMContentLoaded", () => {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 
-  const phoneRegex = /\+?\d[\d\s-]{7,}\d/g; // 電話番号検出
+  const phoneRegex = /(\+?\d[\d\s-]{6,}\d)/g; // 電話番号検出
   const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi; // Email検出
 
   let node;
