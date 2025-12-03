@@ -20,7 +20,7 @@
   gap: 24px;
   padding: 10px 0;
   border-bottom: 1px solid #eeeeee;
-  align-items: flex-start;
+   align-items: center;  /* ラベルと内容を縦方向で中央揃え */
 }
 
 .company-row:last-child {
@@ -55,6 +55,11 @@
     flex-direction: column;
     align-items: stretch;
   }
+  /* 中身が多い行だけ上揃えにしたいとき用 */
+.company-row.top-align {
+  align-items: flex-start;
+}
+
   .company-label {
     width: 100%;
     min-width: 100%;
@@ -724,12 +729,12 @@ header .catchcopy {
             <span class="lang-id">Didirikan</span>
           </div>
           <div class="company-value">
-            2019年
+            2019
           </div>
         </div>
 
         <!-- 所在地 -->
-        <div class="company-row">
+        <div class="company-row top-align">
           <div class="company-label">
             <span class="lang-ja">所在地</span>
             <span class="lang-id">Alamat</span>
@@ -765,7 +770,7 @@ header .catchcopy {
         </div>
 
         <!-- 代表取締役 -->
-        <div class="company-row">
+        <div class="company-row top-align">
           <div class="company-label">
             <span class="lang-ja">代表取締役</span>
             <span class="lang-id">Direktur Utama</span>
