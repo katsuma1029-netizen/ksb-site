@@ -1051,7 +1051,7 @@ header .catchcopy {
   <!-- ★ カード①：連絡先 -->
   <div class="card company-card">
     
-    <!-- 電話番号 -->
+        <!-- 電話番号 -->
     <div class="company-row">
       <div class="company-label">
         <span class="lang-ja">電話番号</span>
@@ -1060,19 +1060,23 @@ header .catchcopy {
       <div class="company-value">
         <span class="lang-ja">・インドネシア：</span>
         <span class="lang-id">・Indonesia:</span>
-        +62 21 7587 0447<br>
+        <a href="tel:+622175870447" class="auto-link">+62 21 7587 0447</a><br>
 
         <span class="lang-ja">・日本：</span>
         <span class="lang-id">・Jepang:</span>
-        090-3894-7779
+        <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
       </div>
     </div>
 
     <!-- Email -->
     <div class="company-row">
       <div class="company-label">Email</div>
-      <div class="company-value">lpkksb@gmail.com</div>
+      <div class="company-value">
+        <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
+      </div>
     </div>
+
+    
 
   </div><!-- /card -->
 
@@ -1151,39 +1155,6 @@ header .catchcopy {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
   </script>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-
-  // 全角スペース「　」や全角ハイフン「－」「ー」も含めて検出
-  const phoneRegex = /(\+?\d[\d\s\-－ー　]{6,}\d)/g;
-  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi;
-
-  let node;
-  while ((node = walker.nextNode())) {
-    let text = node.nodeValue;
-
-    if (phoneRegex.test(text) || emailRegex.test(text)) {
-      const span = document.createElement("span");
-      let html = text;
-
-      // 電話番号をリンク化
-      html = html.replace(phoneRegex, (match) => {
-        const tel = match.replace(/[^\d+]/g, "");  // 数字と+以外を全部削除
-        return `<a href="tel:${tel}" class="auto-link">${match}</a>`;
-      });
-
-      // Email をリンク化
-      html = html.replace(emailRegex, (match) => {
-        return `<a href="mailto:${match}" class="auto-link">${match}</a>`;
-      });
-
-      span.innerHTML = html;
-      node.parentNode.replaceChild(span, node);
-    }
-  }
-});
-</script>
 
 
 </body>
