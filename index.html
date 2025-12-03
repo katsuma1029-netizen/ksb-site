@@ -439,21 +439,22 @@ header .catchcopy {
     }
 
     .rep-photo {
-      width: 70px;      /* ← 写真を小さめに */
-      height: 70px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;   /* レイアウト崩れ防止 */
-      border: 2px solid #e0e0e0;
-    }
+  width: 140px;       /* ← 大きくする */
+  height: 140px;
+  border-radius: 50%;  /* 丸型のまま */
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 3px solid #e0e0e0;  /* 縁も少し強調 */
+}
 
-    /* スマホ時は縦並びに（おまけ） */
-    @media (max-width: 640px) {
-      .rep-card {
-        flex-direction: row;
-        align-items: flex-start;
-      }
-    }
+
+ @media (max-width: 640px) {
+  .rep-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 
   </style>
 </head>
