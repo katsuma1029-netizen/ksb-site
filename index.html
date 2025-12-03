@@ -429,6 +429,32 @@ header .catchcopy {
       header h1 { font-size: 1.35rem; }
       header p { font-size: 0.85rem; }
     }
+        /* 代表挨拶カード（写真付き） */
+    .rep-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+      overflow: hidden; /* カードからのはみ出し防止 */
+    }
+
+    .rep-photo {
+      width: 70px;      /* ← 写真を小さめに */
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;   /* レイアウト崩れ防止 */
+      border: 2px solid #e0e0e0;
+    }
+
+    /* スマホ時は縦並びに（おまけ） */
+    @media (max-width: 640px) {
+      .rep-card {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+
   </style>
 </head>
 <body>
