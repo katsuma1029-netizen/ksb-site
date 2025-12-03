@@ -239,6 +239,21 @@ header .catchcopy {
       background: var(--light-bg);
       box-shadow: none;
     }
+        /* 事業内容カードの写真用 */
+    .service-photo {
+      margin: -18px -16px 10px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .service-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
     #home {
       background: linear-gradient(135deg, #f7f9fc, #eef4ff);
@@ -582,7 +597,12 @@ header .catchcopy {
       </div>
 
       <div class="grid">
+              <div class="grid">
+        <!-- 技能実習生送り出し -->
         <div class="card">
+          <div class="service-photo">
+            <img src="images/技能実習生送り出し.png" alt="技能実習生送り出し">
+          </div>
           <h3 class="lang-ja">技能実習生送り出し</h3>
           <h3 class="lang-id">Pengiriman Pemagang Teknis</h3>
           <p class="lang-ja">
@@ -593,7 +613,12 @@ header .catchcopy {
             mengirim pemagang yang siap belajar teknik dan cara kerja di Jepang。
           </p>
         </div>
+
+        <!-- 特定技能サポート -->
         <div class="card">
+          <div class="service-photo">
+            <img src="images/特定技能サポート.jpg" alt="特定技能サポート">
+          </div>
           <h3 class="lang-ja">特定技能サポート</h3>
           <h3 class="lang-id">Dukungan Tokutei Ginou</h3>
           <p class="lang-ja">
@@ -604,7 +629,12 @@ header .catchcopy {
             wawancara, serta pendampingan sebelum dan sesudah berangkat。
           </p>
         </div>
+
+        <!-- 語学留学 -->
         <div class="card">
+          <div class="service-photo">
+            <img src="images/語学留学.jpg" alt="語学留学">
+          </div>
           <h3 class="lang-ja">語学留学</h3>
           <h3 class="lang-id">Studi Bahasa ke Jepang</h3>
           <p class="lang-ja">
@@ -615,7 +645,12 @@ header .catchcopy {
             bahasa dan mengurus proses pendaftaran hingga keberangkatan。
           </p>
         </div>
+
+        <!-- 日本への就職斡旋 -->
         <div class="card">
+          <div class="service-photo">
+            <img src="images/就職斡旋.jpg" alt="日本への就職斡旋">
+          </div>
           <h3 class="lang-ja">日本への就職斡旋</h3>
           <h3 class="lang-id">Penyaluran Kerja ke Jepang</h3>
           <p class="lang-ja">
@@ -626,7 +661,12 @@ header .catchcopy {
             dan mendukung terbentuknya karier jangka panjang yang stabil。
           </p>
         </div>
+
+        <!-- 日本語学校（教育センター） -->
         <div class="card">
+          <div class="service-photo">
+            <img src="images/日本語学校.jpg" alt="日本語学校（教育センター）">
+          </div>
           <h3 class="lang-ja">日本語学校（教育センター）</h3>
           <h3 class="lang-id">Sekolah Bahasa Jepang (Training Center)</h3>
           <p class="lang-ja">
@@ -638,6 +678,7 @@ header .catchcopy {
           </p>
         </div>
       </div>
+
 
       <br />
 
