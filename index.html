@@ -1155,25 +1155,25 @@ header .catchcopy {
 document.addEventListener("DOMContentLoaded", () => {
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
 
-  const phoneRegex = /(\+?\d[\d\s-]{6,}\d)/g; // 電話番号検出
-  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi; // Email検出
+  // 全角スペース「　」や全角ハイフン「－」「ー」も含めて検出
+  const phoneRegex = /(\+?\d[\d\s\-－ー　]{6,}\d)/g;
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi;
 
   let node;
   while ((node = walker.nextNode())) {
     let text = node.nodeValue;
 
-    // 電話番号リンク化
     if (phoneRegex.test(text) || emailRegex.test(text)) {
       const span = document.createElement("span");
       let html = text;
 
-      // 電話番号リンクへ置換
+      // 電話番号をリンク化
       html = html.replace(phoneRegex, (match) => {
-        const tel = match.replace(/[\s-]/g, ""); // ハイフン・スペース除去
+        const tel = match.replace(/[^\d+]/g, "");  // 数字と+以外を全部削除
         return `<a href="tel:${tel}" class="auto-link">${match}</a>`;
       });
 
-      // Emailリンクへ置換
+      // Email をリンク化
       html = html.replace(emailRegex, (match) => {
         return `<a href="mailto:${match}" class="auto-link">${match}</a>`;
       });
@@ -1184,6 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
 
 </body>
 </html>
