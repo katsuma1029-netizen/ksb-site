@@ -233,6 +233,50 @@ header .catchcopy {
       background: var(--light-bg);
       box-shadow: none;
     }
+    /* ── トップ「事業内容」セクションの見た目を強化 ── */
+    #home {
+      background: linear-gradient(135deg, #f7f9fc, #eef4ff);
+      border-radius: 20px;
+      padding: 24px 20px 32px;
+      margin-top: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
+    }
+
+    /* トップ内の見出しはボックスの中で少しだけ強調 */
+    #home h2 {
+      border-left: 4px solid var(--main-blue);
+      padding-left: 8px;
+      margin-top: 0;
+    }
+
+    /* トップ内のカードは他セクションより少しリッチに */
+    #home .card {
+      border: none;
+      border-radius: 16px;
+      background: #ffffff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 左側に細いアクセントバー */
+    #home .card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--main-blue), #3f8bff);
+      opacity: 0.9;
+    }
+
+    /* 「説明だけのカード」は少し柔らかく */
+    #home .card.soft {
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: none;
+    }
 
     .tag {
       display: inline-block;
