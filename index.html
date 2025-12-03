@@ -498,7 +498,14 @@ header .catchcopy {
     height: 100px;
   }
 }
-
+  /* ▼▼ ここから自動リンク用のスタイル ▼▼ */
+    .auto-link {
+      color: #007bff;
+      text-decoration: underline;
+    }
+    .auto-link:hover {
+      opacity: 0.7;
+    }
 
   </style>
 </head>
@@ -1144,5 +1151,39 @@ header .catchcopy {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+
+  const phoneRegex = /\+?\d[\d\s-]{7,}\d/g; // 電話番号検出
+  const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z]{2,}\b/gi; // Email検出
+
+  let node;
+  while ((node = walker.nextNode())) {
+    let text = node.nodeValue;
+
+    // 電話番号リンク化
+    if (phoneRegex.test(text) || emailRegex.test(text)) {
+      const span = document.createElement("span");
+      let html = text;
+
+      // 電話番号リンクへ置換
+      html = html.replace(phoneRegex, (match) => {
+        const tel = match.replace(/[\s-]/g, ""); // ハイフン・スペース除去
+        return `<a href="tel:${tel}" class="auto-link">${match}</a>`;
+      });
+
+      // Emailリンクへ置換
+      html = html.replace(emailRegex, (match) => {
+        return `<a href="mailto:${match}" class="auto-link">${match}</a>`;
+      });
+
+      span.innerHTML = html;
+      node.parentNode.replaceChild(span, node);
+    }
+  }
+});
+</script>
+
 </body>
 </html>
