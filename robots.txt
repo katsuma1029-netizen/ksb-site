@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://katsuma1029-netizen.github.io/ksb-site/sitemap.xml
