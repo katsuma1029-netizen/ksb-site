@@ -558,26 +558,28 @@ header .catchcopy {
 /* ▲▲ ここまで背景写真カード用CSS ▲▲ */
 /* ▼▼ 送り出しの流れ（フロー）用のデザイン ▼▼ */
 .flow-section {
-  margin-top: 32px;
+  margin-top: 40px;
 }
 
+/* 縦に 1 ステップずつ並べる */
 .flow-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
 }
 
-.flow-step {
+/* 各ステップのカード */
+.flow-card {
   border-radius: 12px;
   border: 1px solid var(--border);
   background: #fff;
-  padding: 14px 14px 12px;
-  position: relative;
-  overflow: hidden;
+  padding: 16px 14px 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
-.flow-step-number {
+/* 番号の丸 */
+.flow-number {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -591,15 +593,26 @@ header .catchcopy {
   margin-bottom: 6px;
 }
 
-.flow-step-title {
+/* タイトル行 */
+.flow-card-title {
   font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   margin-bottom: 4px;
 }
 
-.flow-step p {
+/* 本文 */
+.flow-card p {
   font-size: 0.9rem;
   margin: 0;
+}
+
+/* カードとカードの間に入る ↓ だけの行 */
+.flow-arrow {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #999;
+  line-height: 1;
+  margin: -2px 0 2px;
 }
 /* ▲▲ 送り出しの流れ（フロー）用デザインここまで ▲▲ */
 
@@ -1024,9 +1037,9 @@ header .catchcopy {
   <div class="flow-grid">
 
     <!-- STEP 1 -->
-    <div class="flow-step">
-      <div class="flow-step-number">1</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">1</div>
+      <div class="flow-card-title">
         <span class="lang-ja">面接（KSBにて通訳可）</span>
         <span class="lang-id">Wawancara (dengan penerjemah KSB)</span>
       </div>
@@ -1039,10 +1052,12 @@ header .catchcopy {
       </p>
     </div>
 
+    <div class="flow-arrow">↓</div>
+
     <!-- STEP 2 -->
-    <div class="flow-step">
-      <div class="flow-step-number">2</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">2</div>
+      <div class="flow-card-title">
         <span class="lang-ja">初回健康診断</span>
         <span class="lang-id">Pemeriksaan Kesehatan Awal</span>
       </div>
@@ -1050,14 +1065,17 @@ header .catchcopy {
         日本での就労・実習に支障がないか、インドネシア国内で健康診断を受診します。
       </p>
       <p class="lang-id">
-        Kandidat menjalani pemeriksaan kesehatan awal untuk memastikan kondisi layak bekerja/magang di Jepang.
+        Kandidat menjalani pemeriksaan kesehatan awal untuk memastikan
+        kondisi layak bekerja/magang di Jepang.
       </p>
     </div>
 
+    <div class="flow-arrow">↓</div>
+
     <!-- STEP 3 -->
-    <div class="flow-step">
-      <div class="flow-step-number">3</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">3</div>
+      <div class="flow-card-title">
         <span class="lang-ja">書類作成・日本語教育・実務教育</span>
         <span class="lang-id">Dokumen, pelatihan bahasa & praktik</span>
       </div>
@@ -1067,29 +1085,34 @@ header .catchcopy {
       </p>
       <p class="lang-id">
         Pembuatan dokumen, pelatihan bahasa Jepang, dan pelatihan dasar
-        sesuai bidang berjalan paralel. Durasi 4–5 bulan (tergantung perusahaan).
+        sesuai bidang berjalan paralel. Durasi sekitar 4–5 bulan
+        (tergantung perusahaan).
       </p>
     </div>
 
+    <div class="flow-arrow">↓</div>
+
     <!-- STEP 4 -->
-    <div class="flow-step">
-      <div class="flow-step-number">4</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">4</div>
+      <div class="flow-card-title">
         <span class="lang-ja">在留資格認定証明書（COE）取得</span>
         <span class="lang-id">Penerbitan COE (Certificate of Eligibility)</span>
       </div>
       <p class="lang-ja">
-        日本側の企業・組合様が在留資格認定証明書（COE）の申請・取得を行います。
+        KSBが在留資格認定証明書（COE）の申請・取得を行います。
       </p>
       <p class="lang-id">
-        Perusahaan/kumiai Jepang mengurus dan menerima COE dari Imigrasi Jepang.
+        KSB mengurus pengajuan dan penerbitan Certificate of Eligibility (COE).
       </p>
     </div>
 
+    <div class="flow-arrow">↓</div>
+
     <!-- STEP 5 -->
-    <div class="flow-step">
-      <div class="flow-step-number">5</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">5</div>
+      <div class="flow-card-title">
         <span class="lang-ja">ビザ申請・出国前健康診断</span>
         <span class="lang-id">Pengajuan visa & pemeriksaan akhir</span>
       </div>
@@ -1102,10 +1125,12 @@ header .catchcopy {
       </p>
     </div>
 
+    <div class="flow-arrow">↓</div>
+
     <!-- STEP 6 -->
-    <div class="flow-step">
-      <div class="flow-step-number">6</div>
-      <div class="flow-step-title">
+    <div class="flow-card">
+      <div class="flow-number">6</div>
+      <div class="flow-card-title">
         <span class="lang-ja">出国</span>
         <span class="lang-id">Keberangkatan</span>
       </div>
@@ -1114,13 +1139,15 @@ header .catchcopy {
       </p>
       <p class="lang-id">
         Setelah semua proses selesai, peserta berangkat ke Jepang.
-        Setelah tiba, peserta tetap mendapat pendampingan dari KSB dan lembaga terkait.
+        Setelah tiba, peserta tetap mendapat pendampingan dari KSB
+        dan lembaga terkait.
       </p>
     </div>
 
   </div>
 </div>
 <!-- ▲▲ 送り出しの流れここまで ▲▲ -->
+
 
    </section>
 
