@@ -556,6 +556,52 @@ header .catchcopy {
   z-index: 3;
 }
 /* ▲▲ ここまで背景写真カード用CSS ▲▲ */
+/* ▼▼ 送り出しの流れ（フロー）用のデザイン ▼▼ */
+.flow-section {
+  margin-top: 32px;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.flow-step {
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 14px 14px 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--main-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.flow-step-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.flow-step p {
+  font-size: 0.9rem;
+  margin: 0;
+}
+/* ▲▲ 送り出しの流れ（フロー）用デザインここまで ▲▲ */
 
 
   /* ▼▼ ここから自動リンク用のスタイル ▼▼ */
@@ -970,6 +1016,111 @@ header .catchcopy {
     </p>
   </div>
 </div>
+<!-- ▼▼ 送り出しの流れ（Flow） ▼▼ -->
+<div class="flow-section">
+  <h2 class="lang-ja">送り出しの流れ</h2>
+  <h2 class="lang-id">Alur Pengiriman Peserta</h2>
+
+  <div class="flow-grid">
+
+    <!-- STEP 1 -->
+    <div class="flow-step">
+      <div class="flow-step-number">1</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">面接（KSBにて通訳可）</span>
+        <span class="lang-id">Wawancara (dengan penerjemah KSB)</span>
+      </div>
+      <p class="lang-ja">
+        受け入れ企業・組合様と候補者との面接を実施します。KSBが日本語⇔インドネシア語の通訳を担当します。
+      </p>
+      <p class="lang-id">
+        Diadakan wawancara antara perusahaan/kumiai Jepang dan kandidat.
+        KSB membantu sebagai penerjemah bahasa Jepang–Indonesia.
+      </p>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="flow-step">
+      <div class="flow-step-number">2</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">初回健康診断</span>
+        <span class="lang-id">Pemeriksaan Kesehatan Awal</span>
+      </div>
+      <p class="lang-ja">
+        日本での就労・実習に支障がないか、インドネシア国内で健康診断を受診します。
+      </p>
+      <p class="lang-id">
+        Kandidat menjalani pemeriksaan kesehatan awal untuk memastikan kondisi layak bekerja/magang di Jepang.
+      </p>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="flow-step">
+      <div class="flow-step-number">3</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">書類作成・日本語教育・実務教育</span>
+        <span class="lang-id">Dokumen, pelatihan bahasa & praktik</span>
+      </div>
+      <p class="lang-ja">
+        書類作成、日本語教育、職種毎の実務教育を並行して進めます。<br>
+        （約4〜5か月）※企業様により異なります。
+      </p>
+      <p class="lang-id">
+        Pembuatan dokumen, pelatihan bahasa Jepang, dan pelatihan dasar
+        sesuai bidang berjalan paralel. Durasi 4–5 bulan (tergantung perusahaan).
+      </p>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="flow-step">
+      <div class="flow-step-number">4</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">在留資格認定証明書（COE）取得</span>
+        <span class="lang-id">Penerbitan COE (Certificate of Eligibility)</span>
+      </div>
+      <p class="lang-ja">
+        日本側の企業・組合様が在留資格認定証明書（COE）の申請・取得を行います。
+      </p>
+      <p class="lang-id">
+        Perusahaan/kumiai Jepang mengurus dan menerima COE dari Imigrasi Jepang.
+      </p>
+    </div>
+
+    <!-- STEP 5 -->
+    <div class="flow-step">
+      <div class="flow-step-number">5</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">ビザ申請・出国前健康診断</span>
+        <span class="lang-id">Pengajuan visa & pemeriksaan akhir</span>
+      </div>
+      <p class="lang-ja">
+        COEをもとにビザを申請します。あわせて最終健康診断を受けます。
+      </p>
+      <p class="lang-id">
+        Berdasarkan COE, peserta mengajukan visa. Setelah itu menjalani
+        pemeriksaan kesehatan akhir sebelum keberangkatan.
+      </p>
+    </div>
+
+    <!-- STEP 6 -->
+    <div class="flow-step">
+      <div class="flow-step-number">6</div>
+      <div class="flow-step-title">
+        <span class="lang-ja">出国</span>
+        <span class="lang-id">Keberangkatan</span>
+      </div>
+      <p class="lang-ja">
+        手続き完了後、日本へ出国します。到着後もKSBおよび関連機関がサポートします。
+      </p>
+      <p class="lang-id">
+        Setelah semua proses selesai, peserta berangkat ke Jepang.
+        Setelah tiba, peserta tetap mendapat pendampingan dari KSB dan lembaga terkait.
+      </p>
+    </div>
+
+  </div>
+</div>
+<!-- ▲▲ 送り出しの流れここまで ▲▲ -->
 
    </section>
 
