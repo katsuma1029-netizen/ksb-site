@@ -556,41 +556,62 @@ header .catchcopy {
   z-index: 3;
 }
 /* ▲▲ ここまで背景写真カード用CSS ▲▲ */
-/* ▼▼ 送り出しの流れ（フロー）用のデザイン ▼▼ */
+/* ▼▼ 送り出しの流れ（フローチャート中央揃えデザイン） ▼▼ */
 .flow-section {
   margin-top: 40px;
 }
 
-/* 縦に 1 ステップずつ並べる */
+/* フロー全体を中央にまとめる */
 .flow-grid {
+  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 16px;
+  align-items: center;  /* 中央揃え */
+  gap: 28px;
+  margin-top: 24px;
+}
+
+/* 中央の縦ライン */
+.flow-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #d7d7d7;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  opacity: 0.8;
 }
 
 /* 各ステップのカード */
 .flow-card {
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  width: 85%;
+  max-width: 900px;
   background: #fff;
-  padding: 16px 14px 14px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
 
-/* 番号の丸 */
-/* ヘッダー（番号＋タイトル）を横並びに */
+/* 番号＋タイトルの行 */
 .flow-card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 4px;
+  gap: 14px;
+  margin-bottom: 6px;
 }
 
 /* 番号の丸 */
 .flow-number {
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: var(--main-blue);
   color: #fff;
@@ -598,14 +619,15 @@ header .catchcopy {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   flex-shrink: 0;
+  z-index: 3;
 }
 
-/* タイトル行（番号の右側） */
+/* タイトル */
 .flow-card-title {
-  font-weight: 600;
-  font-size: 0.98rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 /* 本文 */
@@ -614,16 +636,39 @@ header .catchcopy {
   margin: 0;
 }
 
-/* カードとカードの間に入る ↓ だけの行（少し大きく） */
+/* ↓ の見た目（大きく、中央に） */
 .flow-arrow {
   text-align: center;
-  font-size: 2.2rem;   /* ← ここで矢印を大きく */
-  color: #bbb;
+  font-size: 2rem;   /* ここで大きさUP */
+  color: #999;
   line-height: 1;
-  margin: 4px 0 4px;
+  margin: -6px 0 -4px;
+  z-index: 3;
 }
 
-/* ▲▲ 送り出しの流れ（フロー）用デザインここまで ▲▲ */
+/* スマホ表示の調整 */
+@media (max-width: 640px) {
+  .flow-card {
+    width: 95%;
+    padding: 16px 16px;
+  }
+
+  /* スマホでは縦ラインを少し左に寄せる */
+  .flow-grid::before {
+    left: 24px;
+    transform: none;
+  }
+
+  .flow-card-header {
+    padding-left: 18px;  /* ラインと番号位置に合わせる */
+  }
+
+  .flow-number {
+    margin-left: -4px;
+  }
+}
+/* ▲▲ 送り出しの流れ（フローチャート中央揃えデザインここまで） ▲▲ */
+
 
 
   /* ▼▼ ここから自動リンク用のスタイル ▼▼ */
