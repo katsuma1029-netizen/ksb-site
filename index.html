@@ -281,8 +281,8 @@ header .catchcopy {
       overflow: hidden;
     }
 
-    /* 左側に細いアクセントバー */
-    #home .card::before {
+  /* 左側に細いアクセントバー（ただし「KSBの強み」のカードは除外） */
+   #home .card:not(.strength-card)::before {
       content: "";
       position: absolute;
       left: 0;
@@ -521,15 +521,15 @@ header .catchcopy {
 }
     
 /* ▼▼ ここから KSBの強み：背景写真カードのCSS ▼▼ */
-.strength-card {
+#home .strength-card {
   position: relative;
   overflow: hidden;
   border-radius: 14px;
-  background: #ffe4e4;  /* ← テスト用にピンクっぽい色 */
+  background: #fff;
 }
 
 /* 背景写真 */
-.strength-card::before {
+#home .strength-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -537,12 +537,12 @@ header .catchcopy {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.7;  /* ←写真の薄さ（調整可能 0.15〜0.35） */
+  opacity: 0.23;  /* ←写真の薄さ（調整可能 0.15〜0.35） */
   z-index: 1;
 }
 
 /* 読みやすさのための白い半透明レイヤー */
-.strength-card::after {
+#home .strength-card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -551,11 +551,12 @@ header .catchcopy {
 }
 
 /* テキストを最前面に */
-.strength-card > * {
+#home .strength-card > * {
   position: relative;
   z-index: 3;
 }
 /* ▲▲ ここまで背景写真カード用CSS ▲▲ */
+
 
   /* ▼▼ ここから自動リンク用のスタイル ▼▼ */
     .auto-link {
