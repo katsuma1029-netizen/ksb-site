@@ -900,6 +900,34 @@ header .catchcopy {
     justify-content: flex-start;  /* 中央にしたければ center */
   }
 }
+/* ▼▼ 追加：中間サイズ（タブレット幅）の調整 ▼▼ */
+@media (max-width: 1100px) and (min-width: 641px) {
+
+  /* 言語スイッチとSNSのコンテナを右寄せせず、適度に左へ寄せる */
+  .header-right {
+    right: 20px;   /* これで右すぎる問題を軽減 */
+    top: 90px;
+  }
+
+  /* SNSアイコンサイズ＆位置も調整 */
+  .header-social a i {
+    font-size: 28px;
+  }
+
+  /* 言語ボタン同士の隙間調整 */
+  .lang-switch {
+    gap: 6px;
+  }
+
+  /* タイトルとロゴの折り返し抑制 */
+  .hero-title-wrap h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-logo {
+    height: 70px;
+  }
+}
 
   </style>
   
