@@ -900,14 +900,7 @@ header .catchcopy {
     justify-content: flex-start;  /* 中央にしたければ center */
   }
 }
-/* ▼▼ 追加：中間サイズ（タブレット幅）の調整 ▼▼ */
-@media (max-width: 1100px) and (min-width: 641px) {
 
-  /* 言語スイッチとSNSのコンテナを右寄せせず、適度に左へ寄せる */
-  .header-right {
-    right: 20px;   /* これで右すぎる問題を軽減 */
-    top: 90px;
-  }
 
   /* SNSアイコンサイズ＆位置も調整 */
   .header-social a i {
@@ -926,6 +919,31 @@ header .catchcopy {
 
   .hero-logo {
     height: 70px;
+  }
+}
+/* ▼ PCを半分にしたとき（タブレット幅）のレイアウト調整 ▼ */
+@media (max-width: 1100px) {
+
+  /* ロゴ＋タイトル と 右側ブロックを「縦並び」にする */
+  .brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* 言語切替＆SNSを「通常配置」に戻して、タイトルの下に並べる */
+  .header-right {
+    position: static;      /* absolute を解除 */
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin-top: 8px;
+    align-items: flex-start;
+  }
+
+  /* SNSアイコン行の余白調整 */
+  .header-social {
+    margin-top: 4px;
   }
 }
 
