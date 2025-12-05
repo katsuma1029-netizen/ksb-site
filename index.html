@@ -845,6 +845,61 @@ header .catchcopy {
   opacity: 0.8;
 }
 /* ▲▲ ここまでSNSアイコンCSS ▲▲ */
+/* ★スマホ幅（だいたい縦持ちスマホ）ではヘッダーを縦並びにして重なりを解消 */
+@media (max-width: 600px) {
+
+  header {
+    padding: 56px 12px 24px;
+  }
+
+  .header-inner {
+    gap: 10px;
+  }
+
+  .brand-row {
+    flex-direction: column;       /* ロゴ＋タイトルと右側ブロックを縦並び */
+    align-items: flex-start;
+  }
+
+  .hero-title-wrap {
+    flex-direction: column;       /* ロゴとタイトルも縦並び */
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  /* タイトルは折り返しOKにしてサイズも少し小さく */
+  .hero-title-wrap h1 {
+    font-size: 1.6rem;
+    white-space: normal;          /* ★ ここで nowrap を解除 */
+    line-height: 1.25;
+  }
+
+  /* 言語切替＋SNS ブロックを“普通の要素”にして重なりを完全にやめる */
+  .header-right {
+    position: static !important;  /* ★ absolute を強制オフ */
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+
+    margin-top: 10px;
+    margin-left: 0;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+
+  /* 言語ボタン：左寄せ or 好きなら center でもOK */
+  .lang-switch {
+    width: 100%;
+    justify-content: flex-start;  /* 中央にしたければ center */
+    flex-wrap: wrap;
+  }
+
+  /* SNS アイコン：その下で左寄せ（中央にしたければ center） */
+  .header-social {
+    margin-top: 6px;
+    justify-content: flex-start;  /* 中央にしたければ center */
+  }
+}
 
   </style>
   
