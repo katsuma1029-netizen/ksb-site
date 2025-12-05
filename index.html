@@ -115,11 +115,14 @@
   z-index: 2;
 }
     .brand-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  flex-wrap: wrap;   /* ← これを追加！画面幅が足りない時に折り返す */
+}
+
     header h1 {
       margin: 0;
       font-size: 1.6rem;
@@ -188,35 +191,37 @@ header .catchcopy {
     }
 
     .lang-switch {
-      display: flex;
-      gap: 8px;
-    }
-    .lang-btn {
+  display: flex;
+  gap: 8px;
+}
+
+/* ★ここを差し替え */
+.lang-btn {
   border-radius: 999px;
   border: 1px solid #ffffff66;
-  padding: 4px 12px;
-  font-size: 0.8rem;
+  /* 文字数に左右されないように高さ＆幅を固定気味に */
+  min-width: 140px;         /* ← ボタン幅（調整OK） */
+  height: 44px;             /* ← ボタン高さ */
+  padding: 0 16px;          /* 上下は高さで決めるので 0 */
+
+  font-size: 0.85rem;
   cursor: pointer;
   background: transparent;
   color: #fff;
   display: inline-flex;
   align-items: center;
-  justify-content: center;   /* 中央寄せ */
+  justify-content: center;  /* ← 中央寄せで文字を配置 */
   gap: 4px;
   opacity: 0.9;
-
-  /* ★ボタンの大きさを固定★ */
-  min-width: 130px;          /* 横幅をそろえる */
-  height: 40px;              /* 縦の高さもそろえる */
-  box-sizing: border-box;
 }
 
-    .lang-btn.active {
-      background: #fff;
-      color: var(--main-blue);
-      opacity: 1;
-      font-weight: 600;
-    }
+.lang-btn.active {
+  background: #fff;
+  color: var(--main-blue);
+  opacity: 1;
+  font-weight: 600;
+}
+
 
     nav {
       margin-top: 8px;
