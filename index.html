@@ -767,24 +767,32 @@ header .catchcopy {
   min-width: 260px;
 }
 /* ▲▲ 電話番号レイアウトここまで ▲▲ */
-    /* ▼▼ ヘッダーSNSアイコン（Instagram / WhatsApp） ▼▼ */
-.header-social {
+    /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
+.header-right {
   display: flex;
-  gap: 14px;
-  align-items: center;
-  margin-top: 12px;
+  flex-direction: column;
+  align-items: flex-end; /* 右寄せ */
+  gap: 6px;
 }
 
-.header-social a {
-  font-size: 24px;
-  color: #fff;
+.header-social {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.header-social a i {
+  font-size: 30px;  /* ← アイコンの大きさはここで調整！ */
   transition: 0.2s ease;
 }
 
-.header-social a:hover {
-  opacity: 0.7;
+.header-social a:hover i {
+  transform: scale(1.15); /* ホバーで少し大きく */
+  opacity: 0.8;
 }
 /* ▲▲ ここまでSNSアイコンCSS ▲▲ */
+
+
 
 
   </style>
@@ -793,40 +801,46 @@ header .catchcopy {
 <body>
   <header>
     <div class="header-inner">
-      <div class="brand-row">
-        <div>
-                <div class="hero-title-wrap">
-          <img src="images/KSB%20LOGO.jpg" alt="KSB Logo" class="hero-logo">
-          <h1>KARYA SEJAHTERA BERSAMA（KSB）</h1>
-        </div>
-  
-<p class="lang-ja catchcopy">KSBからはじまるより良い未来へ。</p>
- <p class="lang-id catchcopy">Menuju masa depan yang lebih baik, dimulai dari KSB.</p>
-          <p class="lang-ja">
-            技能実習生・特定技能・語学留学・日本への就職・日本語教育センターとして、
-            インドネシアと日本をつなぐ架け橋になります。
-          </p>
-          <p class="lang-id">
-            KSB adalah lembaga pengirim pemagang teknis, dukungan Tokutei Ginou,
-            studi bahasa, penyaluran kerja ke Jepang, sekaligus sekolah bahasa Jepang
-            yang menjadi jembatan antara Indonesia dan Jepang.
-          </p>
-        </div>
-        <div class="lang-switch">
-          <button class="lang-btn active" data-lang="ja">日本語</button>
-          <button class="lang-btn" data-lang="id">Bahasa Indonesia</button>
-        </div>
-        <div class="header-social">
-  <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank">
-    <i class="fa-brands fa-instagram" style="color:#E1306C;"></i>
-  </a>
+     <div class="brand-row">
+  <!-- 左側：ロゴ + タイトル + 説明 -->
+  <div>
+    <div class="hero-title-wrap">
+      <img src="images/KSB%20LOGO.jpg" alt="KSB Logo" class="hero-logo">
+      <h1>KARYA SEJAHTERA BERSAMA（KSB）</h1>
+    </div>
 
-  <a href="https://wa.me/6281901173052" target="_blank">
-    <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
-  </a>
+    <p class="lang-ja catchcopy">KSBからはじまるより良い未来へ。</p>
+    <p class="lang-id catchcopy">Menuju masa depan yang lebih baik, dimulai dari KSB.</p>
+    <p class="lang-ja">
+      技能実習生・特定技能・語学留学・日本への就職・日本語教育センターとして、
+      インドネシアと日本をつなぐ架け橋になります。
+    </p>
+    <p class="lang-id">
+      KSB adalah lembaga pengirim pemagang teknis, dukungan Tokutei Ginou,
+      studi bahasa, penyaluran kerja ke Jepang, sekaligus sekolah bahasa Jepang
+      yang menjadi jembatan antara Indonesia dan Jepang.
+    </p>
+  </div>
+
+  <!-- 右側：言語切替 + SNSアイコン（縦並び） -->
+  <div class="header-right">
+    <div class="lang-switch">
+      <button class="lang-btn active" data-lang="ja">日本語</button>
+      <button class="lang-btn" data-lang="id">Bahasa Indonesia</button>
+    </div>
+
+    <div class="header-social">
+      <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank">
+        <i class="fa-brands fa-instagram" style="color:#E1306C;"></i>
+      </a>
+
+      <a href="https://wa.me/6281901173052" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
+      </a>
+    </div>
+  </div>
 </div>
-
-      </div>
+ 
 
       <nav>
         <div class="nav-tabs">
