@@ -791,8 +791,9 @@ header .catchcopy {
 /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
   position: absolute;    /* header の中で“浮かせて”配置 */
-  right: 12%;            /* 右からの距離 → ここで左右位置を調整 */
-  bottom: 70px;          /* 下からの距離 → ここで上下位置を調整 */
+  right: 4%;             /* 右端ギリギリ寄りにする（重なり防止） */
+  top: 140px;            /* 上からの距離で位置を決める */
+  bottom: auto;          /* bottom指定は解除 */
 
   display: flex;
   flex-direction: column;   /* 上：言語ボタン, 下：SNSアイコン */
@@ -800,6 +801,7 @@ header .catchcopy {
   gap: 10px;
   max-width: 260px;
 }
+
 
 
 .header-social {
