@@ -91,6 +91,7 @@
       padding: 0;
       background: #ffffff;
       color: #222;
+       overflow-x: hidden;   /* ★ この1行を追加：横スクロール防止 */
     }
 
     /* ===== ヘッダー・ナビ ===== */
@@ -574,21 +575,42 @@ header .catchcopy {
       }
     }
 
-   @media (max-width: 700px) {
+   /* ★ スマホ〜タブレットくらいの幅では絶対配置をやめて縦並び＋中央寄せにする */
+@media (max-width: 900px) {
   .brand-row {
     flex-direction: column;
     align-items: flex-start;
   }
-  header h1 { font-size: 1.35rem; }
-  header p { font-size: 0.85rem; }
 
-  /* ★ スマホでは絶対配置を解除して、本文の下に通常表示 */
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  header p {
+    font-size: 0.9rem;
+  }
+
+  /* 言語切替＋SNSのかたまりを通常フローに */
   .header-right {
-    position: static;
+    position: static;      /* ← absolute を無効化 */
     margin-top: 16px;
-    align-items: flex-start;
+    align-items: center;   /* 中央寄せ */
+    max-width: 100%;       /* はみ出し防止 */
+  }
+
+  /* 言語ボタンを中央寄せ */
+  .lang-switch {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* SNSアイコンをボタンの下で中央寄せ＋少し余白 */
+  .header-social {
+    margin-top: 8px;
+    justify-content: center;
   }
 }
+
     
         /* 代表挨拶カード（写真付き） */
     .rep-card {
