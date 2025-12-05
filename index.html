@@ -192,18 +192,25 @@ header .catchcopy {
       gap: 8px;
     }
     .lang-btn {
-      border-radius: 999px;
-      border: 1px solid #ffffff66;
-      padding: 4px 12px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      background: transparent;
-      color: #fff;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      opacity: 0.9;
-    }
+  border-radius: 999px;
+  border: 1px solid #ffffff66;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  background: transparent;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;   /* 中央寄せ */
+  gap: 4px;
+  opacity: 0.9;
+
+  /* ★ボタンの大きさを固定★ */
+  min-width: 130px;          /* 横幅をそろえる */
+  height: 40px;              /* 縦の高さもそろえる */
+  box-sizing: border-box;
+}
+
     .lang-btn.active {
       background: #fff;
       color: var(--main-blue);
