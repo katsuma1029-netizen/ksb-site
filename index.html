@@ -574,14 +574,22 @@ header .catchcopy {
       }
     }
 
-    @media (max-width: 700px) {
-      .brand-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      header h1 { font-size: 1.35rem; }
-      header p { font-size: 0.85rem; }
-    }
+   @media (max-width: 700px) {
+  .brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header h1 { font-size: 1.35rem; }
+  header p { font-size: 0.85rem; }
+
+  /* ★ スマホでは絶対配置を解除して、本文の下に通常表示 */
+  .header-right {
+    position: static;
+    margin-top: 16px;
+    align-items: flex-start;
+  }
+}
+    
         /* 代表挨拶カード（写真付き） */
     .rep-card {
       display: flex;
@@ -780,15 +788,17 @@ header .catchcopy {
 }
 /* ▲▲ 電話番号レイアウトここまで ▲▲ */
     /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
+/* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
+  position: absolute;   /* ★ header を基準に絶対配置 */
+  right: 14%;           /* ★ 右からの距離 → 赤枠に合わせて調整 */
+  top: 52%;             /* ★ 上からの距離 → 赤枠に合わせて調整 */
 
-  flex-wrap: wrap;          /* ← これが超重要！ */
-  justify-content: flex-end; /* ← 右側に寄せる */
-  max-width: 420px;         /* ← はみ出し防止の幅（調整OK） */
+  display: flex;
+  flex-direction: column;    /* 言語 → SNS を縦に並べる */
+  align-items: flex-start;   /* 左揃え */
+  gap: 10px;                 /* 言語とSNSの間の余白 */
+  max-width: 260px;          /* かたまりの横幅（お好みで調整OK） */
 }
 
 
