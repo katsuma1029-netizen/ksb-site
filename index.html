@@ -791,16 +791,16 @@ header .catchcopy {
 /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
   position: absolute;
-  right: 6%;      /* 右寄せはそのまま */
-  top: 80px;     /* ← 200px → 130px に変更してヘッダー内に戻す */
-  bottom: auto;
+  right: 6%;
+  top: 80px;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;   /* ★ SNS を中央に揃えるため変更 */
   gap: 10px;
   max-width: 260px;
 }
+
 
 
 .header-social {
@@ -808,9 +808,10 @@ header .catchcopy {
   gap: 16px;
   margin-top: 0;
 
-  justify-content: flex-end;  /* ★ アイコンを右に寄せる */
-  width: 100%;                /* ★ 横幅いっぱいを使う */
+  justify-content: center;   /* ★ 中央揃え！ */
+  width: 100%;
 }
+
 
 .header-social a i {
   font-size: 30px;  /* ← アイコンの大きさはここで調整！ */
