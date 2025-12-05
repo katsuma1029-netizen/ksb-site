@@ -812,184 +812,33 @@ header .catchcopy {
     /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
-  position: absolute;
-  right: 6%;
-  top: 80px;
-
+  /* 絶対配置は使わず、brand-row の右端に“普通に”並べる */
   display: flex;
   flex-direction: column;
-  align-items: center;   /* ★ SNS を中央に揃えるため変更 */
-  gap: 10px;
+  gap: 8px;
+  margin-left: auto;        /* 右側に寄せる */
+  align-items: flex-end;    /* 中身を右寄せ */
   max-width: 260px;
 }
-
-
 
 .header-social {
   display: flex;
   gap: 16px;
-  margin-top: 0;
-
-  justify-content: center;   /* ★ 中央揃え！ */
+  margin-top: 4px;
+  justify-content: flex-end;
   width: 100%;
 }
 
-
 .header-social a i {
-  font-size: 40px;  /* ← アイコンの大きさはここで調整！ */
+  font-size: 32px;  /* アイコンの大きさ */
   transition: 0.2s ease;
 }
 
 .header-social a:hover i {
-  transform: scale(1.15); /* ホバーで少し大きく */
+  transform: scale(1.1);
   opacity: 0.8;
 }
 /* ▲▲ ここまでSNSアイコンCSS ▲▲ */
-/* ★スマホ幅（だいたい縦持ちスマホ）ではヘッダーを縦並びにして重なりを解消 */
-@media (max-width: 600px) {
-
-  header {
-    padding: 56px 12px 24px;
-  }
-
-  .header-inner {
-    gap: 10px;
-  }
-
-  .brand-row {
-    flex-direction: column;       /* ロゴ＋タイトルと右側ブロックを縦並び */
-    align-items: flex-start;
-  }
-
-  .hero-title-wrap {
-    flex-direction: column;       /* ロゴとタイトルも縦並び */
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  /* タイトルは折り返しOKにしてサイズも少し小さく */
-  .hero-title-wrap h1 {
-    font-size: 1.6rem;
-    white-space: normal;          /* ★ ここで nowrap を解除 */
-    line-height: 1.25;
-  }
-
-  /* 言語切替＋SNS ブロックを“普通の要素”にして重なりを完全にやめる */
-  .header-right {
-    position: static !important;  /* ★ absolute を強制オフ */
-    right: auto !important;
-    top: auto !important;
-    bottom: auto !important;
-
-    margin-top: 10px;
-    margin-left: 0;
-    align-items: flex-start;
-    max-width: 100%;
-  }
-
-  /* 言語ボタン：左寄せ or 好きなら center でもOK */
-  .lang-switch {
-    width: 100%;
-    justify-content: flex-start;  /* 中央にしたければ center */
-    flex-wrap: wrap;
-  }
-
-  /* SNS アイコン：その下で左寄せ（中央にしたければ center） */
-  .header-social {
-    margin-top: 6px;
-    justify-content: flex-start;  /* 中央にしたければ center */
-  }
-}
-
-
-  /* SNSアイコンサイズ＆位置も調整 */
-  .header-social a i {
-    font-size: 28px;
-  }
-
-  /* 言語ボタン同士の隙間調整 */
-  .lang-switch {
-    gap: 6px;
-  }
-
-  /* タイトルとロゴの折り返し抑制 */
-  .hero-title-wrap h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-logo {
-    height: 70px;
-  }
-}
-/* ▼ PCを半分にしたとき（タブレット幅）のレイアウト調整 ▼ */
-@media (max-width: 1100px) and (min-width: 641px) {
-
-  /* 右側ブロックだけ「通常フロー + 右寄せ」にする */
-  .header-right {
-    position: static;        /* absolute を解除して、文章の下に入れる */
-    right: auto;
-    top: auto;
-    bottom: auto;
-    margin-top: 8px;
-    margin-left: auto;       /* 右側に寄せる */
-    align-items: flex-end;
-  }
-
-  /* 言語ボタンは右寄せ */
-  .lang-switch {
-    justify-content: flex-end;
-    width: 100%;
-  }
-
-  /* SNSアイコンも右寄せ＋少しだけ余白 */
-  .header-social {
-    margin-top: 4px;
-    justify-content: flex-end;
-    width: 100%;
-  }
-}
-/* ======================================================
-   PC・タブレット・スマホすべてで安定配置する完全版
-   ====================================================== */
-
-/* ▼ PC（幅 1100px 以上） -------------------------------- */
-@media (min-width: 1101px) {
-  .header-right {
-    right: 40px;   /* PCは右端に寄せる */
-    top: 90px;
-    transform: none;
-  }
-}
-
-/* ▼ タブレット（641px〜1100px） ------------------------- */
-@media (max-width: 1100px) and (min-width: 641px) {
-  .header-right {
-    right: 20px;   /* 右端に寄せすぎず、適度に左へ */
-    top: 120px;    /* 重ならない位置へ */
-    transform: none;
-  }
-
-  .header-social a {
-    font-size: 28px;   /* アイコン大きめ維持 */
-  }
-}
-
-/* ▼ スマホ（640px 以下） ------------------------------- */
-@media (max-width: 640px) {
-  .header-right {
-    right: 50%;           /* スマホは中央配置 */
-    transform: translateX(50%);
-    top: 105px;
-  }
-
-  .header-social a {
-    font-size: 32px;      /* スマホではさらに大きく */
-  }
-
-  .lang-switch {
-    gap: 10px;
-  }
-}
 
 
   </style>
