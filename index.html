@@ -770,9 +770,9 @@ header .catchcopy {
     /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* 右寄せ */
-  gap: 6px;
+  flex-direction: row;      /* ← 横並びに変更！ */
+  align-items: center;      /* ← 縦方向の位置をそろえる */
+  gap: 16px;                /* ← 言語切替とSNSに適度な余白 */
 }
 
 .header-social {
