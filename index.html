@@ -803,13 +803,13 @@ header .catchcopy {
 }
 
 
-
-
-
 .header-social {
   display: flex;
   gap: 16px;
-  margin-top: 0;   /* ← ここを "0" にするだけ！ */
+  margin-top: 0;
+
+  justify-content: flex-end;  /* ★ アイコンを右に寄せる */
+  width: 100%;                /* ★ 横幅いっぱいを使う */
 }
 
 .header-social a i {
