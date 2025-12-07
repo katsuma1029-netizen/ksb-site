@@ -205,24 +205,25 @@ header .catchcopy {
   border-radius: 999px;
   border: 1px solid #ffffff66;
 
-  /* ▼ サイズを固定して日本語とインドネシア語を必ず同じ大きさにする ▼ */
-  width: 130px;   /* ← 横幅はここで統一（お好みで 120〜150px に調整可能） */
-  height: 34px;   /* ← スリムでバランスの良い高さ */
+  /* ▼ かなりスリムに（日本語・インドネシア語共通幅） ▼ */
+  width: 90px;     /* ← ここを縮めるとどんどんスリムにできる */
+  height: 32px;
 
-  padding: 0;
+  padding: 2px 6px; /* ← 2行表示でも少し余裕を持たせる */
 
-  font-size: 0.8rem;
-  text-align: center; 
-  cursor: pointer;
+  font-size: 0.75rem;  /* ← 少し小さめにして収まりをよくする */
+  line-height: 1.1;    /* ← Bahasa Indonesia が2行になりやすくなる */
+
   background: transparent;
   color: #fff;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  text-align: center;   /* ← 2行中央揃え */
+  cursor: pointer;
   opacity: 0.9;
 }
+
 
 
 .lang-btn.active {
