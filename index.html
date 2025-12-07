@@ -204,21 +204,26 @@ header .catchcopy {
 .lang-btn {
   border-radius: 999px;
   border: 1px solid #ffffff66;
-  /* 文字数に左右されないように高さ＆幅を固定気味に */
-  min-width: 140px;         /* ← ボタン幅（調整OK） */
-  height: 44px;             /* ← ボタン高さ */
-  padding: 0 16px;          /* 上下は高さで決めるので 0 */
 
-  font-size: 0.85rem;
+  /* ▼ サイズを固定して日本語とインドネシア語を必ず同じ大きさにする ▼ */
+  width: 130px;   /* ← 横幅はここで統一（お好みで 120〜150px に調整可能） */
+  height: 34px;   /* ← スリムでバランスの良い高さ */
+
+  padding: 0;
+
+  font-size: 0.8rem;
+  text-align: center; 
   cursor: pointer;
   background: transparent;
   color: #fff;
+
   display: inline-flex;
   align-items: center;
-  justify-content: center;  /* ← 中央寄せで文字を配置 */
-  gap: 4px;
+  justify-content: center;
+
   opacity: 0.9;
 }
+
 
 .lang-btn.active {
   background: #fff;
