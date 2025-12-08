@@ -895,24 +895,40 @@ header .catchcopy {
 }
 /* ▲▲ ここまでSNSアイコンCSS ▲▲ */
 .about-intro-card {
-  background: linear-gradient(135deg, #ffffff, #f7f9ff); /* うっすらグラデーション */
-  border: 1px solid #e5e5e5;
-  padding: 24px 28px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, #fffefe, #fff3f7);  /* ほんのりピンク寄りに */
+  border: 1px solid #ffc6d5;
+  padding: 22px 26px;
+  border-radius: 14px;
   margin-bottom: 32px;
-  line-height: 1.8;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-  border-left: 5px solid var(--accent); /* 左にアクセントライン */
+  line-height: 1.7;                                      /* 少しだけ詰める */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);               /* 影を少し強める */
+  border-left: 6px solid var(--accent);                  /* 左ラインも太めに */
 }
+
 /* 「KSBの想い」サブタイトル用 */
 .about-intro-title {
-  color: #c02845;                  /* いまのピンク寄りの色合いに合わせる */
-  margin-top: 24px;
-  margin-bottom: 12px;
-  font-size: 1.3rem;
-  border-left: 4px solid #ff4b6a;  /* 左にアクセントライン */
-  padding-left: 8px;
+  color: #c02845;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  font-size: 1.6rem;                 /* 少し大きくして主役感UP */
+  border-left: 4px solid #ff4b6a;
+  padding-left: 10px;
+  display: inline-block;
+  position: relative;
 }
+
+/* 見出しの下に短いアクセントバーを追加 */
+.about-intro-title::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  bottom: -6px;
+  width: 70px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff4b6a, #ff8aa3);
+}
+
     
 
 /* 上部の小さなタイトル行 */
