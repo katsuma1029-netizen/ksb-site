@@ -116,13 +116,16 @@
   z-index: 2;
 }
     .brand-row {
-  display: flex;
+  display: inline-flex;      /* 行の幅を“中身の分だけ”にする */
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 
-  flex-wrap: wrap;   /* ← これを追加！画面幅が足りない時に折り返す */
+  /* 行全体をヘッダーの中で中央寄せ */
+  margin: 0 auto;
 }
+
 
     header h1 {
       margin: 0;
@@ -822,14 +825,14 @@ header .catchcopy {
     /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 .header-right {
-  /* 絶対配置は使わず、brand-row の右端に“普通に”並べる */
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-left: auto;        /* 右側に寄せる */
-  align-items: flex-end;    /* 中身を右寄せ */
+  margin-left: auto;        /* 行の中で出来る限り右に寄せる */
+  align-items: flex-end;    /* 言語ボタンとSNSを右寄せ */
   max-width: 260px;
 }
+
 
 .header-social {
   display: flex;
