@@ -96,18 +96,43 @@
     }
 
     /* ===== ヘッダー・ナビ ===== */
-    header {
-    position: relative;
+    /* ── ヘッダー全体 ── */
+header {
+  position: relative;
   color: #fff;
- padding: 80px 16px 40px;
-   background-image:
+  padding: 80px 16px 40px;
+
+  /* 写真が読み込まれるまでの土台の色 */
+  background-color: #003980;
+
+  /* フェード用のレイヤーがはみ出さないように */
+  overflow: hidden;
+}
+
+/* 写真＋青グラデーションのレイヤー（ここをフェードさせる） */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* グラデーション + 写真（写真は --header-img で差し替える） */
+  background-image:
     linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
-    url("images/header.webp");
+    var(--header-img);
+
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
+
+  /* 不透明度をアニメーションさせる */
+  opacity: var(--header-opacity, 1);
+  transition: opacity 1s ease-in-out;
+
+  z-index: 0;
 }
-    .header-inner {
+
+/* 中身（ロゴや文字）は前面に出す */
+.header-inner {
   max-width: 1100px;
   margin: 0 auto;
   display: flex;
@@ -116,6 +141,7 @@
   position: relative;
   z-index: 2;
 }
+
     .brand-row {
   display: inline-flex;      /* 行の幅を“中身の分だけ”にする */
   justify-content: space-between;
@@ -2023,8 +2049,8 @@ header .catchcopy {
   <!-- ▲ フッターここまで ▲ -->
 
 
-  <script>
-    // 言語切り替え
+    <script>
+    // ===== 言語切り替え =====
     const langButtons = document.querySelectorAll(".lang-btn");
     const jaElems = document.querySelectorAll(".lang-ja");
     const idElems = document.querySelectorAll(".lang-id");
@@ -2048,7 +2074,7 @@ header .catchcopy {
     // 初期表示は日本語
     setLanguage("ja");
 
-    // タブ切り替え
+    // ===== タブ切り替え =====
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
 
@@ -2062,14 +2088,14 @@ header .catchcopy {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-       tabs.forEach((tab) => {
+    tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
 
-    // ───────── ヘッダー背景スライドショー ─────────
+    // ===== ヘッダー背景スライドショー（フェード） =====
     const headerEl = document.querySelector("header");
 
-    // ヘッダーに使う写真ファイルのパス
+    // スライドに使う画像（ファイル名は今のまま）
     const headerImages = [
       "images/KSBオフィス正面(ヘッダー).webp",
       "images/KSB外観(ヘッダー).webp",
@@ -2078,23 +2104,32 @@ header .catchcopy {
 
     let headerIndex = 0;
 
-    function updateHeaderBackground() {
-      const img = headerImages[headerIndex];
-
-      // グラデーション＋写真をまとめて指定
-      headerEl.style.backgroundImage =
-        `linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)), url("${img}")`;
-
-      // 次のインデックスに進める（最後まで行ったら0に戻る）
-      headerIndex = (headerIndex + 1) % headerImages.length;
+    function initHeaderSlide() {
+      // 最初の1枚目をセット
+      headerEl.style.setProperty("--header-img", `url("${headerImages[0]}")`);
+      headerEl.style.setProperty("--header-opacity", "1");
+      headerIndex = 1; // 次は2枚目から
     }
 
-    // ページ読み込み時に1回セット
-    updateHeaderBackground();
+    function updateHeaderBackground() {
+      // ① いったん薄くする
+      headerEl.style.setProperty("--header-opacity", "0");
 
-    // 7秒ごとに写真を切り替え
-    setInterval(updateHeaderBackground, 7000);
+      // ② 少し待ってから画像を変えて、また濃くする
+      setTimeout(() => {
+        const img = headerImages[headerIndex];
+        headerEl.style.setProperty("--header-img", `url("${img}")`);
+        headerEl.style.setProperty("--header-opacity", "1");
+
+        headerIndex = (headerIndex + 1) % headerImages.length;
+      }, 250); // 0.25秒後に切り替え（好みで調整OK）
+    }
+
+    // スライドショー開始
+    initHeaderSlide();
+    setInterval(updateHeaderBackground, 7000); // 7秒ごとにフェード切り替え
   </script>
 </body>
 </html>
+
 
