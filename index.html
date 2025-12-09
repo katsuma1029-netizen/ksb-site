@@ -2062,11 +2062,39 @@ header .catchcopy {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
-    tabs.forEach((tab) => {
+       tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
+
+    // ───────── ヘッダー背景スライドショー ─────────
+    const headerEl = document.querySelector("header");
+
+    // ヘッダーに使う写真ファイルのパス
+    const headerImages = [
+      "images/KSBオフィス正面(ヘッダー).webp",
+      "images/KSB外観(ヘッダー).webp",
+      "images/授業風景(ヘッダー).webp",
+    ];
+
+    let headerIndex = 0;
+
+    function updateHeaderBackground() {
+      const img = headerImages[headerIndex];
+
+      // グラデーション＋写真をまとめて指定
+      headerEl.style.backgroundImage =
+        `linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)), url("${img}")`;
+
+      // 次のインデックスに進める（最後まで行ったら0に戻る）
+      headerIndex = (headerIndex + 1) % headerImages.length;
+    }
+
+    // ページ読み込み時に1回セット
+    updateHeaderBackground();
+
+    // 7秒ごとに写真を切り替え
+    setInterval(updateHeaderBackground, 7000);
   </script>
-
-
 </body>
 </html>
+
