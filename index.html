@@ -215,6 +215,13 @@ header .catchcopy {
     white-space: normal;
   }
 }
+/* ★PC（幅900px以上）のときだけ、画像ごとの位置指定を有効にする */
+@media (min-width: 900px) {
+  header::before {
+    /* JS から渡す --header-pos を使う。指定が無ければ今まで通り center top */
+    background-position: var(--header-pos, center top);
+  }
+}
 
 
     header p {
@@ -2096,34 +2103,50 @@ header .catchcopy {
     const headerEl = document.querySelector("header");
 
     // スライドに使う画像（ファイル名は今のまま）
-    const headerImages = [
-      "images/KSBオフィス正面(ヘッダー).webp",
-      "images/KSB外観(ヘッダー).webp",
-      "images/授業風景(ヘッダー).webp",
-    ];
+   // スライドに使う画像（PC用に表示位置もセット）
+const headerImages = [
+  {
+    src: "images/KSBオフィス正面(ヘッダー).webp",
+    pos: "center 50%"   // ★1枚目：今の感じがベストなので真ん中付近
+  },
+  {
+    src: "images/KSB外観(ヘッダー).webp",
+    pos: "center 70%"   // ★2枚目：少し下を多めに見せる
+  },
+  {
+    src: "images/授業風景(ヘッダー).webp",
+    pos: "center 75%"   // ★3枚目：人とホワイトボードがよく見えるように下寄り
+  },
+];
+
 
     let headerIndex = 0;
 
-    function initHeaderSlide() {
-      // 最初の1枚目をセット
-      headerEl.style.setProperty("--header-img", `url("${headerImages[0]}")`);
-      headerEl.style.setProperty("--header-opacity", "1");
-      headerIndex = 1; // 次は2枚目から
-    }
+   function initHeaderSlide() {
+  // 最初の1枚目をセット
+  const first = headerImages[0];
+  headerEl.style.setProperty("--header-img", `url("${first.src}")`);
+  headerEl.style.setProperty("--header-pos", first.pos);  // ★PC のときだけ効く
+  headerEl.style.setProperty("--header-opacity", "1");
+  headerIndex = 1; // 次は2枚目から
+}
+
 
     function updateHeaderBackground() {
-      // ① いったん薄くする
-      headerEl.style.setProperty("--header-opacity", "0");
+  // ① いったん薄くする
+  headerEl.style.setProperty("--header-opacity", "0");
 
-      // ② 少し待ってから画像を変えて、また濃くする
-      setTimeout(() => {
-        const img = headerImages[headerIndex];
-        headerEl.style.setProperty("--header-img", `url("${img}")`);
-        headerEl.style.setProperty("--header-opacity", "1");
+  // ② 少し待ってから画像と位置を変えて、また濃くする
+  setTimeout(() => {
+    const item = headerImages[headerIndex];
+    headerEl.style.setProperty("--header-img", `url("${item.src}")`);
+    headerEl.style.setProperty("--header-pos", item.pos); // ★PC用位置
+    headerEl.style.setProperty("--header-opacity", "1");
 
-        headerIndex = (headerIndex + 1) % headerImages.length;
-      }, 1400); // 0.25秒後に切り替え（好みで調整OK）
-    }
+    headerIndex = (headerIndex + 1) % headerImages.length;
+  }, 1400);
+}
+
 
     // スライドショー開始
     initHeaderSlide();
