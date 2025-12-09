@@ -127,12 +127,6 @@
   margin: 0 auto;
 }
 
-
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      letter-spacing: 0.04em;
-    }
 /* --- ヘッダータイトル強調 --- */
 header h1 {
   font-size: 2.8rem;      /* ← 一行に収まるサイズのまま維持 */
@@ -144,7 +138,12 @@ header h1 {
       0 5px 14px rgba(0, 0, 0, 0.55),
       0 3px 6px rgba(0, 0, 0, 0.32);
 }
-
+/* ★ H1の2行目（サブタイトル）の見た目を調整 */
+.hero-sub {
+  font-size: 1.6rem;      /* 1行目より少し小さく */
+  font-weight: 500;       /* 太さは少し控えめに */
+  letter-spacing: 0.15em; /* カーニング気持ち広めで読みやすく */
+}
 
 /* キャッチコピー強調 */
 header .catchcopy {
@@ -979,7 +978,11 @@ header .catchcopy {
   <div>
     <div class="hero-title-wrap">
       <img src="images/KSB%20LOGO.jpg" alt="KSB Logo" class="hero-logo">
-      <h1>LPK KARYA SEJAHTERA BERSAMA | 技能実習生送り出し機関</h1>
+      <h1 class="hero-title">
+  LPK KARYA SEJAHTERA BERSAMA (KSB)<br>
+  <span class="hero-sub">技能実習生送り出し機関</span>
+</h1>
+
     </div>
 
  <p class="lang-ja catchcopy">〜未来へつながる確かな一歩を、KSBとともに〜</p>
