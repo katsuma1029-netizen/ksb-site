@@ -109,14 +109,15 @@ header {
   overflow: hidden;
 }
 
-/* 写真＋青グラデーションのレイヤー（ここをフェードさせる） */
+/* 写真＋グラデーションのレイヤー（ここをフェードさせる） */
 header::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  /* グラデーション + 写真（写真は --header-img で差し替える） */
+  /* 黒→青グラデーション＋写真 */
   background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
     var(--header-img);
 
@@ -130,6 +131,7 @@ header::before {
 
   z-index: 0;
 }
+
 
 /* 中身（ロゴや文字）は前面に出す */
 .header-inner {
