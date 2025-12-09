@@ -126,7 +126,7 @@ header::before {
 
   /* 不透明度をアニメーションさせる */
   opacity: var(--header-opacity, 1);
-  transition: opacity 2s ease-in-out;
+  transition: opacity 3.5s ease-in-out;
 
   z-index: 0;
 }
@@ -2122,12 +2122,12 @@ header .catchcopy {
         headerEl.style.setProperty("--header-opacity", "1");
 
         headerIndex = (headerIndex + 1) % headerImages.length;
-      }, 800); // 0.25秒後に切り替え（好みで調整OK）
+      }, 1200); // 0.25秒後に切り替え（好みで調整OK）
     }
 
     // スライドショー開始
     initHeaderSlide();
-    setInterval(updateHeaderBackground, 4000); // 7秒ごとにフェード切り替え
+    setInterval(updateHeaderBackground, 12000); // 7秒ごとにフェード切り替え
   </script>
 </body>
 </html>
