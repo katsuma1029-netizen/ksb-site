@@ -1,21 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- トップページ -->
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/</loc>
+    <loc>https://ksb-lpk.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
+
+  <!-- 会社情報など個別ページ -->
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/company.html</loc>
+    <loc>https://ksb-lpk.com/company.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/services.html</loc>
+    <loc>https://ksb-lpk.com/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/contact.html</loc>
+    <loc>https://ksb-lpk.com/news.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/news.html</loc>
+    <loc>https://ksb-lpk.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://katsuma1029-netizen.github.io/ksb-site/privacy.html</loc>
+    <loc>https://ksb-lpk.com/privacy.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
+
+  <url>
+    <loc>https://ksb-lpk.com/terms.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
