@@ -286,7 +286,7 @@ nav.sticky-nav {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 9999;                         /* 前面に出したいので少し大きめ */
+  z-index: 10000;                         /* 前面に出したいので少し大きめ */
   margin-top: 0;                         /* ← ここがポイント！ */
   border-top: none;                      /* 境目の線が要らなければ消す（お好み） */
   background: rgba(0, 57, 128, 0.98);
@@ -793,6 +793,7 @@ nav.sticky-nav {
   align-items: center;  /* 中央揃え */
   gap: 28px;
   margin-top: 24px;
+   z-index: 1;          /* ★ 追加：nav(10000) よりずっと小さく */
 }
 
 /* 中央の縦ライン */
@@ -818,7 +819,6 @@ nav.sticky-nav {
   border-radius: 14px;
   padding: 18px 20px;
   position: relative;
-  z-index: 2;
   margin: 0 auto;
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
