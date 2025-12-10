@@ -279,6 +279,22 @@ header .catchcopy {
       padding-top: 6px;
       overflow-x: auto;
     }
+    /* ▼ ←← この位置に追加する！ */
+
+nav.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 57, 128, 0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#nav-placeholder {
+  height: 0;
+}
+
     .nav-tabs {
       display: flex;
       gap: 18px;
@@ -1058,6 +1074,8 @@ header .catchcopy {
   </div>
 </div>
  
+<!-- ▼ 固定ナビ用のダミー領域（高さを後から入れる） -->
+      <div id="nav-placeholder"></div>
 
       <nav>
         <div class="nav-tabs">
@@ -2155,6 +2173,30 @@ const headerImages = [
     // スライドショー開始
     initHeaderSlide();
     setInterval(updateHeaderBackground, 5000); // 5秒ごとにフェード切り替え
+          // ===== スクロールでタブナビを上部固定 =====
+    const navEl = document.querySelector("nav");
+    const navPlaceholder = document.getElementById("nav-placeholder");
+
+    function handleScrollNav() {
+      const headerHeight = headerEl.offsetHeight;           // header 全体の高さ
+      const navHeight = navEl.offsetHeight;
+
+      // ヘッダー下端を超えたら固定
+      if (window.scrollY >= headerHeight - navHeight) {
+        if (!navEl.classList.contains("sticky-nav")) {
+          navEl.classList.add("sticky-nav");
+          navPlaceholder.style.height = navHeight + "px";  // レイアウトのズレ防止
+        }
+      } else {
+        if (navEl.classList.contains("sticky-nav")) {
+          navEl.classList.remove("sticky-nav");
+          navPlaceholder.style.height = "0";
+        }
+      }
+    }
+
+    window.addEventListener("scroll", handleScrollNav);
+
   </script>
 </body>
 </html>
