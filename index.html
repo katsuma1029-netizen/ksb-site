@@ -274,19 +274,21 @@ header .catchcopy {
 
 
     nav {
-      margin-top: 8px;
-      border-top: 1px solid #ffffff33;
-      padding-top: 6px;
-      overflow-x: auto;
-    }
-    /* ▼ ←← この位置に追加する！ */
+  margin-top: 8px;                       /* 通常時は今まで通り少し下げる */
+  border-top: 1px solid #ffffff33;
+  padding-top: 6px;
+  overflow-x: auto;
+}
 
+/* ★ sticky のときは margin-top を 0 にしてスキマを消す＋一番上に出す */
 nav.sticky-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 9999;                         /* 前面に出したいので少し大きめ */
+  margin-top: 0;                         /* ← ここがポイント！ */
+  border-top: none;                      /* 境目の線が要らなければ消す（お好み） */
   background: rgba(0, 57, 128, 0.98);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
@@ -294,6 +296,7 @@ nav.sticky-nav {
 #nav-placeholder {
   height: 0;
 }
+
 
     .nav-tabs {
       display: flex;
