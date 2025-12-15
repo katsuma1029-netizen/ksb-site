@@ -126,6 +126,8 @@
 .company-list li {
   margin-bottom: 3px;
 }
+/* 初期表示は日本語。JSが動く前の“チラ見え”を防ぐ */
+.lang-id { display: none; }
 
     :root {
       --main-blue: #0b4a8f;
@@ -1188,6 +1190,10 @@ nav.sticky-nav {
 
 
   </style>
+<!-- ヘッダー画像：事前読み込み（体感速度UP） -->
+<link rel="preload" as="image" href="images/KSBオフィス正面(ヘッダー).webp">
+<link rel="preload" as="image" href="images/KSB外観(ヘッダー).webp">
+<link rel="preload" as="image" href="images/授業風景(ヘッダー).webp">
   
 </head>
 <body>
@@ -2348,8 +2354,8 @@ nav.sticky-nav {
       tabs.forEach((tab) =>
         tab.classList.toggle("active", tab.dataset.section === id)
       );
-      const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
-window.scrollTo({ top: 0 + 0 - offset, behavior: "smooth" });
+const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
+window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
 
     }
 
@@ -2432,7 +2438,18 @@ const navPlaceholder = document.getElementById("nav-placeholder");
       }
     }
 
-    window.addEventListener("scroll", handleScrollNav);
+   let ticking = false;
+
+window.addEventListener("scroll", () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleScrollNav();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
 
   </script>
 </body>
