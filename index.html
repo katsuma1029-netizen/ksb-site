@@ -964,6 +964,28 @@ nav.sticky-nav {
   flex: 1;
   min-width: 260px;
 }
+
+/* ★左（日本）を主役に見せる */
+.contact-jp {
+  border-left: 6px solid var(--main-blue);
+  padding-left: 14px;
+}
+
+/* 補助（インドネシア側）は少し柔らかく */
+.contact-id {
+  border-left: 6px solid #e6e9ef;
+  padding-left: 14px;
+}
+
+/* ★スマホ：縦並び（上：日本 → 下：インドネシア）＋余白調整 */
+@media (max-width: 640px) {
+  .contact-flex {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+/* ▲▲ 電話番号レイアウトここまで ▲▲ */
+    
 /* ▲▲ 電話番号レイアウトここまで ▲▲ */
     /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
 /* ▼▼ ヘッダーSNSアイコン（大きく・言語切替の下に） ▼▼ */
@@ -2126,40 +2148,44 @@ nav.sticky-nav {
       </div>
 
       <div class="company-value">
-        <div class="contact-flex">
 
-         <!-- ▼ 左：KSBインドネシア -->
-<div class="contact-column">
-  <span class="lang-ja" style="font-weight:700;">【KSBインドネシア】</span>
-  <span class="lang-id" style="font-weight:700;">【KSB Indonesia】</span><br>
+         <div class="contact-flex">
 
-  <div>
-    <span class="lang-ja">オフィス：</span>
-    <span class="lang-id">Kantor:</span>
-    <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
-    <a href="tel:+62215376558" class="auto-link">021 537 6558</a>
+  <!-- ▼ 左：KSB日本（主・強調） -->
+  <div class="contact-column contact-jp">
+    <span class="lang-ja" style="font-weight:700;">【KSB日本】</span>
+    <span class="lang-id" style="font-weight:700;">【KSB Jepang】</span><br>
+
+    <div>
+      <span class="lang-ja">担当：</span>
+      <span class="lang-id">PIC:</span>
+      <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
+      <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
+    </div>
   </div>
 
-  <div>
-    <span class="lang-ja">Whatsapp：</span>
-    <span class="lang-id">Whatsapp:</span>
-    <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
-    <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+  <!-- ▼ 右：KSBインドネシア（補足） -->
+  <div class="contact-column contact-id">
+    <span class="lang-ja" style="font-weight:700;">【KSBインドネシア】</span>
+    <span class="lang-id" style="font-weight:700;">【KSB Indonesia】</span><br>
+
+    <div>
+      <span class="lang-ja">オフィス：</span>
+      <span class="lang-id">Kantor:</span>
+      <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
+      <a href="tel:+62215376558" class="auto-link">021 537 6558</a>
+    </div>
+
+    <div>
+      <span class="lang-ja">Whatsapp：</span>
+      <span class="lang-id">Whatsapp:</span>
+      <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
+      <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+    </div>
   </div>
+
 </div>
 
-
-          <!-- ▼ 右：KSB日本 -->
-          <div class="contact-column">
-            <span class="lang-ja" style="font-weight:700;">【KSB日本】</span>
-            <span class="lang-id" style="font-weight:700;">【KSB Jepang】</span><br>
-
-           <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
-<a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
-
-          </div>
-
-        </div>
       </div>
     </div>
 
