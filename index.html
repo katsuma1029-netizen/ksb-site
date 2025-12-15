@@ -126,8 +126,12 @@
 .company-list li {
   margin-bottom: 3px;
 }
-/* 初期表示は日本語。JSが動く前の“チラ見え”を防ぐ */
-.lang-id { display: none; }
+/* 言語切替は body の data-lang で制御（チラ見えも防げる） */
+body[data-lang="ja"] .lang-id { display: none !important; }
+body[data-lang="id"] .lang-ja { display: none !important; }
+
+/* もし data-lang が無い場合は日本語を既定に */
+body:not([data-lang]) .lang-id { display: none !important; }
 
     :root {
       --main-blue: #0b4a8f;
@@ -1196,7 +1200,8 @@ nav.sticky-nav {
 <link rel="preload" as="image" href="images/授業風景(ヘッダー).webp">
   
 </head>
-<body>
+<body data-lang="ja">
+
   <header>
     <div class="header-inner">
      <div class="brand-row">
@@ -2325,17 +2330,12 @@ nav.sticky-nav {
     const idElems = document.querySelectorAll(".lang-id");
 
     function setLanguage(lang) {
-      if (lang === "ja") {
-        jaElems.forEach((el) => (el.style.display = ""));
-        idElems.forEach((el) => (el.style.display = "none"));
-      } else {
-        jaElems.forEach((el) => (el.style.display = "none"));
-        idElems.forEach((el) => (el.style.display = ""));
-      }
-      langButtons.forEach((btn) =>
-        btn.classList.toggle("active", btn.dataset.lang === lang)
-      );
-    }
+  document.body.dataset.lang = lang; // ★表示はCSSに任せる
+  langButtons.forEach((btn) =>
+    btn.classList.toggle("active", btn.dataset.lang === lang)
+  );
+}
+
 
     langButtons.forEach((btn) => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
