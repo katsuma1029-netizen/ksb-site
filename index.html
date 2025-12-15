@@ -2384,7 +2384,7 @@ nav.sticky-nav {
     });
     // 初期表示：保存があればそれを優先、なければ日本語
 const savedLang = localStorage.getItem("ksb_lang") || "ja";
-      setLanguage("ja");
+     setLanguage(savedLang);
       
 // ★先に要素を取る（setSectionより前）
 const headerEl = document.querySelector("header");
