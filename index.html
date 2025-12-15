@@ -1224,6 +1224,12 @@ nav.sticky-nav {
 .phone-nowrap {
   white-space: nowrap;
 }
+.phone-inline{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;            /* アイコンと番号の間 */
+  white-space: nowrap; /* アイコン＋番号は絶対に分離しない */
+}
 
   </style>
   
@@ -2200,10 +2206,14 @@ nav.sticky-nav {
         <span class="lang-id">Telepon</span>
       </div>
       <div class="company-value">
-  <span class="lang-ja">担当：下野 浩二（日本窓口）</span>
-  <span class="lang-id">PIC: Japan Office </span>
-  <i class="fa-solid fa-phone" style="margin:0 6px 0 6px;"></i>
-  <a href="tel:+819038947779" class="auto-link phone-nowrap">090-3894-7779</a>
+ <span class="lang-ja">担当：下野 浩二（日本窓口）</span>
+<span class="lang-id">PIC: Japan Office </span>
+
+<span class="phone-inline">
+  <i class="fa-solid fa-phone"></i>
+  <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
+</span>
+
 
 </div>
     </div>
@@ -2232,8 +2242,11 @@ nav.sticky-nav {
   <div class="company-value">
     <span class="lang-ja">担当：Suradji（インドネシア窓口）</span>
     <span class="lang-id">PIC: Suradji (Indonesia)</span><br>
-    <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
-    <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+    <span class="phone-inline">
+  <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
+  <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+</span>
+
   </div>
 </div>
   </div>
