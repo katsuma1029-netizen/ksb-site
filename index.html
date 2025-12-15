@@ -16,7 +16,19 @@
   <!-- ▲▲ 追加ここまで ▲▲ -->
  <!-- ここを追加：正規URLの指定 -->
   <link rel="canonical" href="https://ksb-lpk.com/" />
-    
+ <!-- OGP / SNS preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LPK KSB">
+<meta property="og:title" content="LPK KARYA SEJAHTERA BERSAMA (KSB)｜インドネシア技能実習生送り出し機関">
+<meta property="og:description" content="インドネシアの技能実習生・特定技能の送り出し機関 KSB。農業・介護・建設など幅広い分野に対応し、日本企業向けサポートを提供しています。">
+<meta property="og:url" content="https://ksb-lpk.com/">
+<meta property="og:image" content="https://ksb-lpk.com/images/KSB%20LOGO.webp">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LPK KSB｜技能実習生・特定技能 送り出し機関">
+<meta name="twitter:description" content="インドネシアの技能実習生・特定技能の送り出し機関 KSB。日本企業向けサポートを提供。">
+<meta name="twitter:image" content="https://ksb-lpk.com/images/KSB%20LOGO.webp">
+   
 
   <!-- ▼ 構造化データ：KSB（送り出し機関 / 教育機関）の情報 ▼ -->
   <script type="application/ld+json">
@@ -42,8 +54,9 @@
     "areaServed": ["ID", "JP"],
     "knowsLanguage": ["ja", "id"],
     "sameAs": [
-      "https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55"
-    ],
+  "https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55",
+  "https://wa.me/6281901173052"
+],
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -173,10 +186,10 @@ header::before {
   inset: 0;
 
   /* 黒→青グラデーション＋写真 */
- background-image:
+background-image:
   linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
   linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
-  var(--header-img, url("images/KSBオフィス正面(ヘッダー).webp"));
+  var(--header-img);
 
   background-position: center top;
   background-size: cover;
@@ -1259,13 +1272,14 @@ nav.sticky-nav {
     </div>
 
     <div class="header-social">
-      <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank">
-        <i class="fa-brands fa-instagram" style="color:#E1306C;"></i>
-      </a>
+      <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-instagram" style="color:#E1306C;"></i>
+</a>
 
-      <a href="https://wa.me/6281901173052" target="_blank">
-        <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
-      </a>
+
+      <a href="https://wa.me/6281901173052" target="_blank" rel="noopener noreferrer">
+  <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
+</a>
     </div>
   </div>
 </div>
@@ -1273,7 +1287,8 @@ nav.sticky-nav {
 <!-- ▼ 固定ナビ用のダミー領域（高さを後から入れる） -->
       <div id="nav-placeholder"></div>
 
-      <nav>
+      <nav id="main-nav">
+
         <div class="nav-tabs">
           <div class="nav-tab active" data-section="home">
             <span class="lang-ja">トップ</span>
@@ -2181,10 +2196,11 @@ nav.sticky-nav {
         <span class="lang-id">Telepon</span>
       </div>
       <div class="company-value">
-        <span class="lang-ja">担当：</span><span class="lang-id">PIC:</span>
-        <i class="fa-solid fa-phone" style="margin:0 6px 0 6px;"></i>
-        <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
-      </div>
+  <span class="lang-ja">担当：下野 浩二（日本窓口）</span>
+  <span class="lang-id">PIC: Japan Office </span>
+  <i class="fa-solid fa-phone" style="margin:0 6px 0 6px;"></i>
+  <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
+</div>
     </div>
   </div>
 
@@ -2207,12 +2223,14 @@ nav.sticky-nav {
     </div>
 
     <div class="company-row">
-      <div class="company-label">WhatsApp</div>
-      <div class="company-value">
-        <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
-        <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
-      </div>
-    </div>
+  <div class="company-label">WhatsApp</div>
+  <div class="company-value">
+    <span class="lang-ja">担当：Suradji（インドネシア窓口）</span>
+    <span class="lang-id">PIC: Suradji (Indonesia)</span><br>
+    <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
+    <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+  </div>
+</div>
   </div>
 
 </div>
@@ -2222,8 +2240,9 @@ nav.sticky-nav {
   <div class="company-row">
     <div class="company-label">Email</div>
     <div class="company-value">
-      <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
-    </div>
+  <i class="fa-solid fa-envelope" style="margin-right:6px;"></i>
+  <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
+</div>
   </div>
 </div>  
 
@@ -2351,22 +2370,25 @@ nav.sticky-nav {
     const idElems = document.querySelectorAll(".lang-id");
 
     function setLanguage(lang) {
-  document.body.dataset.lang = lang; // ★表示はCSSに任せる
+  document.body.dataset.lang = lang;
+  localStorage.setItem("ksb_lang", lang);
   langButtons.forEach((btn) =>
     btn.classList.toggle("active", btn.dataset.lang === lang)
   );
 }
 
 
+
     langButtons.forEach((btn) => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
-    // 初期表示は日本語
-    setLanguage("ja");
+    // 初期表示：保存があればそれを優先、なければ日本語
+const savedLang = localStorage.getItem("ksb_lang") || "ja";
+      setLanguage("ja");
       
 // ★先に要素を取る（setSectionより前）
 const headerEl = document.querySelector("header");
-const navEl = document.querySelector("nav");
+const navEl = document.getElementById("main-nav");
 const navPlaceholder = document.getElementById("nav-placeholder");
       
     // ===== タブ切り替え =====
@@ -2382,6 +2404,10 @@ const navPlaceholder = document.getElementById("nav-placeholder");
       );
 const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
+
+// ★URLに状態を残す（共有・SEO補助）
+history.replaceState(null, "", "#" + id);
+
 
     }
 
