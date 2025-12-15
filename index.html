@@ -960,6 +960,22 @@ nav.sticky-nav {
       opacity: 0.7;
     }
 /* ▼▼ 電話番号レイアウト（左右2カラム） ▼▼ */
+    /* ===== 連絡先カード：PCは左右2カラム、スマホは縦 ===== */
+.contact-cards{
+  display: grid;
+  grid-template-columns: 1fr; /* デフォルトは縦 */
+  gap: 16px;
+}
+
+/* PC表示：左右に並べる（タブレット以上） */
+@media (min-width: 900px){
+  .contact-cards{
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+}
+
 .contact-flex {
   display: flex;
   gap: 40px;
@@ -2149,51 +2165,56 @@ nav.sticky-nav {
     data kandidat, atau konsultasi kerja sama dapat dilakukan melalui kontak di bawah ini.
   </p>
   
+  <!-- ★PCは左右並びにするラッパー（日本＋インドネシア） -->
+<div class="contact-cards">
+
   <!-- ★カード①：KSB日本（主） -->
-<div class="card company-card" style="margin-bottom:16px;">
-  <h3 style="margin:0 0 10px;">
-    <span class="lang-ja">【KSB日本】</span>
-    <span class="lang-id">【KSB Jepang】</span>
-  </h3>
+  <div class="card company-card" style="margin-bottom:0;">
+    <h3 style="margin:0 0 10px;">
+      <span class="lang-ja">【KSB日本】</span>
+      <span class="lang-id">【KSB Jepang】</span>
+    </h3>
 
-  <div class="company-row">
-    <div class="company-label">
-      <span class="lang-ja">電話番号</span>
-      <span class="lang-id">Telepon</span>
-    </div>
-    <div class="company-value">
-      <span class="lang-ja">担当：</span><span class="lang-id">PIC:</span>
-      <i class="fa-solid fa-phone" style="margin:0 6px 0 6px;"></i>
-      <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
-    </div>
-  </div>
-</div>
-
-<!-- ★カード②：KSBインドネシア（補） -->
-<div class="card company-card" style="margin-bottom:16px;">
-  <h3 style="margin:0 0 10px;">
-    <span class="lang-ja">【KSBインドネシア】</span>
-    <span class="lang-id">【KSB Indonesia】</span>
-  </h3>
-
-  <div class="company-row">
-    <div class="company-label">
-      <span class="lang-ja">オフィス</span>
-      <span class="lang-id">Kantor</span>
-    </div>
-    <div class="company-value">
-      <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
-      <a href="tel:+62215376558" class="auto-link">021 537 6558</a>
+    <div class="company-row">
+      <div class="company-label">
+        <span class="lang-ja">電話番号</span>
+        <span class="lang-id">Telepon</span>
+      </div>
+      <div class="company-value">
+        <span class="lang-ja">担当：</span><span class="lang-id">PIC:</span>
+        <i class="fa-solid fa-phone" style="margin:0 6px 0 6px;"></i>
+        <a href="tel:+819038947779" class="auto-link">090-3894-7779</a>
+      </div>
     </div>
   </div>
 
-  <div class="company-row">
-    <div class="company-label">WhatsApp</div>
-    <div class="company-value">
-      <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
-      <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+  <!-- ★カード②：KSBインドネシア（補） -->
+  <div class="card company-card" style="margin-bottom:0;">
+    <h3 style="margin:0 0 10px;">
+      <span class="lang-ja">【KSBインドネシア】</span>
+      <span class="lang-id">【KSB Indonesia】</span>
+    </h3>
+
+    <div class="company-row">
+      <div class="company-label">
+        <span class="lang-ja">オフィス</span>
+        <span class="lang-id">Kantor</span>
+      </div>
+      <div class="company-value">
+        <i class="fa-solid fa-phone" style="margin-right:6px;"></i>
+        <a href="tel:+62215376558" class="auto-link">021 537 6558</a>
+      </div>
+    </div>
+
+    <div class="company-row">
+      <div class="company-label">WhatsApp</div>
+      <div class="company-value">
+        <i class="fa-brands fa-whatsapp" style="color:#25D366; margin-right:6px;"></i>
+        <a href="https://wa.me/6281901173052" class="auto-link">+62 819 0117 3052</a>
+      </div>
     </div>
   </div>
+
 </div>
 
 <!-- ★カード③：Email（共通） -->
@@ -2342,7 +2363,12 @@ nav.sticky-nav {
     });
     // 初期表示は日本語
     setLanguage("ja");
-
+      
+// ★先に要素を取る（setSectionより前）
+const headerEl = document.querySelector("header");
+const navEl = document.querySelector("nav");
+const navPlaceholder = document.getElementById("nav-placeholder");
+      
     // ===== タブ切り替え =====
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
@@ -2364,8 +2390,7 @@ window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
     });
 
     // ===== ヘッダー背景スライドショー（フェード） =====
-    const headerEl = document.querySelector("header");
-
+   
     // スライドに使う画像（ファイル名は今のまま）
    // スライドに使う画像（PC用に表示位置もセット）
 const headerImages = [
@@ -2416,9 +2441,6 @@ const headerImages = [
     initHeaderSlide();
     setInterval(updateHeaderBackground, 5000); // 5秒ごとにフェード切り替え
          // ===== スクロールでタブナビを上部固定 =====
-// headerEl は上で定義済みなので再宣言しない
-const navEl = document.querySelector("nav");
-const navPlaceholder = document.getElementById("nav-placeholder");
 
     function handleScrollNav() {
       const headerHeight = headerEl.offsetHeight;           // header 全体の高さ
