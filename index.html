@@ -1234,6 +1234,74 @@ nav.sticky-nav {
   gap: 8px;            /* アイコンと番号の間 */
   white-space: nowrap; /* アイコン＋番号は絶対に分離しない */
 }
+/* =========================
+   事業内容カード：2 + 3 構成
+========================= */
+
+.service-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* 上段：メイン2枚 */
+.feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 下段：サブ3枚 */
+.sub-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* タブレット */
+@media (max-width: 900px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .sub-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* スマホ */
+@media (max-width: 640px) {
+  .sub-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* =========================
+   見出しの青ラインを
+   「資料感 → Webデザイン」に改善
+========================= */
+
+h2 {
+  position: relative;
+  color: var(--main-blue);
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 14px;          /* 少し余白を増やす */
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-left: none;           /* ← 資料感の原因を消す */
+}
+
+/* 左側のアクセントバー（Webデザイン用） */
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;                  /* 細め */
+  height: 70%;                 /* 文字高さに追従 */
+  border-radius: 999px;        /* 丸みでWeb感 */
+  background: linear-gradient(
+    180deg,
+    #0b4a8f,
+    #3f8bff
+  );
+}
 
   </style>
   
@@ -1356,88 +1424,62 @@ nav.sticky-nav {
       </div>
 
       <!-- ▼ 事業内容カード（写真付き） -->
-      <div class="grid">
-        <!-- 技能実習生送り出し -->
-        <div class="card">
-          <div class="service-photo">
-            <img src="images/技能実習生送り出し.webp" alt="技能実習生送り出し" loading="lazy" width="1200" height="800">
 
-          </div>
-          <h3 class="lang-ja">技能実習生送り出し</h3>
-          <h3 class="lang-id">Pengiriman Pemagang Teknis</h3>
-          <p class="lang-ja">
-            日本企業と連携し、技術習得を目的とした技能実習生を育成・送り出しています。
-          </p>
-          <p class="lang-id">
-            Kami bekerja sama dengan perusahaan Jepang untuk menyiapkan dan
-            mengirim pemagang yang siap belajar teknik dan cara kerja di Jepang.
-          </p>
-        </div>
+<!-- 上段：メインサービス（2枚） -->
+<div class="service-grid feature-grid">
 
-        <!-- 特定技能サポート -->
-        <div class="card">
-          <div class="service-photo">
-            <img src="images/特定技能サポート.webp" alt="特定技能サポート" loading="lazy">
-          </div>
-          <h3 class="lang-ja">特定技能サポート</h3>
-          <h3 class="lang-id">Dukungan Tokutei Ginou</h3>
-          <p class="lang-ja">
-            特定技能の取得支援、面接調整、渡航前後のフォローアップを行っています。
-          </p>
-          <p class="lang-id">
-            Kami membantu proses Tokutei Ginou: persiapan dokumen, latihan
-            wawancara, serta pendampingan sebelum dan sesudah berangkat。
-          </p>
-        </div>
+  <div class="card service-card">
+    <img src="images/技能実習生送り出し.webp" alt="技能実習生送り出し" loading="lazy">
+    <h3>技能実習生送り出し</h3>
+    <p>
+      日本企業と連携し、技術習得を目的とした技能実習生の育成から
+      送り出しまでを一貫してサポートします。
+    </p>
+  </div>
 
-        <!-- 語学留学 -->
-        <div class="card">
-          <div class="service-photo">
-            <img src="images/語学留学.webp" alt="語学留学" loading="lazy">
-          </div>
-          <h3 class="lang-ja">語学留学</h3>
-          <h3 class="lang-id">Studi Bahasa ke Jepang</h3>
-          <p class="lang-ja">
-            日本で学びたい若者へ、語学学校の紹介から手続きまでをトータルサポートします。
-          </p>
-          <p class="lang-id">
-            Untuk yang ingin belajar di Jepang, kami membantu pemilihan sekolah
-            bahasa dan mengurus proses pendaftaran hingga keberangkatan。
-          </p>
-        </div>
+  <div class="card service-card">
+    <img src="images/特定技能サポート.webp" alt="特定技能サポート" loading="lazy">
+    <h3>特定技能サポート</h3>
+    <p>
+      特定技能の取得支援、面接調整、渡航前後のフォローアップまで
+      トータルで対応します。
+    </p>
+  </div>
 
-        <!-- 日本への就職斡旋 -->
-        <div class="card">
-          <div class="service-photo">
-            <img src="images/就職斡旋.webp" alt="日本への就職斡旋" loading="lazy">
-          </div>
-          <h3 class="lang-ja">日本への就職斡旋</h3>
-          <h3 class="lang-id">Penyaluran Kerja ke Jepang</h3>
-          <p class="lang-ja">
-            企業ニーズに合った人材をご紹介し、安定したキャリア形成をサポートします。
-          </p>
-          <p class="lang-id">
-            Kami menyalurkan kandidat yang sesuai kebutuhan perusahaan Jepang
-            dan mendukung terbentuknya karier jangka panjang yang stabil。
-          </p>
-        </div>
+</div>
 
-        <!-- 日本語学校（教育センター） -->
-        <div class="card">
-          <div class="service-photo">
-            <img src="images/日本語学校.webp" alt="日本語学校（教育センター）" loading="lazy">
-          </div>
-          <h3 class="lang-ja">日本語学校（教育センター）</h3>
-          <h3 class="lang-id">Sekolah Bahasa Jepang (Training Center)</h3>
-          <p class="lang-ja">
-            N5〜N3レベルの日本語教育を提供し、実習・就職に必要な日本語力とマナーを身につけます。
-          </p>
-          <p class="lang-id">
-            Kami mengajarkan bahasa Jepang level N5–N3 serta kebiasaan kerja di
-            Jepang, sehingga peserta siap untuk kerja maupun studi。
-          </p>
-        </div>
-      </div>
+<!-- 下段：サブサービス（3枚） -->
+<div class="service-grid sub-grid">
+
+  <div class="card service-card">
+    <img src="images/語学留学.webp" alt="語学留学" loading="lazy">
+    <h3>語学留学</h3>
+    <p>
+      日本で学びたい若者へ、語学学校の紹介から
+      各種手続きまでをサポートします。
+    </p>
+  </div>
+
+  <div class="card service-card">
+    <img src="images/日本への就職斡旋.webp" alt="日本への就職斡旋" loading="lazy">
+    <h3>日本への就職斡旋</h3>
+    <p>
+      企業ニーズに合った人材をご紹介し、
+      安定したキャリア形成を支援します。
+    </p>
+  </div>
+
+  <div class="card service-card">
+    <img src="images/日本語学校.webp" alt="日本語学校" loading="lazy">
+    <h3>日本語学校（教育センター）</h3>
+    <p>
+      N5〜N3レベルの日本語教育を提供し、
+      実習・就労に必要な語学力とマナーを育成します。
+    </p>
+  </div>
+
+</div>
+
 
       <br />
 
