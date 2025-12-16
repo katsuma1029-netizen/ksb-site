@@ -1291,6 +1291,16 @@ h2 {
 
 /* 左側のアクセントバー（Webデザイン用） */
 h2::before {
+  /* ★ no-leftbar が付いた h2 だけ、左の青バー（h2::before）を消す */
+h2.no-leftbar::before {
+  content: none;
+}
+
+/* ★ 左バー用に確保していた余白も消す（必要なら） */
+h2.no-leftbar {
+  padding-left: 0;
+}
+
   content: "";
   position: absolute;
   left: 0;
@@ -1425,8 +1435,9 @@ h2::before {
   <main class="container">
         <!-- トップ：事業内容＋強み -->
     <section id="home" class="page-section active">
-      <h2 class="lang-ja">事業内容｜インドネシア技能実習生・特定技能送り出し</h2>
-<h2 class="lang-id">Layanan KSB untuk Pemagang Teknis & Tokutei Ginou</h2>
+      <h2 class="lang-ja no-leftbar">事業内容｜インドネシア技能実習生・特定技能送り出し</h2>
+<h2 class="lang-id no-leftbar">Layanan KSB untuk Pemagang Teknis & Tokutei Ginou</h2>
+
 
 
       <div class="card soft" style="margin-bottom: 20px;">
@@ -1524,9 +1535,8 @@ h2::before {
       <br />
 
       <!-- ▼ KSBの強み -->
-      <h2 class="lang-ja">KSBの強み｜技能実習生・特定技能サポートの特徴</h2>
-<h2 class="lang-id">Keunggulan KSB dalam Pengiriman Pemagang & Tokutei Ginou</h2>
-
+      <h2 class="lang-ja no-leftbar">KSBの強み｜技能実習生・特定技能サポートの特徴</h2>
+<h2 class="lang-id no-leftbar">Keunggulan KSB dalam Pengiriman Pemagang & Tokutei Ginou</h2>
 
       <div class="grid">
         <div class="card soft strength-card" 
@@ -1594,9 +1604,8 @@ h2::before {
     <section id="about" class="page-section">
 
     <!-- ★ KSBの想い：サブタイトル（h2扱い） -->
-    <h2 class="lang-ja about-intro-title">KSBの想い｜インドネシア人材と日本企業をつなぐ使命</h2>
-<h2 class="lang-id about-intro-title">Komitmen KSB: Menjembatani Talenta Indonesia & Perusahaan Jepang</h2>
-
+<h2 class="lang-ja about-intro-title no-leftbar">KSBの想い｜インドネシア人材と日本企業をつなぐ使命</h2>
+<h2 class="lang-id about-intro-title no-leftbar">Komitmen KSB: Menjembatani Talenta Indonesia & Perusahaan Jepang</h2>
 
     <div class="about-intro-card">
 
