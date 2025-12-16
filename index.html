@@ -1070,7 +1070,7 @@ nav.sticky-nav {
   margin-bottom: 14px;
   font-size: 1.6rem;                 /* 少し大きくして主役感UP */
   border-left: 4px solid #ff4b6a;
-  padding-left: 18px; !important;
+ padding-left: 18px !important;
   display: inline-block;
   position: relative;
 }
@@ -1078,9 +1078,6 @@ nav.sticky-nav {
 .about-intro-title::after {
   content: none;
 }
-
-
-    
 
 /* 上部の小さなタイトル行 */
 .about-intro-header {
@@ -1313,7 +1310,7 @@ h2 {
   color: var(--main-blue);
   margin-top: 0;
   margin-bottom: 20px;
-  padding-left: 28px; !important;
+  padding-left: 28px !important;
   font-size: 1.4rem;
   font-weight: 700;
   border-left: none; /* 古い border-left は使わない */
@@ -1344,6 +1341,12 @@ h2.no-leftbar {
 /* ★ home セクションの説明カード左ラインを消す */
 #home .card:not(.strength-card)::before {
   content: none !important;
+}
+/* 見出し内の区切り「｜」の余白調整 */
+.h2-sep{
+  display: inline-block;
+  margin: 0 12px;   /* ← ここで広さ調整（8〜16くらいが無難） */
+  opacity: 0.9;
 }
 
   </style>
@@ -1444,7 +1447,7 @@ h2.no-leftbar {
   <main class="container">
         <!-- トップ：事業内容＋強み -->
     <section id="home" class="page-section active">
-      <h2 class="lang-ja no-leftbar">事業内容｜インドネシア技能実習生・特定技能送り出し</h2>
+      <h2 class="lang-ja no-leftbar">事業内容<span class="h2-sep">｜</span>インドネシア技能実習生・特定技能送り出し</h2>
 <h2 class="lang-id no-leftbar">Layanan KSB untuk Pemagang Teknis & Tokutei Ginou</h2>
 
 
@@ -1544,7 +1547,7 @@ h2.no-leftbar {
       <br />
 
       <!-- ▼ KSBの強み -->
-      <h2 class="lang-ja no-leftbar">KSBの強み｜技能実習生・特定技能サポートの特徴</h2>
+      <h2 class="lang-ja no-leftbar">KSBの強み<span class="h2-sep">｜</span>技能実習生・特定技能サポートの特徴</h2>
 <h2 class="lang-id no-leftbar">Keunggulan KSB dalam Pengiriman Pemagang & Tokutei Ginou</h2>
 
       <div class="grid">
@@ -1613,7 +1616,7 @@ h2.no-leftbar {
     <section id="about" class="page-section">
 
     <!-- ★ KSBの想い：サブタイトル（h2扱い） -->
-<h2 class="lang-ja about-intro-title no-leftbar">KSBの想い｜インドネシア人材と日本企業をつなぐ使命</h2>
+<h2 class="lang-ja about-intro-title no-leftbar">KSBの想い<span class="h2-sep">｜</span>インドネシア人材と日本企業をつなぐ使命</h2>
 <h2 class="lang-id about-intro-title no-leftbar">Komitmen KSB: Menjembatani Talenta Indonesia & Perusahaan Jepang</h2>
 
     <div class="about-intro-card">
