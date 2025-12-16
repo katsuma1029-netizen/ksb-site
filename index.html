@@ -810,43 +810,6 @@ nav.sticky-nav {
   }
 }
     
-/* ▼▼ ここから KSBの強み：背景写真カードのCSS ▼▼ */
-#home .strength-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #fff;
-  z-index: 0;   /* ここを追加：KSBの強みカードをナビより背面に固定 */
-}
-
-/* 背景写真 */
-#home .strength-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: var(--bg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.35;  /* ←写真の薄さ（調整可能 0.15〜0.35） */
-  z-index: 1;
-}
-
-/* 読みやすさのための白い半透明レイヤー */
-#home .strength-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.55);
-  z-index: 2;
-}
-
-/* テキストを最前面に */
-#home .strength-card > * {
-  position: relative;
-  z-index: 3;
-}
-/* ▲▲ ここまで背景写真カード用CSS ▲▲ */
 /* ▼▼ 送り出しの流れ（フローチャート中央揃えデザイン） ▼▼ */
 .flow-section {
   margin-top: 40px;
@@ -1574,21 +1537,101 @@ h2.no-leftbar {
       <h2 class="lang-ja">KSBの強み<span class="h2-sep">｜</span>技能実習生・特定技能サポートの特徴</h2>
 <h2 class="lang-id no-leftbar">Keunggulan KSB dalam Pengiriman Pemagang & Tokutei Ginou</h2>
 
-      <div class="grid">
-        <div class="card soft strength-card" 
-          style="--bg: url('images/日本国内常駐担当者の配置.webp');">
-  <h3 class="lang-ja">1. 日本国内常駐担当者の配置</h3>
-  <h3 class="lang-id">1. Staf Tetap di Jepang</h3>
-  <p class="lang-ja">
-    組合様との円滑なコミュニケーションのため、日本国内に駐在事務所を設置し、
-    日本人担当者を配置しております。
-  </p>
-  <p class="lang-id">
-    Untuk komunikasi yang lancar dengan koperasi dan perusahaan di
-    Jepang, kami memiliki kantor perwakilan dan staf Jepang yang
-    selalu siap membantu。
-  </p>
+      <div class="strength-grid">
+
+  <!-- 1 -->
+  <div class="strength-item">
+    <div class="strength-head">
+      <div class="strength-icon" aria-hidden="true">
+        <i class="fa-solid fa-building"></i>
+      </div>
+      <div>
+        <h3 class="strength-title lang-ja">1. 日本国内常駐担当者の配置</h3>
+        <h3 class="strength-title lang-id">1. Staf Tetap di Jepang</h3>
+      </div>
+    </div>
+
+    <p class="strength-text lang-ja">
+      組合様との円滑なコミュニケーションのため、日本国内に駐在事務所を設置し、
+      日本人担当者を配置しております。
+    </p>
+    <p class="strength-text lang-id">
+      Untuk komunikasi yang lancar dengan koperasi dan perusahaan di Jepang,
+      kami memiliki kantor perwakilan dan staf Jepang。
+    </p>
+  </div>
+
+  <!-- 2 -->
+  <div class="strength-item">
+    <div class="strength-head">
+      <div class="strength-icon" aria-hidden="true">
+        <i class="fa-solid fa-users"></i>
+      </div>
+      <div>
+        <h3 class="strength-title lang-ja">2. 豊富なリソース</h3>
+        <h3 class="strength-title lang-id">2. Sumber Kandidat yang Luas</h3>
+      </div>
+    </div>
+
+    <p class="strength-text lang-ja">
+      地元政府の職業訓練所、労働局や高専と協力関係を結び、ニーズにお応えできる
+      候補者をご紹介出来ます。
+    </p>
+    <p class="strength-text lang-id">
+      Kami bekerja sama dengan BLK, dinas tenaga kerja, dan lembaga
+      pendidikan setempat sehingga dapat menyediakan kandidat sesuai
+      kebutuhan perusahaan。
+    </p>
+  </div>
+
+  <!-- 3 -->
+  <div class="strength-item">
+    <div class="strength-head">
+      <div class="strength-icon" aria-hidden="true">
+        <i class="fa-solid fa-chalkboard-user"></i>
+      </div>
+      <div>
+        <h3 class="strength-title lang-ja">3. 高品質な日本語教育</h3>
+        <h3 class="strength-title lang-id">3. Pendidikan Bahasa Jepang Berkualitas</h3>
+      </div>
+    </div>
+
+    <p class="strength-text lang-ja">
+      経験豊富な日本語検定２級（N2）以上の資格を持った日本語教師が常勤しており、
+      教育の質を高めるため日本人教師によるレビューも行っています。
+    </p>
+    <p class="strength-text lang-id">
+      Pengajar kami berpengalaman dan memiliki sertifikat JLPT minimal
+      N2. Materi dan kemajuan belajar juga direview oleh guru orang
+      Jepang。
+    </p>
+  </div>
+
+  <!-- 4 -->
+  <div class="strength-item">
+    <div class="strength-head">
+      <div class="strength-icon" aria-hidden="true">
+        <i class="fa-solid fa-certificate"></i>
+      </div>
+      <div>
+        <h3 class="strength-title lang-ja">4. 送り出し機関としての認証取得</h3>
+        <h3 class="strength-title lang-id">4. Lembaga Resmi Terakreditasi</h3>
+      </div>
+    </div>
+
+    <p class="strength-text lang-ja">
+      全てのLPKがインドネシア労働省から送り出し機関として認証されているわけではありません。
+      KSBはインドネシア労働省から正規の送り出し機関として認定されています。
+    </p>
+    <p class="strength-text lang-id">
+      Tidak semua LPK memiliki izin sebagai lembaga pengirim resmi.
+      KSB telah terdaftar dan diakui secara resmi oleh Kementerian
+      Ketenagakerjaan Indonesia。
+    </p>
+  </div>
+
 </div>
+
 
        <div class="card soft strength-card" style="--bg: url('images/豊富なリソース.webp');">
   <h3 class="lang-ja">2. 豊富なリソース</h3>
@@ -1861,6 +1904,66 @@ h2.no-leftbar {
     </p>
   </div>
 </div>
+/* =========================
+   KSBの強み（アイコン＋写真なし）
+========================= */
+.strength-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* PCは2列 */
+  gap: 16px;
+}
+
+@media (max-width: 900px){
+  .strength-grid{
+    grid-template-columns: 1fr; /* タブレット以下は1列 */
+  }
+}
+
+.strength-item{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  padding: 18px 18px 16px;
+}
+
+.strength-head{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.strength-icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-shadow: 0 8px 18px rgba(11, 74, 143, 0.18);
+}
+
+.strength-icon i{
+  font-size: 20px;
+}
+
+.strength-title{
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.strength-text{
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #333;
+}
+      
 <!-- ▼▼ 送り出しの流れ（Flow） ▼▼ -->
 <div class="flow-section">
  <h2 class="lang-ja">送り出しの流れ｜面接から日本入国まで</h2>
