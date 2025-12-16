@@ -1299,6 +1299,66 @@ h2.no-leftbar {
   margin: 0 12px;   /* ← ここで広さ調整（8〜16くらいが無難） */
   opacity: 0.9;
 }
+/* =========================
+   KSBの強み（アイコン＋写真なし）
+========================= */
+.strength-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 900px){
+  .strength-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.strength-item{
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.85);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+}
+
+.strength-head{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.strength-icon{
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  box-shadow: 0 8px 18px rgba(11, 74, 143, 0.18);
+}
+
+.strength-icon i{
+  font-size: 20px;
+}
+
+.strength-title{
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.strength-text{
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #333;
+}
 
   </style>
   
@@ -1862,65 +1922,6 @@ h2.no-leftbar {
     </p>
   </div>
 </div>
-/* =========================
-   KSBの強み（アイコン＋写真なし）
-========================= */
-.strength-grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* PCは2列 */
-  gap: 16px;
-}
-
-@media (max-width: 900px){
-  .strength-grid{
-    grid-template-columns: 1fr; /* タブレット以下は1列 */
-  }
-}
-
-.strength-item{
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-  padding: 18px 18px 16px;
-}
-
-.strength-head{
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.strength-icon{
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
-  box-shadow: 0 8px 18px rgba(11, 74, 143, 0.18);
-}
-
-.strength-icon i{
-  font-size: 20px;
-}
-
-.strength-title{
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.35;
-}
-
-.strength-text{
-  margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.75;
-  color: #333;
-}
       
 <!-- ▼▼ 送り出しの流れ（Flow） ▼▼ -->
 <div class="flow-section">
