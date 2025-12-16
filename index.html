@@ -392,14 +392,7 @@ nav.sticky-nav {
       margin: 0 auto;
       padding: 32px 16px;
     }
-    h2 {
-      color: var(--main-blue);
-      margin-top: 0;
-      margin-bottom: 16px;
-      font-size: 1.4rem;
-      border-left: 4px solid var(--main-blue);
-      padding-left: 8px;
-    }
+    
     h3 { margin-top: 0; font-size: 1.1rem; }
     p { margin: 0 0 10px; font-size: 0.95rem; }
 
@@ -1278,43 +1271,10 @@ nav.sticky-nav {
    「資料感 → Webデザイン」に改善
 ========================= */
 
-h2 {
-  position: relative;
-  color: var(--main-blue);
-  margin-top: 0;
-  margin-bottom: 20px;
-  padding-left: 14px;          /* 少し余白を増やす */
-  font-size: 1.4rem;
-  font-weight: 700;
-  border-left: none;           /* ← 資料感の原因を消す */
-}
+
 
 /* 左側のアクセントバー（Webデザイン用） */
-h2::before {
-  /* ★ no-leftbar が付いた h2 だけ、左の青バー（h2::before）を消す */
-h2.no-leftbar::before {
-  content: none;
-}
 
-/* ★ 左バー用に確保していた余白も消す（必要なら） */
-h2.no-leftbar {
-  padding-left: 0;
-}
-
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;                  /* 細め */
-  height: 70%;                 /* 文字高さに追従 */
-  border-radius: 999px;        /* 丸みでWeb感 */
-  background: linear-gradient(
-    180deg,
-    #0b4a8f,
-    #3f8bff
-  );
-}
 /* メイン2枚は写真を少し大きく、サブ3枚は少し控えめ */
 .feature-grid .service-card .service-photo{
   height: 200px;
@@ -1335,6 +1295,62 @@ h2.no-leftbar {
   font-size: 0.92rem;
   line-height: 1.75;
   color: #333;
+}
+/* ★ no-leftbar のh2だけ、見出し左バー（h2::before）を強制OFF */
+h2.no-leftbar::before {
+  content: none !important;
+}
+
+/* ★ no-leftbar のh2は、左余白も消す */
+h2.no-leftbar {
+  padding-left: 0 !important;
+}
+/* ★ homeセクション内カードの左ラインを消す（説明文カードなど） */
+#home .card:not(.strength-card)::before {
+  content: none !important;
+}
+
+/* =========================
+   見出し（h2）左ライン制御【最終版】
+========================= */
+
+/* 通常の h2（左ラインあり） */
+h2 {
+  position: relative;
+  color: var(--main-blue);
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-left: none; /* 古い border-left は使わない */
+}
+
+/* 左側の青アクセントバー */
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 70%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
+}
+
+/* ★ no-leftbar が付いた h2 だけ左ラインを消す */
+h2.no-leftbar::before {
+  content: none !important;
+}
+
+/* ★ no-leftbar の余白も消す */
+h2.no-leftbar {
+  padding-left: 0 !important;
+}
+/* ★ home セクションの説明カード左ラインを消す */
+#home .card:not(.strength-card)::before {
+  content: none !important;
 }
 
   </style>
