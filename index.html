@@ -448,12 +448,12 @@ nav.sticky-nav {
       box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
     }
 
-    /* トップ内の見出しはボックスの中で少しだけ強調 */
-    #home h2 {
-      border-left: 4px solid var(--main-blue);
-      padding-left: 8px;
-      margin-top: 0;
-    }
+   /* トップ内の見出し */
+#home h2 {
+  border-left: 4px solid var(--main-blue);
+  padding-left: 18px;   /* ← 8px → 18px に変更（ここが効く） */
+  margin-top: 0;
+}
 
     /* トップ内のカードは他セクションより少しリッチに */
     #home .card {
@@ -1070,7 +1070,7 @@ nav.sticky-nav {
   margin-bottom: 14px;
   font-size: 1.6rem;                 /* 少し大きくして主役感UP */
   border-left: 4px solid #ff4b6a;
-  padding-left: 28px; !important;
+  padding-left: 18px; !important;
   display: inline-block;
   position: relative;
 }
