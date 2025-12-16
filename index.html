@@ -16,6 +16,10 @@
   <!-- ▲▲ 追加ここまで ▲▲ -->
  <!-- ここを追加：正規URLの指定 -->
   <link rel="canonical" href="https://ksb-lpk.com/" />
+  <link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="ja" />
+<link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="id" />
+<link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="x-default" />
+
  <!-- OGP / SNS preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LPK KSB">
@@ -1356,7 +1360,8 @@ nav.sticky-nav {
         <!-- 技能実習生送り出し -->
         <div class="card">
           <div class="service-photo">
-            <img src="images/技能実習生送り出し.webp" alt="技能実習生送り出し" loading="lazy">
+            <img src="images/技能実習生送り出し.webp" alt="技能実習生送り出し" loading="lazy" width="1200" height="800">
+
           </div>
           <h3 class="lang-ja">技能実習生送り出し</h3>
           <h3 class="lang-id">Pengiriman Pemagang Teknis</h3>
@@ -2369,7 +2374,7 @@ nav.sticky-nav {
       </p>
 
       <div class="footer-social">
-        <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank">
+        <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-instagram"></i>
         </a>
         <a href="https://wa.me/6281901173052" target="_blank">
@@ -2410,6 +2415,15 @@ const navEl = document.getElementById("main-nav");
 const navPlaceholder = document.getElementById("nav-placeholder");
       
     // ===== タブ切り替え =====
+      // ===== 初期表示：URLハッシュがあればそのセクションを開く =====
+window.addEventListener("load", () => {
+  const hash = (location.hash || "").replace("#", "");
+  const valid = ["home", "about", "trainees", "gallery", "contact"];
+  if (valid.includes(hash)) {
+    setSection(hash);
+  }
+});
+
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
 
