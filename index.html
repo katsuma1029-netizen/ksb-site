@@ -16,10 +16,7 @@
   <!-- ▲▲ 追加ここまで ▲▲ -->
  <!-- ここを追加：正規URLの指定 -->
   <link rel="canonical" href="https://ksb-lpk.com/" />
-  <link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="ja" />
-<link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="id" />
-<link rel="alternate" href="https://ksb-lpk.com/#home" hreflang="x-default" />
-
+ 
  <!-- OGP / SNS preview -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="LPK KSB">
@@ -427,20 +424,26 @@ nav.sticky-nav {
       background: var(--light-bg);
       box-shadow: none;
     }
-        /* 事業内容カードの写真用 */
-    .service-photo {
-      margin: -18px -16px 10px;
-      height: 150px;
-      overflow: hidden;
-      border-radius: 16px 16px 0 0;
-    }
+      /* =========================
+   事業内容カード（service-card）写真
+   - 写真をカード上部の“ヘッダー”として統一
+   - 画像比率の違いを object-fit: cover で吸収
+========================= */
+.service-card .service-photo{
+  margin: -18px -16px 12px; /* .card の padding(18px 16px) と整合 */
+  height: 170px;            /* 写真の主張は170がバランス良い（好みで150でもOK） */
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  background: #eef3fb;      /* 画像読み込み前の下地（チラつき防止） */
+}
 
-    .service-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+.service-card .service-photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
     #home {
@@ -1302,6 +1305,27 @@ h2::before {
     #3f8bff
   );
 }
+/* メイン2枚は写真を少し大きく、サブ3枚は少し控えめ */
+.feature-grid .service-card .service-photo{
+  height: 200px;
+}
+
+.sub-grid .service-card .service-photo{
+  height: 160px;
+}
+/* 事業内容カードの文字リズム（service-card専用） */
+.service-card h3{
+  margin: 6px 0 8px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.service-card p{
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #333;
+}
 
   </style>
   
@@ -1429,22 +1453,27 @@ h2::before {
 <div class="service-grid feature-grid">
 
   <div class="card service-card">
+  <div class="service-photo">
     <img src="images/技能実習生送り出し.webp" alt="技能実習生送り出し" loading="lazy">
-    <h3>技能実習生送り出し</h3>
-    <p>
-      日本企業と連携し、技術習得を目的とした技能実習生の育成から
-      送り出しまでを一貫してサポートします。
-    </p>
   </div>
+  <h3>技能実習生送り出し</h3>
+  <p>
+    日本企業と連携し、技術習得を目的とした技能実習生の育成から
+    送り出しまでを一貫してサポートします。
+  </p>
+</div>
+
 
   <div class="card service-card">
+  <div class="service-photo">
     <img src="images/特定技能サポート.webp" alt="特定技能サポート" loading="lazy">
-    <h3>特定技能サポート</h3>
-    <p>
-      特定技能の取得支援、面接調整、渡航前後のフォローアップまで
-      トータルで対応します。
-    </p>
   </div>
+  <h3>特定技能サポート</h3>
+  <p>
+    特定技能の取得支援、面接調整、渡航前後のフォローアップまで
+    トータルで対応します。
+  </p>
+</div>
 
 </div>
 
@@ -1452,31 +1481,41 @@ h2::before {
 <div class="service-grid sub-grid">
 
   <div class="card service-card">
+  <div class="service-photo">
     <img src="images/語学留学.webp" alt="語学留学" loading="lazy">
-    <h3>語学留学</h3>
-    <p>
-      日本で学びたい若者へ、語学学校の紹介から
-      各種手続きまでをサポートします。
-    </p>
   </div>
+  <h3>語学留学</h3>
+  <p>
+    日本で学びたい若者へ、語学学校の紹介から
+    各種手続きまでをサポートします。
+  </p>
+</div>
+
 
   <div class="card service-card">
+  <div class="service-photo">
     <img src="images/日本への就職斡旋.webp" alt="日本への就職斡旋" loading="lazy">
-    <h3>日本への就職斡旋</h3>
-    <p>
-      企業ニーズに合った人材をご紹介し、
-      安定したキャリア形成を支援します。
-    </p>
   </div>
+  <h3>日本への就職斡旋</h3>
+  <p>
+    企業ニーズに合った人材をご紹介し、
+    安定したキャリア形成を支援します。
+  </p>
+</div>
 
-  <div class="card service-card">
+
+<div class="card service-card">
+  <div class="service-photo">
     <img src="images/日本語学校.webp" alt="日本語学校" loading="lazy">
-    <h3>日本語学校（教育センター）</h3>
-    <p>
-      N5〜N3レベルの日本語教育を提供し、
-      実習・就労に必要な語学力とマナーを育成します。
-    </p>
   </div>
+  <h3>日本語学校（教育センター）</h3>
+  <p>
+    N5〜N3レベルの日本語教育を提供し、
+    実習・就労に必要な語学力とマナーを育成します。
+  </p>
+</div>
+
+
 
 </div>
 
