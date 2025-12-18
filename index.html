@@ -285,10 +285,18 @@ header h1 {
   width: auto;
   flex-shrink: 0;
 }
-/* タイトルを1行に固定 */
+/* デフォルトは1行固定（超ワイドPC向け） */
 .hero-title-wrap h1 {
   white-space: nowrap;
 }
+
+/* ★PC半分幅〜タブレット横くらいでは折り返しOK（見切れ防止） */
+@media (max-width: 1100px) {
+  .hero-title-wrap h1 {
+    white-space: normal;
+  }
+}
+
 
 /* スマホ調整 */
 @media (max-width: 640px) {
