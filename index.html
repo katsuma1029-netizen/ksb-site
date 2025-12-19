@@ -193,19 +193,26 @@ header::before {
   position: absolute;
   inset: 0;
 
-  /* 黒→青グラデーション＋写真 */
-background-image:
-  linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-  linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
-  var(--header-img, url("images/ogp-header.webp"));
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+    linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
+    var(--header-img, url("images/ogp-header.webp"));
 
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
 
-  /* 不透明度をアニメーションさせる */
   opacity: var(--header-opacity, 1);
-  transition: opacity 3.5s ease-in-out;
+
+  /* ★追加：微ズーム用（初期は等倍） */
+  transform: scale(var(--header-scale, 1));
+  transform-origin: center;
+
+  /* ★差し替え：opacity と transform を同時にアニメーション */
+  transition: opacity 3.5s ease-in-out, transform 5s ease-in-out;
+
+  /* ★追加：GPU最適化（カクつき防止） */
+  will-change: opacity, transform;
 
   z-index: 0;
 }
@@ -333,7 +340,8 @@ header h1 {
 @media (min-width: 900px) {
   header::before {
     /* JS から渡す --header-pos を使う。指定が無ければ今まで通り center top */
-    background-position: var(--header-pos, center top);
+   background-position: var(--header-pos, center top);
+
   }
 }
 
@@ -2716,29 +2724,41 @@ const headerImages = [
     let headerIndex = 0;
 
    function initHeaderSlide() {
-  // 最初の1枚目をセット
   const first = headerImages[0];
   headerEl.style.setProperty("--header-img", `url("${first.src}")`);
-  headerEl.style.setProperty("--header-pos", first.pos);  // ★PC のときだけ効く
+  headerEl.style.setProperty("--header-pos", first.pos);
   headerEl.style.setProperty("--header-opacity", "1");
-  headerIndex = 1; // 次は2枚目から
+
+  // ★追加：ズーム初期化（等倍スタート→少し拡大へ）
+  headerEl.style.setProperty("--header-scale", "1");
+  requestAnimationFrame(() => {
+    headerEl.style.setProperty("--header-scale", "1.06");
+  });
+
+  headerIndex = 1;
 }
 
-
-    function updateHeaderBackground() {
-  // ① いったん薄くする
+function updateHeaderBackground() {
+  // ① フェードアウト＋ズームを戻す（次の画像のズーム準備）
   headerEl.style.setProperty("--header-opacity", "0");
+  headerEl.style.setProperty("--header-scale", "1");
 
-  // ② 少し待ってから画像と位置を変えて、また濃くする
+  // ② 画像差し替え後にフェードイン＋ズーム開始
   setTimeout(() => {
     const item = headerImages[headerIndex];
     headerEl.style.setProperty("--header-img", `url("${item.src}")`);
-    headerEl.style.setProperty("--header-pos", item.pos); // ★PC用位置
+    headerEl.style.setProperty("--header-pos", item.pos);
     headerEl.style.setProperty("--header-opacity", "1");
+
+    // ★追加：フェードイン後にゆっくり拡大
+    requestAnimationFrame(() => {
+      headerEl.style.setProperty("--header-scale", "1.06");
+    });
 
     headerIndex = (headerIndex + 1) % headerImages.length;
   }, 1400);
 }
+
 
 
     // スライドショー開始
