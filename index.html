@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" id="html-root">
 <head>
   <meta name="google-site-verification" content="kzyQCrpb1OKKvnoqwlbzT69Xj1tu1oKxU4tLNWKx6Kg" />
   <meta charset="UTF-8" />
@@ -11,6 +11,13 @@
   <title>LPK KARYA SEJAHTERA BERSAMA (KSB)｜インドネシア技能実習生送り出し機関</title>
   <meta name="description" content="インドネシアの技能実習生・特定技能の送り出し機関 KSB。農業・介護・建設など幅広い分野に対応し、日本企業向けサポートを提供しています。">
 
+<!-- ★外部CDNの接続を先読み（Font Awesomeが少し速くなる） -->
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+<!-- ★モバイルのアドレスバー色（見た目/UX） -->
+<meta name="theme-color" content="#003980">
+
+  
    <!-- ▼▼ ここに Font Awesome を追加 ▼▼ -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- ▲▲ 追加ここまで ▲▲ -->
@@ -772,8 +779,13 @@ nav.sticky-nav {
     }
 
 
-    .page-section { display: none; }
-    .page-section.active { display: block; }
+    /* ★JSなしの環境（初期）は全部見せる：クローラ対策 */
+.page-section { display: block; }
+
+/* ★JSが有効になったらタブ方式に切替 */
+body.js-enabled .page-section { display: none; }
+body.js-enabled .page-section.active { display: block; }
+
 
     @media (max-width: 900px) {
       .stats-hero {
@@ -1443,8 +1455,8 @@ h2.no-leftbar {
   <!-- 右側：言語切替 + SNSアイコン（縦並び） -->
   <div class="header-right">
     <div class="lang-switch">
-      <button class="lang-btn active" data-lang="ja">日本語</button>
-      <button class="lang-btn" data-lang="id">Bahasa Indonesia</button>
+      <button class="lang-btn active" data-lang="ja" aria-pressed="true" type="button">日本語</button>
+<button class="lang-btn" data-lang="id" aria-pressed="false" type="button">Bahasa Indonesia</button>
     </div>
 
     <div class="header-social">
@@ -1726,9 +1738,6 @@ h2.no-leftbar {
   </div>
 
 </div>
-
-
-      </div>
     </section>
 
 
@@ -2614,14 +2623,28 @@ h2.no-leftbar {
     const langButtons = document.querySelectorAll(".lang-btn");
     const jaElems = document.querySelectorAll(".lang-ja");
     const idElems = document.querySelectorAll(".lang-id");
+      // ★追加：JSが動いている時だけタブ表示を有効化
+document.body.classList.add("js-enabled");
+
 
     function setLanguage(lang) {
   document.body.dataset.lang = lang;
   localStorage.setItem("ksb_lang", lang);
+
+  // ★追加：htmlのlangも切替（アクセシビリティ改善）
+  document.documentElement.lang = (lang === "id") ? "id" : "ja";
+
+  // ボタンの見た目
   langButtons.forEach((btn) =>
     btn.classList.toggle("active", btn.dataset.lang === lang)
   );
+
+  // ★追加：スクリーンリーダー向け状態
+  langButtons.forEach((btn) =>
+    btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang))
+  );
 }
+
 
 
 
