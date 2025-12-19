@@ -392,25 +392,33 @@ header h1 {
 
 
     nav {
-  margin-top: 8px;                       /* 通常時は今まで通り少し下げる */
+  margin-top: 8px;
   border-top: 1px solid #ffffff33;
   padding-top: 6px;
   overflow-x: auto;
 }
 
-/* ★ sticky のときは margin-top を 0 にしてスキマを消す＋一番上に出す */
+/* ★追加：ナビの中身を「header-innerと同じ幅」で中央に固定 */
+nav .nav-inner{
+  max-width: 1100px;   /* header-inner と同じ */
+  margin: 0 auto;
+  padding: 0 16px;     /* container と同じ感覚の左右余白 */
+}
+
+/* ★ sticky のとき */
 nav.sticky-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10000;                         /* 前面に出したいので少し大きめ */
-  margin-top: 0;                         /* ← ここがポイント！ */
-  padding-left: 10px;         /* ←★ これを追加するだけ！ 左に少し余白を作る */
-  border-top: none;                      /* 境目の線が要らなければ消す（お好み） */
+  z-index: 10000;
+  margin-top: 0;
+  /* padding-left: 10px;  ← これは不要なので削除（左寄り感の原因を助長） */
+  border-top: none;
   background: rgba(0, 57, 128, 0.98);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 #nav-placeholder {
   height: 0;
@@ -1484,7 +1492,7 @@ h2.no-leftbar {
       <div id="nav-placeholder"></div>
 
       <nav id="main-nav">
-
+<div class="nav-inner">
         <div class="nav-tabs">
           <div class="nav-tab active" data-section="home">
             <span class="lang-ja">トップ</span>
