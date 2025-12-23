@@ -254,28 +254,35 @@ header h1 {
 
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
-  font-size: 2.2rem;          /* ★少し大きく */
+  font-size: 2.6rem;          /* ★ 2.2 → 2.6（思想として一段上） */
   font-weight: 900;
-  margin: 16px 0 8px;
-  display: block;             /* ★同じ行に並ばない（下に落とす） */
-  letter-spacing: 0.04em;
-  text-shadow: 0 5px 16px rgba(0,0,0,0.45);
+  margin: 20px 0 10px;        /* ★ 少し余白を増やして“格”を出す */
+  display: block;
+  letter-spacing: 0.06em;     /* ★ ほんの少し広げて高級感 */
+  text-shadow: 0 6px 18px rgba(0,0,0,0.50);
 
-  /* ★楕円(帯)をやめる */
+  /* 楕円（帯）は無しのまま */
   padding: 0;
   border-radius: 0;
   background: transparent;
   border: none;
+
+  position: relative;
 }
 
-
-/* スマホ調整 */
-@media (max-width: 640px) {
-  .hero-catch { 
-    font-size: 1.5rem; 
-    margin: 12px 0 6px;
-  }
+/* ★ サブタイトル下に“思想ライン”を追加（控えめに目立つ） */
+.hero-catch::after{
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  margin-top: 10px;
+  background: linear-gradient(to right,
+    rgba(255,255,255,0.9),
+    rgba(255,255,255,0.25)
+  );
 }
+
 
 /* 認定バッジ（ここが目立つポイント） */
 .hero-cert{
@@ -336,7 +343,7 @@ header h1 {
     font-size: 2rem;
   }
   
-  .hero-catch { font-size: 1.05rem; }
+  .hero-catch { font-size: 1.25rem; }
   .hero-cert  { font-size: 0.82rem; padding: 6px 12px; }
   .hero-desc  { font-size: 0.92rem; }
   
