@@ -2804,20 +2804,30 @@ window.addEventListener("load", () => {
   // ★追加：現在セクションをbodyに保持（CSSでトップ以外判定に使う）
   document.body.dataset.section = id;
 
+   // ★homeに戻る時は「先に」stickyを確実に解除（たまに残る問題の対策）
+  if (id === "home") {
+    navEl.classList.remove("sticky-nav");
+    navPlaceholder.style.height = "0";
+  }
+
   // スクロール挙動：
   // - トップ(home)はヘッダー基準
-  // - それ以外はページ先頭（Stickyナビが見える位置）へ
+  // - それ以外はページ先頭へ
   const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 
   if (id === "home") {
-    window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" }); // homeは最上部へ（安定）
   } else {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   // ★URLに状態を残す（共有用）
   history.replaceState(null, "", "#" + id);
+
+  // ★念のためスクロール開始後にもsticky判定を再実行（取りこぼし防止）
+  requestAnimationFrame(handleScrollNav);
 }
+
 handleScrollNav(); // ★追加：タブ切替直後にsticky判定を即更新
 
 
