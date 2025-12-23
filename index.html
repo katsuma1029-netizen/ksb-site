@@ -407,12 +407,16 @@ header h1 {
 }
 
 
-    nav {
+nav {
   margin-top: 8px;
   border-top: 1px solid #ffffff33;
   padding-top: 6px;
   overflow-x: auto;
+
+  /* ★追加：非sticky時も常に同じ青にする（白チラつき防止） */
+  background: rgba(0, 57, 128, 0.98);
 }
+
 
 /* ★追加：ナビの中身を「header-innerと同じ幅」で中央に固定 */
 nav .nav-inner{
@@ -2814,6 +2818,7 @@ window.addEventListener("load", () => {
   // ★URLに状態を残す（共有用）
   history.replaceState(null, "", "#" + id);
 }
+handleScrollNav(); // ★追加：タブ切替直後にsticky判定を即更新
 
 
     tabs.forEach((tab) => {
@@ -2896,11 +2901,15 @@ function updateHeaderBackground() {
           navPlaceholder.style.height = navHeight + "px";  // レイアウトのズレ防止
         }
       } else {
-        if (navEl.classList.contains("sticky-nav")) {
-          navEl.classList.remove("sticky-nav");
-          navPlaceholder.style.height = "0";
-        }
-      }
+  // ★追加：home以外はstickyを外さない（タブ切替直後の白チラつき防止）
+  if (document.body.dataset.section === "home") {
+    if (navEl.classList.contains("sticky-nav")) {
+      navEl.classList.remove("sticky-nav");
+      navPlaceholder.style.height = "0";
+    }
+  }
+}
+
     }
 
    let ticking = false;
