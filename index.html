@@ -254,12 +254,26 @@ header h1 {
 
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
-  font-size: 1.45rem;
-  font-weight: 700;
-  margin: 12px 0 10px;
-  display: block;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  font-size: 1.9rem;          /* ★大きく */
+  font-weight: 800;
+  margin: 14px 0 12px;
+  display: inline-block;      /* ★“見出しっぽく” */
+  letter-spacing: 0.03em;     /* ★品よく */
+  text-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  padding: 6px 12px;          /* ★まとまり感 */
+  border-radius: 999px;       /* ★サブタイトルの“帯”感 */
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.20);
 }
+
+/* スマホ調整 */
+@media (max-width: 640px) {
+  .hero-catch { 
+    font-size: 1.25rem; 
+    padding: 5px 10px;
+  }
+}
+
 
 /* 認定バッジ（ここが目立つポイント） */
 .hero-cert{
@@ -1448,8 +1462,8 @@ h2.no-leftbar {
     </div>
 
 <!-- キャッチコピー（サブタイトル） -->
-<p class="hero-catch lang-ja">Attitude for Success</p>
-<p class="hero-catch lang-id">Attitude for Success</p>
+<p class="hero-catch lang-ja">～ Attitude for Success ～</p>
+<p class="hero-catch lang-id">～ Attitude for Success ～</p>
 
 <!-- 認定バッジ（目立たせる） -->
 <div class="hero-cert lang-ja">【インドネシア労働省認定 正規送り出し機関】</div>
@@ -1529,8 +1543,9 @@ h2.no-leftbar {
     <span class="about-intro-tag lang-id">Prinsip Pendidikan</span>
   </div>
 
-  <h3 class="lang-ja" style="margin-top:0;">Attitude for Success</h3>
-  <h3 class="lang-id" style="margin-top:0;">Attitude for Success</h3>
+  <h3 class="lang-ja" style="margin-top:0;">Attitude for Success とは</h3>
+<h3 class="lang-id" style="margin-top:0;">Apa itu Attitude for Success?</h3>
+
 
   <p class="lang-ja">
     Attitude for Success とは、日本で働く上で必要となる
