@@ -1494,9 +1494,17 @@ nav.sticky-nav .nav-right{
 }
 
 /* nav内のSNSアイコンを少し小さく（ヘッダーより控えめに） */
-.nav-social i{
-  font-size: 22px;
+/* =========================
+   Stickyナビ内 SNSアイコン色を固定
+========================= */
+.nav-social .fa-instagram {
+  color: #E1306C;
 }
+
+.nav-social .fa-whatsapp {
+  color: #25D366;
+}
+
 
 /* nav内の言語ボタンを少し小さめに */
 body[data-section]:not([data-section="home"]) .lang-btn,
@@ -1504,6 +1512,16 @@ nav.sticky-nav .lang-btn{
   width: 84px;
   height: 30px;
   font-size: 0.72rem;
+}
+/* SNSアイコン間の余白を広げる */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;   /* ← ここがポイント（12〜16pxがおすすめ） */
+}
+.nav-social a {
+  padding: 4px;          /* タップ領域を広げる */
+  display: inline-flex;
 }
 
   </style>
