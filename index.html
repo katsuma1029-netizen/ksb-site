@@ -254,35 +254,26 @@ header h1 {
 
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
-  font-size: 2.6rem;          /* ★ 2.2 → 2.6（思想として一段上） */
+  font-size: 2.6rem;
   font-weight: 900;
-  margin: 20px 0 10px;        /* ★ 少し余白を増やして“格”を出す */
-  display: block;
-  letter-spacing: 0.06em;     /* ★ ほんの少し広げて高級感 */
-  text-shadow: 0 6px 18px rgba(0,0,0,0.50);
+  margin: 20px 0 10px;
 
-  /* 楕円（帯）は無しのまま */
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  border: none;
+  display: inline-block;     /* ★文字幅だけにする */
+  letter-spacing: 0.06em;
+
+  /* ★影を2段にして「思想の格」を出す */
+  text-shadow:
+    0 8px 22px rgba(0,0,0,0.55),
+    0 0 18px rgba(255,255,255,0.15);
 
   position: relative;
 }
 
+
 /* ★ サブタイトル下に“思想ライン”を追加（控えめに目立つ） */
 .hero-catch::after{
-  content: "";
-  display: block;
-  width: 120px;
-  height: 3px;
-  margin-top: 10px;
-  background: linear-gradient(to right,
-    rgba(255,255,255,0.9),
-    rgba(255,255,255,0.25)
-  );
+  content: none;
 }
-
 
 /* 認定バッジ（ここが目立つポイント） */
 .hero-cert{
