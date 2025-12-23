@@ -254,31 +254,33 @@ header h1 {
 
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
-  font-size: 1.9rem;          /* ★大きく */
-  font-weight: 800;
-  margin: 14px 0 12px;
-  display: inline-block;      /* ★“見出しっぽく” */
-  letter-spacing: 0.03em;     /* ★品よく */
-  text-shadow: 0 4px 14px rgba(0,0,0,0.35);
-  padding: 6px 12px;          /* ★まとまり感 */
-  border-radius: 999px;       /* ★サブタイトルの“帯”感 */
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.20);
+  font-size: 2.2rem;          /* ★少し大きく */
+  font-weight: 900;
+  margin: 16px 0 8px;
+  display: block;             /* ★同じ行に並ばない（下に落とす） */
+  letter-spacing: 0.04em;
+  text-shadow: 0 5px 16px rgba(0,0,0,0.45);
+
+  /* ★楕円(帯)をやめる */
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
 }
+
 
 /* スマホ調整 */
 @media (max-width: 640px) {
   .hero-catch { 
-    font-size: 1.25rem; 
-    padding: 5px 10px;
+    font-size: 1.5rem; 
+    margin: 12px 0 6px;
   }
 }
 
-
 /* 認定バッジ（ここが目立つポイント） */
 .hero-cert{
-  display: inline-block;
-  margin: 6px 0 12px;
+  display: block;             /* ★必ずサブタイトルの下へ */
+  margin: 0 0 12px;
   padding: 6px 14px;
   font-size: 0.88rem;
   font-weight: 800;
@@ -287,7 +289,9 @@ header h1 {
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.55);
   box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  width: fit-content;         /* ★長さは中身に合わせる */
 }
+
 
 /* 説明（メリハリを出すため少し控えめ） */
 .hero-desc{
