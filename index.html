@@ -453,6 +453,28 @@ nav.sticky-nav {
       border-bottom: 2px solid transparent;
       color: #f3f3f3;
     }
+    /* =========================
+   トップ（非sticky）のタブだけ見やすくする
+========================= */
+body[data-section="home"] nav:not(.sticky-nav){
+  background: #ffffff;
+  border-top: none;
+  border-bottom: 1px solid #e8eef7;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* トップ（非sticky）は文字を濃く */
+body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
+  color: #243447;          /* 濃いグレー/ネイビー寄り */
+}
+
+/* トップ（非sticky）のアクティブは今の赤を活かす */
+body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 700;
+}
+
     .nav-tab.active {
       border-bottom-color: var(--accent);
       color: var(--accent);
@@ -1485,7 +1507,7 @@ nav.sticky-nav .lang-btn{
 <link rel="preload" as="image" href="images/ogp-header.webp">
   
 </head>
-<body data-lang="ja">
+<body data-lang="ja" data-section="home">
 
   <header>
     <div class="header-inner">
