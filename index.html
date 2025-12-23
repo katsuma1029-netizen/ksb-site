@@ -1429,6 +1429,55 @@ h2.no-leftbar {
   line-height: 1.75;
   color: #333;
 }
+/* =========================
+   STEP3: トップ以外はヒーロー（header）を非表示
+   ※ body の data-section を使って判定する
+========================= */
+body[data-section]:not([data-section="home"]) header {
+  display: none;
+}
+
+/* =========================
+   STEP3: nav内 右側（言語＋SNS）レイアウト
+========================= */
+
+/* nav-innerを左右に分ける（左：タブ / 右：言語+SNS） */
+nav .nav-inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* 右側ブロック（nav-right）は普段は隠す */
+.nav-right{
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ★トップ以外は常に表示（about/trainees/gallery/contact） */
+body[data-section]:not([data-section="home"]) .nav-right{
+  display: flex;
+}
+
+/* ★トップでも、stickyになった時だけ表示（スクロール後） */
+nav.sticky-nav .nav-right{
+  display: flex;
+}
+
+/* nav内のSNSアイコンを少し小さく（ヘッダーより控えめに） */
+.nav-social i{
+  font-size: 22px;
+}
+
+/* nav内の言語ボタンを少し小さめに */
+body[data-section]:not([data-section="home"]) .lang-btn,
+nav.sticky-nav .lang-btn{
+  width: 84px;
+  height: 30px;
+  font-size: 0.72rem;
+}
 
   </style>
   
@@ -1499,39 +1548,57 @@ h2.no-leftbar {
     </div>
   </div>
 </div>
- 
-<!-- ▼ 固定ナビ用のダミー領域（高さを後から入れる） -->
+     </div>
+  </header>
+ <!-- ▼ 固定ナビ用のダミー領域（高さを後から入れる） -->
       <div id="nav-placeholder"></div>
 
       <nav id="main-nav">
-<div class="nav-inner">
-        <div class="nav-tabs">
-          <div class="nav-tab active" data-section="home">
-            <span class="lang-ja">トップ</span>
-            <span class="lang-id">Beranda</span>
-          </div>
-          <div class="nav-tab" data-section="about">
-            <span class="lang-ja">KSBについて</span>
-            <span class="lang-id">Tentang KSB</span>
-          </div>
-          <div class="nav-tab" data-section="trainees">
-            <span class="lang-ja">実績・分野</span>
-            <span class="lang-id">Rekam Jejak</span>
-          </div>
-              <div class="nav-tab" data-section="gallery">
-      <span class="lang-ja">ギャラリー</span>
-      <span class="lang-id">Galeri</span>
+  <div class="nav-inner">
+
+    <div class="nav-tabs">
+      <div class="nav-tab active" data-section="home">
+        <span class="lang-ja">トップ</span>
+        <span class="lang-id">Beranda</span>
+      </div>
+      <div class="nav-tab" data-section="about">
+        <span class="lang-ja">KSBについて</span>
+        <span class="lang-id">Tentang KSB</span>
+      </div>
+      <div class="nav-tab" data-section="trainees">
+        <span class="lang-ja">実績・分野</span>
+        <span class="lang-id">Rekam Jejak</span>
+      </div>
+      <div class="nav-tab" data-section="gallery">
+        <span class="lang-ja">ギャラリー</span>
+        <span class="lang-id">Galeri</span>
+      </div>
+      <div class="nav-tab" data-section="contact">
+        <span class="lang-ja">アクセス・連絡先</span>
+        <span class="lang-id">Akses & Kontak</span>
+      </div>
     </div>
 
-          <div class="nav-tab" data-section="contact">
-            <span class="lang-ja">アクセス・連絡先</span>
-            <span class="lang-id">Akses & Kontak</span>
-          </div>
-        </div>
-       </div>
-      </nav>
+    <!-- ★Stickyナビに表示する：言語切替＋SNS -->
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="ja" aria-pressed="true" type="button">日本語</button>
+        <button class="lang-btn" data-lang="id" aria-pressed="false" type="button">Bahasa Indonesia</button>
+      </div>
+
+      <div class="header-social nav-social">
+        <a href="https://www.instagram.com/ksb_lpk?igsh=OGhkYmRiZmN3am55" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/6281901173052" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
-  </header>
+
+  </div>
+</nav>
+
 
   <main class="container">
    
@@ -2677,6 +2744,9 @@ document.body.classList.add("js-enabled");
     // 初期表示：保存があればそれを優先、なければ日本語
 const savedLang = localStorage.getItem("ksb_lang") || "ja";
      setLanguage(savedLang);
+      // ★追加：初期セクションはhome扱い
+document.body.dataset.section = "home";
+
       
 // ★先に要素を取る（setSectionより前）
 const headerEl = document.querySelector("header");
@@ -2697,20 +2767,31 @@ window.addEventListener("load", () => {
     const sections = document.querySelectorAll(".page-section");
 
     function setSection(id) {
-      sections.forEach((sec) =>
-        sec.classList.toggle("active", sec.id === id)
-      );
-      tabs.forEach((tab) =>
-        tab.classList.toggle("active", tab.dataset.section === id)
-      );
-const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
-window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
+  sections.forEach((sec) =>
+    sec.classList.toggle("active", sec.id === id)
+  );
+  tabs.forEach((tab) =>
+    tab.classList.toggle("active", tab.dataset.section === id)
+  );
 
-// ★URLに状態を残す（共有・SEO補助）
-history.replaceState(null, "", "#" + id);
+  // ★追加：現在セクションをbodyに保持（CSSでトップ以外判定に使う）
+  document.body.dataset.section = id;
 
+  // スクロール挙動：
+  // - トップ(home)はヘッダー基準
+  // - それ以外はページ先頭（Stickyナビが見える位置）へ
+  const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 
-    }
+  if (id === "home") {
+    window.scrollTo({ top: headerEl.offsetTop - offset, behavior: "smooth" });
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ★URLに状態を残す（共有用）
+  history.replaceState(null, "", "#" + id);
+}
+
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
