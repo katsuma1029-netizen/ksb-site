@@ -1070,12 +1070,17 @@ body.js-enabled .page-section.active { display: block; }
 }
 
 .header-social {
-  display: flex;
-  gap: 16px;
-  margin-top: 4px;
- justify-content: center;  /* ★ ここだけ変更：右寄せ → 中央寄せ */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 言語ボタン2つと同じ分割 */
+  margin-top: 6px;
   width: 100%;
 }
+
+.header-social a {
+  display: flex;
+  justify-content: center; /* 各カラム中央 */
+}
+
 
 .header-social a i {
   font-size: 38px;  /* アイコンの大きさ */
