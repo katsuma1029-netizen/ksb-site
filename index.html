@@ -453,27 +453,28 @@ nav.sticky-nav {
       border-bottom: 2px solid transparent;
       color: #f3f3f3;
     }
-    /* =========================
-   トップ（非sticky）のタブだけ見やすくする
+ /* =========================
+   トップ（非sticky）もStickyと同じ色に統一
 ========================= */
 body[data-section="home"] nav:not(.sticky-nav){
-  background: #ffffff;
+  background: rgba(0, 57, 128, 0.98); /* Stickyと同系色 */
   border-top: none;
-  border-bottom: 1px solid #e8eef7;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border-bottom: none;
+  box-shadow: none; /* 上の青帯をスッキリさせる */
 }
 
-/* トップ（非sticky）は文字を濃く */
+/* 文字色は白に */
 body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
-  color: #243447;          /* 濃いグレー/ネイビー寄り */
+  color: #f3f3f3;
 }
 
-/* トップ（非sticky）のアクティブは今の赤を活かす */
+/* アクティブはアクセント（ピンク） */
 body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
   color: var(--accent);
   border-bottom-color: var(--accent);
-  font-weight: 700;
+  font-weight: 600; /* Sticky時と揃えるなら600 */
 }
+
 
     .nav-tab.active {
       border-bottom-color: var(--accent);
