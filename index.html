@@ -408,12 +408,13 @@ header h1 {
 
 
 nav {
-  margin-top: 0;                 /* ★隙間を消す */
-  border-top: 1px solid #ffffff22; /* ★区切りは“青の中で”うっすら */
-  padding-top: 0;                /* ★余白も消して一体化 */
+  margin-top: 8px;
+  border-top: 1px solid #ffffff33;
+  padding: 8px 0;              /* ★ 追加：上下の余白を均一に */
   overflow-x: auto;
   background: rgba(0, 57, 128, 0.98);
 }
+
 
 
 /* ★追加：ナビの中身を「header-innerと同じ幅」で中央に固定 */
@@ -449,12 +450,14 @@ nav.sticky-nav {
       font-size: 0.9rem;
       white-space: nowrap;
     }
-    .nav-tab {
-      cursor: pointer;
-      padding: 4px 0;
-      border-bottom: 2px solid transparent;
-      color: #f3f3f3;
-    }
+   .nav-tab {
+  cursor: pointer;
+  padding: 8px 0;              /* ★ 4px → 8px（高さに余裕） */
+  border-bottom: 2px solid transparent;
+  color: #f3f3f3;
+  line-height: 1.2;            /* ★ 行の詰まりを安定させる */
+}
+
  /* =========================
    トップ（非sticky）もStickyと同じ色に統一
 ========================= */
