@@ -2810,6 +2810,8 @@ const navPlaceholder = document.getElementById("nav-placeholder");
     // ===== タブ切り替え =====
       // ===== 初期表示：URLハッシュがあればそのセクションを開く =====
 window.addEventListener("load", () => {
+  handleScrollNav(); // ★先に状態更新（高さ計算のズレ防止）
+
   const hash = (location.hash || "").replace("#", "");
   const valid = ["home", "about", "trainees", "gallery", "contact"];
   if (valid.includes(hash)) {
@@ -2817,10 +2819,22 @@ window.addEventListener("load", () => {
   }
 });
 
+
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
+    // ★追加：スクロール追従を一時停止するフラグ（タブクリック時の暴れ防止）
+let suppressObserver = false;
+let suppressTimer = null;
+  
 
    function setSection(id) {
+       // ★追加：タブクリック直後はObserverを一時停止（スムーズスクロール中のactiveブレ防止）
+  suppressObserver = true;
+  clearTimeout(suppressTimer);
+  suppressTimer = setTimeout(() => {
+    suppressObserver = false;
+  }, 900);
+
   // ✅ タブの見た目だけを切替（セクションは消さない）
   tabs.forEach((tab) =>
     tab.classList.toggle("active", tab.dataset.section === id)
@@ -2859,6 +2873,39 @@ handleScrollNav();
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
+// ===== スクロールでタブactiveを自動追従（大手サイト風） =====
+function setActiveTabOnly(id) {
+  if (!id) return;
+  tabs.forEach((tab) => tab.classList.toggle("active", tab.dataset.section === id));
+  // ★ここでは data-section と URL は触らない（クリック時だけ setSection が管理）
+}
+
+
+const observedIds = ["home", "about", "trainees", "gallery", "contact"];
+
+// 画面の「中央付近」に入ったセクションを現在地として採用する設定
+const io = new IntersectionObserver((entries) => {
+  if (suppressObserver) return;
+
+  const visibles = entries
+    .filter(e => e.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+  if (!visibles.length) return;
+
+  const id = visibles[0].target.id;
+  setActiveTabOnly(id);
+}, {
+  root: null,
+  // ★ここが肝：中央付近で判定
+  rootMargin: "-35% 0px -55% 0px",
+  threshold: [0.1, 0.2, 0.35, 0.5, 0.65, 0.8]
+});
+
+observedIds.forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) io.observe(el);
+});
 
     // ===== ヘッダー背景スライドショー（フェード） =====
    
