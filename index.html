@@ -867,10 +867,25 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
     }
 
 
-   /* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
+/* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
 .page-section{
   display: block;
+
+  /* ★追加：セクション境界の余白を均一に広くする */
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
+
+/* ★最初のセクション（トップ）だけ上は詰める（好みで） */
+#home.page-section{
+  padding-top: 32px;
+}
+
+/* ★最後のセクション（連絡先）がフッターと近い場合に備えて少し調整（好みで） */
+#contact.page-section{
+  padding-bottom: 48px;
+}
+
 
 /* （互換のため残してもOKだが、もう使わない）
 body.js-enabled .page-section { display: block; }
