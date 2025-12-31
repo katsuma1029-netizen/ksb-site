@@ -262,14 +262,14 @@ header h1 {
 
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
+  color: #fff; /* ★追加：p{color:#222}に負けない */
   font-size: 2.6rem;
   font-weight: 900;
   margin: 20px 0 10px;
 
-  display: inline-block;     /* ★文字幅だけにする */
+  display: inline-block;
   letter-spacing: 0.10em;
 
-  /* ★影を2段にして「思想の格」を出す */
   text-shadow:
     0 8px 22px rgba(0,0,0,0.55),
     0 0 18px rgba(255,255,255,0.15);
@@ -301,6 +301,7 @@ header h1 {
 
 /* 説明（メリハリを出すため少し控えめ） */
 .hero-desc{
+  color: #fff; /* ★追加：p{color:#222}に負けない */
   margin: 0 0 10px;
   font-size: 0.95rem;
   line-height: 1.7;
@@ -370,11 +371,13 @@ header h1 {
 }
 
 
-    header p {
-      margin: 0;
-      font-size: 0.88rem;
-      opacity: 0.9;
-    }
+   header p {
+  margin: 0;
+  font-size: 0.88rem;
+  opacity: 0.9;
+  color: #fff; /* ★追加：ヘッダー内のpは常に白 */
+}
+
 
     .lang-switch {
   display: flex;
