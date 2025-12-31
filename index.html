@@ -154,17 +154,19 @@ body[data-lang="id"] .lang-ja { display: none !important; }
 /* もし data-lang が無い場合は日本語を既定に */
 body:not([data-lang]) .lang-id { display: none !important; }
 
-    :root {
+ :root {
   --main-blue: #0b4a8f;
   --light-bg: #f7f9fc;
   --border: #e0e0e0;
   --accent: #ff4b6a;
   --accent-soft: #ffe3ea;
 
-  /* ★追加：セクション背景を交互にするため */
-  --section-bg-a: #ffffff;
-  --section-bg-b: #f6f8fc;
+  /* ★A案：全セクション背景をトップと同系統の薄い青に統一 */
+  --section-bg-a: linear-gradient(135deg, #f7f9fc, #eef4ff);
+  --section-bg-b: linear-gradient(135deg, #f7f9fc, #eef4ff);
 }
+
+
 
     * { box-sizing: border-box; }
     body {
@@ -521,11 +523,12 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 
     /* ===== 全体レイアウト ===== */
-  .container {
+ .container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 16px; /* ★縦paddingは section で管理する */
+  padding: 18px 16px; /* ★上下にも少し余白（丸角が映える） */
 }
+
 
     
     h3 { margin-top: 0; font-size: 1.1rem; }
@@ -575,16 +578,19 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
    #home {
-  background: linear-gradient(135deg, #f7f9fc, #eef4ff);
-  border-radius: 20px;
+  /* ★共通化したので home 側は背景/丸角/影を持たない */
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 
-  /* ★page-section側の余白と二重にならないように */
+  /* ★homeは中身の都合で padding:0 は維持 */
   padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
 
-  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
+  /* ★page-section に margin を付けたので home だけは詰める */
+  margin-top: 0;
+  margin-bottom: 18px;
 }
+
 
 
    /* トップ内の見出し */
@@ -881,16 +887,27 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 .page-section{
   display: block;
 
-  /* ★セクション背景を交互にする（基本は白） */
+  /* ★A案：全セクションをトップ同様の薄い青背景に */
   background: var(--section-bg-a);
+
+  /* ★丸角（トップっぽさ） */
+  border-radius: 20px;
+
+  /* ★トップと同様に“箱”として浮かせる */
+  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
 
   /* ★セクション境界の余白（統一） */
   padding-top: 72px;
   padding-bottom: 72px;
 
+  /* ★セクション同士の間に余白（角が見えるように） */
+  margin-top: 18px;
+  margin-bottom: 18px;
+
   /* ★固定ナビで見出しが隠れないように */
   scroll-margin-top: 96px;
 }
+
 
 /* ★交互背景（home以外で、2つ目以降に効く） */
 .page-section:nth-of-type(even){
@@ -899,8 +916,9 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 /* ★セクション境界の線（うるさくならない程度） */
 .page-section + .page-section{
-  border-top: 1px solid rgba(14, 56, 120, 0.10);
+  border-top: none;
 }
+
 
 @media (max-width: 768px){
   .page-section{
