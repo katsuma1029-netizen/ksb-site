@@ -155,12 +155,17 @@ body[data-lang="id"] .lang-ja { display: none !important; }
 body:not([data-lang]) .lang-id { display: none !important; }
 
     :root {
-      --main-blue: #0b4a8f;
-      --light-bg: #f7f9fc;
-      --border: #e0e0e0;
-      --accent: #ff4b6a;
-      --accent-soft: #ffe3ea;
-    }
+  --main-blue: #0b4a8f;
+  --light-bg: #f7f9fc;
+  --border: #e0e0e0;
+  --accent: #ff4b6a;
+  --accent-soft: #ffe3ea;
+
+  /* ★追加：セクション背景を交互にするため */
+  --section-bg-a: #ffffff;
+  --section-bg-b: #f6f8fc;
+}
+
     * { box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
@@ -516,11 +521,12 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 
     /* ===== 全体レイアウト ===== */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 16px;
-    }
+  .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px; /* ★縦paddingは section で管理する */
+}
+
     
     h3 { margin-top: 0; font-size: 1.1rem; }
     p { margin: 0 0 10px; font-size: 0.95rem; }
@@ -568,14 +574,18 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
-    #home {
-      background: linear-gradient(135deg, #f7f9fc, #eef4ff);
-      border-radius: 20px;
-      padding: 24px 20px 32px;
-      margin-top: 24px;
-      margin-bottom: 32px;
-      box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
-    }
+   #home {
+  background: linear-gradient(135deg, #f7f9fc, #eef4ff);
+  border-radius: 20px;
+
+  /* ★page-section側の余白と二重にならないように */
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+
+  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
+}
+
 
    /* トップ内の見出し */
 #home h2 {
@@ -871,10 +881,33 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 .page-section{
   display: block;
 
-  /* ★追加：セクション境界の余白を均一に広くする */
+  /* ★セクション背景を交互にする（基本は白） */
+  background: var(--section-bg-a);
+
+  /* ★セクション境界の余白（統一） */
   padding-top: 72px;
   padding-bottom: 72px;
+
+  /* ★固定ナビで見出しが隠れないように */
+  scroll-margin-top: 96px;
 }
+
+/* ★交互背景（home以外で、2つ目以降に効く） */
+.page-section:nth-of-type(even){
+  background: var(--section-bg-b);
+}
+
+/* ★セクション境界の線（うるさくならない程度） */
+.page-section + .page-section{
+  border-top: 1px solid rgba(14, 56, 120, 0.10);
+}
+
+@media (max-width: 768px){
+  .page-section{
+    scroll-margin-top: 88px;
+  }
+}
+
 
 /* ★最初のセクション（トップ）だけ上は詰める（好みで） */
 #home.page-section{
