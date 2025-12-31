@@ -577,11 +577,13 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
-   #home {
-  /* ★共通化したので home 側は背景/丸角/影を持たない */
-  background: transparent;
-  border-radius: 0;
-  box-shadow: none;
+#home {
+  /* ★ここがポイント：transparent をやめる（page-section の背景を生かす） */
+  background: var(--section-bg-a);
+
+  /* ★page-section と同じ丸角/影で統一（見た目が揃う） */
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
 
   /* ★homeは中身の都合で padding:0 は維持 */
   padding: 0;
@@ -590,6 +592,7 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
   margin-top: 0;
   margin-bottom: 18px;
 }
+
 
 
 
