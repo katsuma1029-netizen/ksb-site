@@ -479,12 +479,14 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
   color: #f3f3f3;
 }
 
-/* アクティブはアクセント（ピンク） */
+/* アクティブも Sticky と同じ見た目に統一 */
 body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-  font-weight: 600; /* Sticky時と揃えるなら600 */
+  color: #fff;
+  background: rgba(255, 75, 106, 0.22);
+  font-weight: 700;
+  border-bottom-color: transparent; /* 下線は ::after 側に任せる */
 }
+
 
 
     .nav-tab{
