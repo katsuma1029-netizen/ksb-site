@@ -837,13 +837,14 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
     }
 
 
-    /* ★JSなしの環境（初期）は全部見せる：クローラ対策 */
-.page-section { display: block; }
+   /* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
+.page-section{
+  display: block;
+}
 
-/* ★JSが有効になったらタブ方式に切替 */
-body.js-enabled .page-section { display: none; }
-body.js-enabled .page-section.active { display: block; }
-
+/* （互換のため残してもOKだが、もう使わない）
+body.js-enabled .page-section { display: block; }
+*/
 
     @media (max-width: 900px) {
       .stats-hero {
@@ -1655,7 +1656,8 @@ nav.sticky-nav .lang-btn{
   <main class="container">
    
         <!-- トップ：事業内容＋強み -->
-    <section id="home" class="page-section active">
+    <section id="home" class="page-section">
+
 
   <!-- ▼ Attitude for Success（トップメッセージ） ▼ -->
 
@@ -2818,42 +2820,40 @@ window.addEventListener("load", () => {
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
 
-    function setSection(id) {
-  sections.forEach((sec) =>
-    sec.classList.toggle("active", sec.id === id)
-  );
+   function setSection(id) {
+  // ✅ タブの見た目だけを切替（セクションは消さない）
   tabs.forEach((tab) =>
     tab.classList.toggle("active", tab.dataset.section === id)
   );
 
-  // ★追加：現在セクションをbodyに保持（CSSでトップ以外判定に使う）
+  // ✅ 現在位置の判定用（header非表示制御などに使用）
   document.body.dataset.section = id;
 
-   // ★homeに戻る時は「先に」stickyを確実に解除（たまに残る問題の対策）
-  if (id === "home") {
-    navEl.classList.remove("sticky-nav");
-    navPlaceholder.style.height = "0";
-  }
-
-  // スクロール挙動：
-  // - トップ(home)はヘッダー基準
-  // - それ以外はページ先頭へ
-  const offset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
-
-  if (id === "home") {
-    window.scrollTo({ top: 0, behavior: "smooth" }); // homeは最上部へ（安定）
-  } else {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  // ★URLに状態を残す（共有用）
+  // ✅ URLに状態を残す（共有用）
   history.replaceState(null, "", "#" + id);
 
-  // ★念のためスクロール開始後にもsticky判定を再実行（取りこぼし防止）
+  // ✅ スクロール移動（stickyナビ分だけ上に余白）
+  const target = document.getElementById(id);
+  if (!target) return;
+
+  // sticky ならナビの高さを引く（非stickyなら0）
+  const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
+
+  if (id === "home") {
+    // homeは最上部へ（ヘッダー込みで一番安定）
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
+    window.scrollTo({ top: y, behavior: "smooth" });
+  }
+
+  // 念のためsticky判定更新
   requestAnimationFrame(handleScrollNav);
 }
 
-handleScrollNav(); // ★追加：タブ切替直後にsticky判定を即更新
+// 初期化：最初にsticky判定だけ
+handleScrollNav();
+
 
 
     tabs.forEach((tab) => {
