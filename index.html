@@ -408,12 +408,16 @@ header h1 {
 
 
 nav {
-  margin-top: 0;                 /* ★隙間の原因なので0に */
+  margin-top: 0;
   border-top: 1px solid #ffffff33;
   padding: 8px 0;
   overflow-x: auto;
   background: rgba(0, 57, 128, 0.98);
+
+  /* ★追加：非stickyでも見た目を揃える */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
 
 /* ★追加：ナビの中身を「header-innerと同じ幅」で中央に固定 */
 nav .nav-inner{
@@ -460,11 +464,15 @@ nav.sticky-nav {
    トップ（非sticky）もStickyと同じ色に統一
 ========================= */
 body[data-section="home"] nav:not(.sticky-nav){
-  background: rgba(0, 57, 128, 0.98); /* Stickyと同系色 */
+  background: rgba(0, 57, 128, 0.98);
   border-top: none;
   border-bottom: none;
-  box-shadow: none; /* 上の青帯をスッキリさせる */
+
+  /* ★差し替え：stickyと同じ影にする */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
+
+
 
 /* 文字色は白に */
 body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
@@ -1504,22 +1512,31 @@ nav .nav-inner{
   gap: 14px;
 }
 
-/* 右側ブロック（nav-right）は普段は隠す */
+/* 右側ブロック（nav-right）は常に“場所”を確保してレイアウト差を消す */
 .nav-right{
-  display: none;
+  display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* ★トップ以外は常に表示（about/trainees/gallery/contact） */
-body[data-section]:not([data-section="home"]) .nav-right{
-  display: flex;
+/* ★トップ（home）で非stickyの間だけ“非表示（場所は確保）” */
+body[data-section="home"] nav:not(.sticky-nav) .nav-right{
+  visibility: hidden;      /* 見えない */
+  pointer-events: none;    /* クリック不可 */
 }
 
-/* ★トップでも、stickyになった時だけ表示（スクロール後） */
+/* ★stickyになったら見せる */
 nav.sticky-nav .nav-right{
-  display: flex;
+  visibility: visible;
+  pointer-events: auto;
 }
+
+/* ★トップ以外は常に見せる */
+body[data-section]:not([data-section="home"]) .nav-right{
+  visibility: visible;
+  pointer-events: auto;
+}
+
 
 /* nav内のSNSアイコンを少し小さく（ヘッダーより控えめに） */
 /* =========================
