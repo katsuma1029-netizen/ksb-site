@@ -479,11 +479,31 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 }
 
 
-    .nav-tab.active {
-      border-bottom-color: var(--accent);
-      color: var(--accent);
-      font-weight: 600;
-    }
+    .nav-tab{
+  position: relative;   /* ← 追加（下線を::afterで描くため） */
+  padding: 8px 10px;    /* ← 追加（背景が見えるように左右も少し） */
+  border-radius: 10px;  /* ← 追加 */
+}
+
+.nav-tab.active{
+  color: #fff;                         /* 文字を白で見やすく */
+  background: rgba(255, 75, 106, 0.22);/* 薄いピンク背景 */
+  font-weight: 700;
+  border-bottom-color: transparent;    /* 下線は::afterへ */
+}
+
+/* 太めの下線（視認性UP） */
+.nav-tab.active::after{
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -6px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
 
     /* ===== 全体レイアウト ===== */
     .container {
@@ -2873,39 +2893,55 @@ handleScrollNav();
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
-// ===== スクロールでタブactiveを自動追従（大手サイト風） =====
+// ===== スクロールでタブactiveを自動追従（確実版：scroll位置で判定） =====
 function setActiveTabOnly(id) {
   if (!id) return;
   tabs.forEach((tab) => tab.classList.toggle("active", tab.dataset.section === id));
   // ★ここでは data-section と URL は触らない（クリック時だけ setSection が管理）
 }
 
-
+// ★判定対象セクション一覧（あなたのIDと一致）
 const observedIds = ["home", "about", "trainees", "gallery", "contact"];
 
-// 画面の「中央付近」に入ったセクションを現在地として採用する設定
-const io = new IntersectionObserver((entries) => {
+// ★スクロール位置から「今いるセクション」を判定
+function updateActiveByScroll() {
   if (suppressObserver) return;
 
-  const visibles = entries
-    .filter(e => e.isIntersecting)
-    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+  // stickyの時はナビの高さ分だけ判定位置を下げる
+  const navOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 
-  if (!visibles.length) return;
+  // 画面上の“判定ライン”（少し上寄りが安定）
+  const markerY = window.scrollY + navOffset + 120;
 
-  const id = visibles[0].target.id;
-  setActiveTabOnly(id);
-}, {
-  root: null,
-  // ★ここが肝：中央付近で判定
-  rootMargin: "-35% 0px -55% 0px",
-  threshold: [0.1, 0.2, 0.35, 0.5, 0.65, 0.8]
+  let currentId = "home";
+
+  // 上から順に、markerY を超えた最後のセクションを現在地にする
+  for (const id of observedIds) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.offsetTop <= markerY) currentId = id;
+  }
+
+  setActiveTabOnly(currentId);
+}
+
+// ★スクロールで更新（軽量化：rAF）
+let activeTick = false;
+window.addEventListener("scroll", () => {
+  if (!activeTick) {
+    requestAnimationFrame(() => {
+      updateActiveByScroll();
+      activeTick = false;
+    });
+    activeTick = true;
+  }
+}, { passive: true });
+
+// ★初期表示でも1回合わせる
+window.addEventListener("load", () => {
+  updateActiveByScroll();
 });
 
-observedIds.forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) io.observe(el);
-});
 
     // ===== ヘッダー背景スライドショー（フェード） =====
    
