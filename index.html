@@ -463,13 +463,21 @@ nav.sticky-nav {
       font-size: 0.9rem;
       white-space: nowrap;
     }
-   .nav-tab {
+ /* navタブ（統一版）：非アクティブは薄くしない */
+.nav-tab{
   cursor: pointer;
-  padding: 8px 0;              /* ★ 4px → 8px（高さに余裕） */
+  position: relative;         /* ::before/::after のため */
+  padding: 10px 12px;         /* ← “面”が見える余白（今より少しリッチ） */
+  border-radius: 12px;
+
   border-bottom: 2px solid transparent;
   color: #f3f3f3;
-  line-height: 1.2;            /* ★ 行の詰まりを安定させる */
+  line-height: 1.2;
+
+  /* クリックした感・追従時の見やすさ */
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
 }
+
 
  /* =========================
    トップ（非sticky）もStickyと同じ色に統一
@@ -506,24 +514,32 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
   border-radius: 10px;  /* ← 追加 */
 }
 
+/* ★アクティブ：今いる場所を強制的に目立たせる（非アクティブは薄くしない） */
 .nav-tab.active{
-  color: #fff;                         /* 文字を白で見やすく */
-  background: rgba(255, 75, 106, 0.22);/* 薄いピンク背景 */
-  font-weight: 700;
-  border-bottom-color: transparent;    /* 下線は::afterへ */
+  color: #fff;
+  background: rgba(255, 75, 106, 0.34); /* ← 少し濃くして“面”を強く */
+  font-weight: 900;
+
+  transform: translateY(-1px) scale(1.06);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+
+  border-bottom-color: transparent; /* 下線は ::after 側 */
 }
 
-/* 太めの下線（視認性UP） */
+
+/* ★下ライン：スクロール中でも一瞬で見つかる */
 .nav-tab.active::after{
   content: "";
   position: absolute;
-  left: 8px;
-  right: 8px;
-  bottom: -6px;
-  height: 3px;
+  left: 10px;
+  right: 10px;
+  bottom: -7px;
+
+  height: 4px;                 /* ← 太くする（重要） */
   border-radius: 999px;
   background: var(--accent);
 }
+
 
 
     /* ===== 全体レイアウト ===== */
