@@ -527,13 +527,11 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab.active{
 
 
     /* ===== 全体レイアウト ===== */
- .container {
+.container {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 18px 16px; /* ★上下にも少し余白（丸角が映える） */
+  padding: 0 16px;
 }
-
-
     
    /* =========================
    Typography Base（全体）
@@ -621,24 +619,13 @@ h3{
 
 
     /* ── トップ「事業内容」セクションの見た目を強化 ── */
-#home {
-  /* ★ここがポイント：transparent をやめる（page-section の背景を生かす） */
-  background: var(--section-bg-a);
-
-  /* ★page-section と同じ丸角/影で統一（見た目が揃う） */
-  border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
-
-  /* ★homeは中身の都合で padding:0 は維持 */
+#home{
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
   padding: 0;
-
-  /* ★page-section に margin を付けたので home だけは詰める */
-  margin-top: 0;
-  margin-bottom: 18px;
+  margin: 0;
 }
-
-
-
 
    /* トップ内の見出し */
 #home h2 {
@@ -931,103 +918,42 @@ h3{
 
 
 /* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
+/* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
 .page-section{
   display: block;
 
-  /* ★A案：全セクションをトップ同様の薄い青背景に */
-  background: var(--section-bg-a);
-
-  /* ★丸角（トップっぽさ） */
-  border-radius: 20px;
-
-  /* ★トップと同様に“箱”として浮かせる */
-  box-shadow: 0 12px 32px rgba(11, 74, 143, 0.06);
-
-  /* ★セクション境界の余白（統一） */
-  padding-top: 72px;
-  padding-bottom: 72px;
-
-  /* ★セクション同士の間に余白（角が見えるように） */
-  margin-top: 18px;
-  margin-bottom: 18px;
-
-  /* ★固定ナビで見出しが隠れないように */
-  scroll-margin-top: 96px;
-}
-/* =========================
-   章タイトル帯（セクション見出しの“扉”）
-========================= */
-/* =========================
-   章タイトル帯（セクション見出しの“扉”）※帯にする
-========================= */
-.section-band{
-  /* ▼カード感を消して“帯”に寄せる▼ */
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.55));
-  border: none;
+  /* セクションは「面」：箱感を消す */
+  border-radius: 0;
   box-shadow: none;
 
-  /* ▼帯っぽく：角は少しだけ、余白はしっかり▼ */
-  border-radius: 12px;
-  padding: 18px 18px;
-  margin: 0 0 34px;
+  /* 背景はセクション全幅に効かせる（中身は.containerで1100px） */
+  padding: 88px 0;
+  margin: 0;
 
-  /* ▼下にだけ“仕切り線”を入れる（区切りが見える）▼ */
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-
-  /* ▼左の太いアクセントで“章の頭”を強調▼ */
-  position: relative;
+  /* 固定ナビで見出しが隠れない */
+  scroll-margin-top: 96px;
 }
 
-.section-band::before{
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 12px;
-  bottom: 12px;
-  width: 6px;
-  border-radius: 999px;
-  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
+/* 背景を白/薄グレー交互 */
+.page-section:nth-of-type(odd){
+  background: #ffffff;
 }
-
-/* 帯の中のh2は“帯専用”に微調整（カード見出しと差をつける） */
-.section-band h2{
-  margin: 0 !important;
-  padding-left: 18px !important; /* ← 左の太線があるので少しだけ */
-}
-
-/* キッカーは“ラベル”として少し濃く（帯の中で映える） */
-.section-kicker{
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-
-  color: #0b4a8f;
-  background: rgba(11, 74, 143, 0.10);
-  border: 1px solid rgba(11, 74, 143, 0.18);
-  padding: 4px 10px;
-  border-radius: 999px;
-  margin: 0 0 10px 18px; /* ← 左太線ぶん右へ */
-}
-
-
-
-/* ★交互背景（home以外で、2つ目以降に効く） */
 .page-section:nth-of-type(even){
-  background: var(--section-bg-b);
+  background: #f5f7fb;
 }
 
-/* ★セクション境界の線（うるさくならない程度） */
+/* 区切り線 */
 .page-section + .page-section{
-  border-top: none;
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
-
 
 @media (max-width: 768px){
   .page-section{
     scroll-margin-top: 88px;
+    padding: 72px 0;
   }
 }
+
 
 
 /* ★最初のセクション（トップ）だけ上は詰める（好みで） */
@@ -1741,6 +1667,35 @@ nav.sticky-nav .lang-btn{
   padding: 4px;          /* タップ領域を広げる */
   display: inline-flex;
 }
+/* =========================
+   section-band（各セクションの見出し帯）
+   目的：セクション境界の余白を均一に広くする
+========================= */
+.section-band{
+  /* セクション上側の余白（統一） */
+  margin: 0 0 34px;         /* 下に余白を作る */
+  padding: 0 0 18px;        /* 見出し帯としての下余白 */
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* 「トップ / KSBについて」みたいな小さいラベル */
+.section-kicker{
+  display: inline-block;
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--main-blue);
+}
+
+/* セクションのh2（section-band内だけ余白を整える） */
+.section-band h2{
+  margin: 0;                /* 余計なズレを消す */
+}
+/* セクション内の見出し（h2）が連続するときの上余白を統一 */
+.page-section .container > h2{
+  margin-top: 40px;
+}
 
   </style>
   
@@ -1863,28 +1818,23 @@ nav.sticky-nav .lang-btn{
 </nav>
 
 
-  <main class="container">
-   
+  <main>
+  
         <!-- トップ：事業内容＋強み -->
 <section id="home" class="page-section">
+  <div class="container">
 
   <div class="section-band">
-    <div class="section-kicker lang-ja">トップ</div>
-    <div class="section-kicker lang-id">Beranda</div>
+  <div class="section-kicker lang-ja">トップ</div>
+  <div class="section-kicker lang-id">Beranda</div>
 
-    <h2 class="lang-ja">トップ｜KSBの概要</h2>
-    <h2 class="lang-id">Beranda｜Ringkasan KSB</h2>
-  </div>
+  <h2 class="lang-ja">トップ｜KSBの概要</h2>
+  <h2 class="lang-id">Beranda｜Ringkasan KSB</h2>
 
+  <h2 class="lang-ja">教育方針<span class="h2-sep">｜</span>Attitude for Success とは</h2>
+  <h2 class="lang-id">Prinsip Pendidikan<span class="h2-sep">｜</span>Apa itu Attitude for Success?</h2>
+</div>
 
-  <!-- ▼ Attitude for Success（トップメッセージ） ▼ -->
-
-<h2 class="lang-ja">
-  教育方針<span class="h2-sep">｜</span>Attitude for Success とは
-</h2>
-<h2 class="lang-id">
-  Prinsip Pendidikan<span class="h2-sep">｜</span>Apa itu Attitude for Success?
-</h2>
 
 <div class="card about-intro-card" style="margin-bottom: 20px;">
 
@@ -2037,8 +1987,6 @@ nav.sticky-nav .lang-btn{
 </div>
 
 
-      <br />
-
       <!-- ▼ KSBの強み -->
       <h2 class="lang-ja">KSBの強み<span class="h2-sep">｜</span>技能実習生・特定技能サポートの特徴</h2>
 <h2 class="lang-id no-leftbar">Keunggulan KSB dalam Pengiriman Pemagang & Tokutei Ginou</h2>
@@ -2137,11 +2085,14 @@ nav.sticky-nav .lang-btn{
   </div>
 
 </div>
+      </div>
+
     </section>
 
 
             <!-- KSBについて -->
    <section id="about" class="page-section">
+  <div class="container">
 
   <div class="section-band">
     <div class="section-kicker lang-ja">KSBについて</div>
@@ -2152,7 +2103,6 @@ nav.sticky-nav .lang-btn{
   </div>
 
 
-      <br />
       <div class="card company-card"> 
         <!-- 会社名 -->
         <div class="company-row">
@@ -2251,7 +2201,6 @@ nav.sticky-nav .lang-btn{
 
       <!-- KSBの説明 -->
 
-      <br />
 
       <h2 class="lang-ja">ビジョン｜インドネシア人材と日本の架け橋に</h2>
 <h2 class="lang-id">Visi｜Menjadi Jembatan antara Indonesia dan Jepang</h2>
@@ -2466,11 +2415,13 @@ nav.sticky-nav .lang-btn{
 <!-- ▲▲ 送り出しの流れここまで ▲▲ -->
 
 
+  </div>
 
    </section>
 
       <!-- 実績・分野 -->
     <section id="trainees" class="page-section">
+  <div class="container">
 
   <div class="section-band">
     <div class="section-kicker lang-ja">実績・分野</div>
@@ -2647,9 +2598,12 @@ nav.sticky-nav .lang-btn{
 </div>
 
       </div>
+      </div>
+
     </section>
     <!-- ギャラリー -->
    <section id="gallery" class="page-section">
+  <div class="container">
 
   <div class="section-band">
     <div class="section-kicker lang-ja">ギャラリー</div>
@@ -2787,10 +2741,13 @@ nav.sticky-nav .lang-btn{
           </div>
         </div>
       </div>
+      </div>
+
     </section>
 
 
     <section id="contact" class="page-section">
+  <div class="container">
 
   <div class="section-band">
     <div class="section-kicker lang-ja">アクセス・連絡先</div>
@@ -2977,6 +2934,7 @@ nav.sticky-nav .lang-btn{
     Berlokasi di kawasan Jabodetabek, sehingga mudah diakses oleh perusahaan dan koperasi mitra.<br>
     Akses dari jalan tol dan jalan utama sangat baik, sehingga nyaman untuk dikunjungi dengan kendaraan.
   </p>    
+  </div>
   </div>
 
 </section>
