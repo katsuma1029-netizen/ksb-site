@@ -1700,6 +1700,31 @@ nav.sticky-nav .lang-btn{
   padding: 0 0 18px;        /* 下の余白 */
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
+/* =========================
+   セクション見出し：左ラベルだけ背景色
+========================= */
+.section-label{
+  display: inline-block;
+  padding: 6px 14px;
+  margin-right: 6px;
+
+  background: #eaf2ff;   /* 薄い青 */
+  color: #0b4a8f;
+
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  line-height: 1.2;
+}
+
+.section-desc{
+  font-weight: 800;
+}
+
+/* 区切り記号の見た目（既存のh2-sepを活かす） */
+.h2-sep{
+  margin: 0 10px;
+}
 
 /* section-kicker は廃止（HTMLからも削除） */
 /* .section-kicker{ ... } ← このブロックごと削除 */
@@ -1843,12 +1868,20 @@ nav.sticky-nav .lang-btn{
         <!-- トップ：事業内容＋強み -->
 <section id="home" class="page-section">
   <div class="container">
-
-  <div class="section-band">
-  
+ 
  <div class="section-band">
-  <h2 class="lang-ja">トップ<span class="h2-sep">｜</span>KSBの概要と教育方針</h2>
-  <h2 class="lang-id">Beranda<span class="h2-sep">｜</span>Ringkasan & Prinsip KSB</h2>
+  <h2 class="lang-ja">
+  <span class="section-label">トップ</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">KSBの概要と教育方針</span>
+</h2>
+
+<h2 class="lang-id">
+  <span class="section-label">Beranda</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">Ringkasan & Prinsip KSB</span>
+</h2>
+
 </div>
 
 <h3 class="section-subhead lang-ja">教育方針<span class="h2-sep">｜</span>Attitude for Success とは</h3>
@@ -2115,12 +2148,18 @@ nav.sticky-nav .lang-btn{
    <section id="about" class="page-section">
   <div class="container">
 
-  <div class="section-band">
-    
-   <h2 class="lang-ja">KSBについて<span class="h2-sep">｜</span>会社概要・ビジョン</h2>
-<h2 class="lang-id">Tentang KSB<span class="h2-sep">｜</span>Profil & Visi</h2>
+  <h2 class="lang-ja">
+  <span class="section-label">KSBについて</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">会社概要・ビジョン</span>
+</h2>
 
-  </div>
+<h2 class="lang-id">
+  <span class="section-label">Tentang KSB</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">Profil & Visi</span>
+</h2>
+
 
 
       <div class="card company-card"> 
@@ -2443,12 +2482,18 @@ nav.sticky-nav .lang-btn{
     <section id="trainees" class="page-section">
   <div class="container">
 
-  <div class="section-band">
-    
-   <h2 class="lang-ja">実績・分野<span class="h2-sep">｜</span>送り出し人数と対応職種</h2>
-<h2 class="lang-id">Rekam Jejak<span class="h2-sep">｜</span>Jumlah & Bidang</h2>
+ <h2 class="lang-ja">
+  <span class="section-label">実績・分野</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">送り出し人数と対応職種</span>
+</h2>
 
-  </div>
+<h2 class="lang-id">
+  <span class="section-label">Rekam Jejak</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">Jumlah & Bidang</span>
+</h2>
+
 
 
 
@@ -2624,12 +2669,18 @@ nav.sticky-nav .lang-btn{
    <section id="gallery" class="page-section">
   <div class="container">
 
-  <div class="section-band">
-    
-  <h2 class="lang-ja">ギャラリー<span class="h2-sep">｜</span>トレーニングセンター・授業風景</h2>
-<h2 class="lang-id">Galeri<span class="h2-sep">｜</span>Training Center & Kegiatan</h2>
+  <h2 class="lang-ja">
+  <span class="section-label">ギャラリー</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">トレーニングセンター・授業風景</span>
+</h2>
 
-  </div>
+<h2 class="lang-id">
+  <span class="section-label">Galeri</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">Training Center & Kegiatan</span>
+</h2>
+
 
 
 
@@ -2767,12 +2818,18 @@ nav.sticky-nav .lang-btn{
     <section id="contact" class="page-section">
   <div class="container">
 
-  <div class="section-band">
-    
-    <h2 class="lang-ja">アクセス・連絡先<span class="h2-sep">｜</span>ご相談・面接依頼はこちら</h2>
-<h2 class="lang-id">Akses & Kontak<span class="h2-sep">｜</span>Konsultasi & Permintaan Wawancara</h2>
+ <h2 class="lang-ja">
+  <span class="section-label">アクセス・連絡先</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">ご相談・面接依頼はこちら</span>
+</h2>
 
-  </div>
+<h2 class="lang-id">
+  <span class="section-label">Akses & Kontak</span>
+  <span class="h2-sep">｜</span>
+  <span class="section-desc">Konsultasi & Permintaan Wawancara</span>
+</h2>
+
 
 
 
