@@ -1693,42 +1693,58 @@ nav.sticky-nav .lang-btn{
 }
 /* =========================
    section-band（各セクションの見出し帯）
-   目的：セクション境界の余白を均一に広くする
 ========================= */
 .section-band{
-  margin: 0 0 34px;         /* 下に余白 */
-  padding: 0 0 18px;        /* 下の余白 */
+  margin: 0 0 34px;
+  padding: 14px 14px 18px;
+
   border-bottom: 1px solid rgba(0,0,0,0.08);
+
+  /* ★“帯”の面を薄く（主役はlabel） */
+  background: linear-gradient(
+    180deg,
+    rgba(11,47,91,0.06),
+    rgba(11,47,91,0.02)
+  );
+
+  border-radius: 14px;
 }
+
 /* =========================
    セクション見出し：左ラベルだけ背景色
 ========================= */
+/* =========================
+   セクション見出し：左ラベル（主役）
+   濃いネイビー × 太さ × 面（背景）
+========================= */
 .section-label{
   display: inline-block;
-  padding: 6px 14px;
-  margin-right: 6px;
+  padding: 8px 14px;
+  margin-right: 10px;
 
-  /* ★薄いグレー＋細い枠線（上品・BtoB向け） */
-  background: #f1f3f6;
-  color: #333;
-  border: 1px solid #d8dde6;
+  background: #0b2f5b;  /* ★濃いネイビー（面） */
+  color: #ffffff;       /* ★白文字で強コントラスト */
+  border: 1px solid rgba(255,255,255,0.18);
 
-  font-weight: 800;
+  font-weight: 900;     /* ★太さ最大級 */
+  letter-spacing: 0.02em;
 
-  /* ★サイズは指定しない（右と同じ＝親の文字サイズを継承） */
-  /* font-size: 0.95rem; ← これは消す */
+  border-radius: 10px;
+  line-height: 1.1;
+  font-size: inherit;
 
-  border-radius: 8px;
-  line-height: 1.2;
-    font-size: inherit;
-
+  box-shadow: 0 6px 16px rgba(11,47,91,0.18); /* ★リッチ感 */
 }
+
 
 
 
 .section-desc{
-  font-weight: 800;
+  font-weight: 900;     /* ★少し上げる */
+  color: #0b2f5b;       /* ★濃いネイビー */
+  letter-spacing: 0.01em;
 }
+
 
 /* 区切り記号の見た目（既存のh2-sepを活かす） */
 .h2-sep{
