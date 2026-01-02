@@ -1672,26 +1672,22 @@ nav.sticky-nav .lang-btn{
    目的：セクション境界の余白を均一に広くする
 ========================= */
 .section-band{
-  /* セクション上側の余白（統一） */
-  margin: 0 0 34px;         /* 下に余白を作る */
-  padding: 0 0 18px;        /* 見出し帯としての下余白 */
+  margin: 0 0 34px;         /* 下に余白 */
+  padding: 0 0 18px;        /* 下の余白 */
   border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
-/* 「トップ / KSBについて」みたいな小さいラベル */
-.section-kicker{
-  display: inline-block;
-  margin: 0 0 10px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--main-blue);
+/* section-kicker は廃止（HTMLからも削除） */
+/* .section-kicker{ ... } ← このブロックごと削除 */
+
+/* section-band 内の h2 の間隔を整理（連続h2対策） */
+.section-band h2{
+  margin: 0;
+}
+.section-band h2 + h2{
+  margin-top: 10px; /* ★「トップ｜KSBの概要」と「教育方針｜...」の間を少しだけ空ける */
 }
 
-/* セクションのh2（section-band内だけ余白を整える） */
-.section-band h2{
-  margin: 0;                /* 余計なズレを消す */
-}
 /* セクション内の見出し（h2）が連続するときの上余白を統一 */
 .page-section .container > h2{
   margin-top: 40px;
@@ -1825,9 +1821,7 @@ nav.sticky-nav .lang-btn{
   <div class="container">
 
   <div class="section-band">
-  <div class="section-kicker lang-ja">トップ</div>
-  <div class="section-kicker lang-id">Beranda</div>
-
+  
   <h2 class="lang-ja">トップ｜KSBの概要</h2>
   <h2 class="lang-id">Beranda｜Ringkasan KSB</h2>
 
@@ -2095,9 +2089,7 @@ nav.sticky-nav .lang-btn{
   <div class="container">
 
   <div class="section-band">
-    <div class="section-kicker lang-ja">KSBについて</div>
-    <div class="section-kicker lang-id">Tentang KSB</div>
-
+    
     <h2 class="lang-ja">会社概要｜LPK Karya Sejahtera Bersama（KSB）</h2>
     <h2 class="lang-id">Profil Perusahaan｜LPK Karya Sejahtera Bersama (KSB)</h2>
   </div>
@@ -2424,9 +2416,7 @@ nav.sticky-nav .lang-btn{
   <div class="container">
 
   <div class="section-band">
-    <div class="section-kicker lang-ja">実績・分野</div>
-    <div class="section-kicker lang-id">Rekam Jejak</div>
-
+    
     <h2 class="lang-ja">実績｜日本へ送り出した技能実習生・特定技能</h2>
     <h2 class="lang-id">Rekam Jejak｜Pemagang & Tokutei Ginou yang Berangkat ke Jepang</h2>
   </div>
@@ -2606,9 +2596,7 @@ nav.sticky-nav .lang-btn{
   <div class="container">
 
   <div class="section-band">
-    <div class="section-kicker lang-ja">ギャラリー</div>
-    <div class="section-kicker lang-id">Galeri</div>
-
+    
     <h2 class="lang-ja">ギャラリー｜KSBトレーニングセンターと実習風景</h2>
     <h2 class="lang-id">Galeri KSB｜Training Center & Kegiatan Peserta</h2>
   </div>
@@ -2750,9 +2738,7 @@ nav.sticky-nav .lang-btn{
   <div class="container">
 
   <div class="section-band">
-    <div class="section-kicker lang-ja">アクセス・連絡先</div>
-    <div class="section-kicker lang-id">Akses & Kontak</div>
-
+    
     <h2 class="lang-ja">連絡先｜技能実習生・特定技能のご相談窓口</h2>
     <h2 class="lang-id">Kontak｜Konsultasi Magang Teknis & Tokutei Ginou</h2>
   </div>
