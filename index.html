@@ -942,7 +942,6 @@ h3{
 
 
 /* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
-/* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
 .page-section{
   display: block;
 
@@ -975,6 +974,19 @@ h3{
   .page-section{
     scroll-margin-top: 88px;
     padding: 72px 0;
+  }
+}
+/* =========================
+   余白調整：トップ以外の上余白を少し詰める
+   （帯の上が空きすぎる対策）
+========================= */
+.page-section:not(#home){
+  padding-top: 64px;   /* 88px → 64px（PC） */
+}
+
+@media (max-width: 768px){
+  .page-section:not(#home){
+    padding-top: 56px; /* 72px → 56px（スマホ） */
   }
 }
 
