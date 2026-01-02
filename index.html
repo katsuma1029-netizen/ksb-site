@@ -954,6 +954,47 @@ h3{
   /* ★固定ナビで見出しが隠れないように */
   scroll-margin-top: 96px;
 }
+/* =========================
+   章タイトル帯（セクション見出しの“扉”）
+========================= */
+.section-band{
+  /* セクションの丸角ボックスの中で「章の扉」っぽく見せる */
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+
+  /* 上は詰めて“章の頭”感、下は本文との間を作る */
+  padding: 18px 18px;
+  margin: 0 0 26px;
+
+  /* 少しだけガラスっぽく（対応ブラウザのみ） */
+  backdrop-filter: blur(6px);
+}
+
+/* 帯の中では h2 の余白を帯に合わせて再調整 */
+.section-band h2{
+  margin: 0 !important;
+}
+
+/* 左バー(h2::before) の縦位置がズレないよう微調整（任意） */
+.section-band h2::before{
+  top: 50%;
+}
+
+/* 章タイトル帯の“補助ラベル”（任意で使える） */
+.section-kicker{
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #4a5568;
+  background: #eef4ff;
+  border: 1px solid #dfe8ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
 
 
 /* ★交互背景（home以外で、2つ目以降に効く） */
@@ -1810,7 +1851,15 @@ nav.sticky-nav .lang-btn{
   <main class="container">
    
         <!-- トップ：事業内容＋強み -->
-    <section id="home" class="page-section">
+<section id="home" class="page-section">
+
+  <div class="section-band">
+    <div class="section-kicker lang-ja">トップ</div>
+    <div class="section-kicker lang-id">Beranda</div>
+
+    <h2 class="lang-ja">トップ｜KSBの概要</h2>
+    <h2 class="lang-id">Beranda｜Ringkasan KSB</h2>
+  </div>
 
 
   <!-- ▼ Attitude for Success（トップメッセージ） ▼ -->
@@ -2077,11 +2126,15 @@ nav.sticky-nav .lang-btn{
 
 
             <!-- KSBについて -->
-    <section id="about" class="page-section">
+   <section id="about" class="page-section">
 
-         <!-- 会社概要 -->
-      <h2 class="lang-ja">会社概要｜LPK Karya Sejahtera Bersama（KSB）</h2>
-<h2 class="lang-id">Profil Perusahaan｜LPK Karya Sejahtera Bersama (KSB)</h2>
+  <div class="section-band">
+    <div class="section-kicker lang-ja">KSBについて</div>
+    <div class="section-kicker lang-id">Tentang KSB</div>
+
+    <h2 class="lang-ja">会社概要｜LPK Karya Sejahtera Bersama（KSB）</h2>
+    <h2 class="lang-id">Profil Perusahaan｜LPK Karya Sejahtera Bersama (KSB)</h2>
+  </div>
 
 
       <br />
@@ -2403,8 +2456,15 @@ nav.sticky-nav .lang-btn{
 
       <!-- 実績・分野 -->
     <section id="trainees" class="page-section">
-      <h2 class="lang-ja">実績｜日本へ送り出した技能実習生・特定技能</h2>
-<h2 class="lang-id">Rekam Jejak｜Pemagang & Tokutei Ginou yang Berangkat ke Jepang</h2>
+
+  <div class="section-band">
+    <div class="section-kicker lang-ja">実績・分野</div>
+    <div class="section-kicker lang-id">Rekam Jejak</div>
+
+    <h2 class="lang-ja">実績｜日本へ送り出した技能実習生・特定技能</h2>
+    <h2 class="lang-id">Rekam Jejak｜Pemagang & Tokutei Ginou yang Berangkat ke Jepang</h2>
+  </div>
+
 
 
       <!-- 合計人数のハイライト -->
@@ -2574,9 +2634,16 @@ nav.sticky-nav .lang-btn{
       </div>
     </section>
     <!-- ギャラリー -->
-    <section id="gallery" class="page-section">
-      <h2 class="lang-ja">ギャラリー｜KSBトレーニングセンターと実習風景</h2>
-<h2 class="lang-id">Galeri KSB｜Training Center & Kegiatan Peserta</h2>
+   <section id="gallery" class="page-section">
+
+  <div class="section-band">
+    <div class="section-kicker lang-ja">ギャラリー</div>
+    <div class="section-kicker lang-id">Galeri</div>
+
+    <h2 class="lang-ja">ギャラリー｜KSBトレーニングセンターと実習風景</h2>
+    <h2 class="lang-id">Galeri KSB｜Training Center & Kegiatan Peserta</h2>
+  </div>
+
 
 
       <!-- 説明文 -->
@@ -2710,9 +2777,14 @@ nav.sticky-nav .lang-btn{
 
     <section id="contact" class="page-section">
 
-  <!-- ▼▼ サブタイトル：連絡先 ▼▼ -->
-  <h2 class="lang-ja">連絡先｜技能実習生・特定技能のご相談窓口</h2>
-<h2 class="lang-id">Kontak｜Konsultasi Magang Teknis & Tokutei Ginou</h2>
+  <div class="section-band">
+    <div class="section-kicker lang-ja">アクセス・連絡先</div>
+    <div class="section-kicker lang-id">Akses & Kontak</div>
+
+    <h2 class="lang-ja">連絡先｜技能実習生・特定技能のご相談窓口</h2>
+    <h2 class="lang-id">Kontak｜Konsultasi Magang Teknis & Tokutei Ginou</h2>
+  </div>
+
 
 
 
