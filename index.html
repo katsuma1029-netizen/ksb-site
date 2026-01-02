@@ -1700,15 +1700,16 @@ nav.sticky-nav .lang-btn{
 
   border-bottom: 1px solid rgba(0,0,0,0.08);
 
-  /* ★“帯”の面を薄く（主役はlabel） */
-  background: linear-gradient(
-    180deg,
-    rgba(11,47,91,0.06),
-    rgba(11,47,91,0.02)
-  );
+  /* ✅フラット：単色の薄い面だけ */
+  background: rgba(11,47,91,0.035);
 
-  border-radius: 14px;
+  /* ✅角丸控えめ */
+  border-radius: 10px;
+
+  /* ✅影が出る余地を潰す（将来の追加にも強い） */
+  box-shadow: none;
 }
+
 
 /* =========================
    セクション見出し：左ラベルだけ背景色
@@ -1729,12 +1730,11 @@ nav.sticky-nav .lang-btn{
   font-weight: 900;
   letter-spacing: 0.02em;
 
-  border-radius: 10px;
+  border-radius: 8px;
   line-height: 1.1;
   font-size: inherit;
 
-  /* ★影を“ほぼ無し”にしてフラット寄りに */
-  box-shadow: 0 2px 6px rgba(11,47,91,0.10);
+   box-shadow: none;   /* ✅完全フラット */
 }
 
 .section-desc{
@@ -1763,6 +1763,12 @@ nav.sticky-nav .lang-btn{
 /* セクション内の見出し（h2）が連続するときの上余白を統一 */
 .page-section .container > h2{
   margin-top: 40px;
+}
+/* =========================
+   セクション同士の区切りを少し強調（フラット用）
+========================= */
+.page-section + .page-section{
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
   </style>
