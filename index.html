@@ -561,6 +561,30 @@ h3{
   font-weight: 800;
   color: var(--main-blue);
 }
+/* ★ホーム内のサブ見出しを「h2級の見た目」にする */
+.section-subhead{
+  position: relative;
+  margin: 0 0 var(--space-4);
+  padding-left: 28px;
+  font-size: 1.35rem;   /* h2より少し控えめ */
+  font-weight: 800;
+  color: var(--main-blue);
+  line-height: 1.35;
+}
+
+/* 左の青バー（h2と同じ） */
+.section-subhead::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  transform: translateY(-50%);
+  width:5px;
+  height:70%;
+  border-radius:999px;
+  background: linear-gradient(180deg, #0b4a8f, #3f8bff);
+}
+    
 
 /* 補足用（必要な箇所だけclass付与で使える） */
 .text-sm{
@@ -1827,8 +1851,9 @@ nav.sticky-nav .lang-btn{
   <h2 class="lang-id">Beranda<span class="h2-sep">｜</span>Ringkasan & Prinsip KSB</h2>
 </div>
 
-<h3 class="lang-ja">教育方針<span class="h2-sep">｜</span>Attitude for Success とは</h3>
-<h3 class="lang-id">Prinsip Pendidikan<span class="h2-sep">｜</span>Apa itu Attitude for Success?</h3>
+<h3 class="section-subhead lang-ja">教育方針<span class="h2-sep">｜</span>Attitude for Success とは</h3>
+<h3 class="section-subhead lang-id">Prinsip Pendidikan<span class="h2-sep">｜</span>Apa itu Attitude for Success?</h3>
+
 
 
 
