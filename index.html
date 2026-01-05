@@ -1097,7 +1097,7 @@ body.js-enabled .page-section { display: block; }
   display: flex;
   flex-direction: column;
   align-items: center;  /* 中央揃え */
-  gap: 28px;
+  gap: 18px;
   margin-top: 24px;
    z-index: 1;          /* ★ 追加：nav(10000) よりずっと小さく */
 }
@@ -1123,11 +1123,12 @@ body.js-enabled .page-section { display: block; }
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 14px 18px;
+  padding: 12px 16px;      /* 14px 18px → 12px 16px */
   position: relative;
-  margin: 0 auto;
+  margin: 0;               /* autoは不要（中央はalign-itemsで成立） */
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
+
 
 /* 番号＋タイトルの行 */
 .flow-card-header {
@@ -1168,11 +1169,12 @@ body.js-enabled .page-section { display: block; }
 /* ↓ の見た目（大きく、中央に） */
 .flow-arrow {
   text-align: center;
-  font-size: 2rem;   /* ここで大きさUP */
+  font-size: 1.4rem;       /* 2rem → 1.4rem（少し控えめ） */
   color: #999;
   line-height: 1;
-  margin: -4px 0 -2px;
+  margin: -10px 0 -8px;    /* 上下を強めに詰める */
   z-index: 3;
+  opacity: 0.65;           /* うるさくならない */
 }
 
 /* スマホ表示の調整 */
