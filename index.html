@@ -878,9 +878,10 @@ h3{
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 少し安定 */
+  grid-template-columns: repeat(4, 1fr); /* ← 常に4列：教室A〜D基準 */
   gap: 14px;
 }
+
 
 .gallery-item {
   border-radius: 12px;
@@ -906,11 +907,38 @@ h3{
 .gallery-caption.lang-id {
   color: #555;
 }
-    @media (max-width: 640px) {
+   /* =========================
+   ② スマホ・タブレット用（崩れ防止）
+   - PC：4列（現状維持）
+   - タブレット：2列
+   - スマホ：1列
+========================= */
+
+/* タブレット（iPad縦〜小さめPC） */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* ③ .gallery-img（高さは方針そのまま：中間値だけ入れる＝任意） */
+  .gallery-img {
+    height: 150px; /* 任意：PC160とスマホ140の中間 */
+  }
+}
+
+/* スマホ */
+@media (max-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 12px; /* 任意：縦1列だと14pxが少し広く感じやすいので微調整 */
+  }
+
+  /* ③ 高さは前回方針のまま */
   .gallery-img {
     height: 140px;
   }
 }
+
 
 /* ▲▲ ギャラリー用デザインここまで ▲▲ */
 
