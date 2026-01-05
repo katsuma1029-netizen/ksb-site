@@ -3227,7 +3227,11 @@ function updateActiveByScroll() {
   }
 
   setActiveTabOnly(currentId);
+
+  // ★追加：スクロールでも現在セクションを更新（header表示/ sticky判定に必要）
+  document.body.dataset.section = currentId;
 }
+
 
 // ★スクロールで更新（軽量化：rAF）
 let activeTick = false;
