@@ -1955,6 +1955,67 @@ nav.sticky-nav .lang-btn{
 .page-section + .page-section{
   border-top: 1px solid rgba(0,0,0,0.08);
 }
+/* =========================
+   Emailカード：右に問い合わせボタン
+========================= */
+
+/* Emailカードを半幅にして余白を抑える */
+.email-card{
+  max-width: 520px;   /* 好みで480〜600 */
+  margin: 0 auto;
+}
+
+/* メール行を左右に分ける */
+.email-value{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+}
+
+/* 左：メールアドレス */
+.email-address{
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* 右：問い合わせボタン */
+.email-button{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: #0b2f5b;
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.email-button:hover{
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* スマホは縦並び */
+@media (max-width: 640px){
+  .email-card{
+    max-width: 100%;
+  }
+  .email-value{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .email-button{
+    width: 100%;
+  }
+}
 
   </style>
   
@@ -3132,15 +3193,27 @@ nav.sticky-nav .lang-btn{
 </div>
 
 <!-- ★カード③：Email（共通） -->
-<div class="card company-card">
+<div class="card company-card email-card">
   <div class="company-row">
     <div class="company-label">Email</div>
-    <div class="company-value">
-  <i class="fa-solid fa-envelope" style="margin-right:6px;"></i>
-  <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
-</div>
+
+    <div class="company-value email-value">
+      <!-- 左：メールアドレス -->
+      <div class="email-address">
+        <i class="fa-solid fa-envelope" style="margin-right:6px;"></i>
+        <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
+      </div>
+
+      <!-- 右：問い合わせボタン -->
+      <a class="email-button" href="mailto:lpkksb@gmail.com">
+        <span class="lang-ja">メールで問い合わせる</span>
+        <span class="lang-id">Kirim Email</span>
+      </a>
+    </div>
+
   </div>
-</div>  
+</div>
+  
 
   <br>
 <!-- ▼▼ お問い合わせセクション ▼▼ -->
