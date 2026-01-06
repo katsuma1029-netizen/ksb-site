@@ -1964,6 +1964,16 @@ nav.sticky-nav .lang-btn{
   max-width: 520px;   /* 好みで480〜600 */
   margin: 0 auto;
 }
+/* ★追加：Emailカードだけ左ラベル幅を細くする（縦線も左へ） */
+.email-card .company-row{
+  grid-template-columns: 120px 1fr; /* 190px → 120px */
+  gap: 16px;                        /* 24px → 16px（詰まり解消） */
+}
+
+/* ★追加：Emailカードだけ縦線位置を左に移動 */
+.email-card.company-card::before{
+  left: calc(16px + 120px + 16px);  /* 190px前提 → 120px前提へ */
+}
 
 /* メール行を左右に分ける */
 .email-value{
@@ -1986,17 +1996,18 @@ nav.sticky-nav .lang-btn{
   align-items: center;
   justify-content: center;
 
-  padding: 8px 14px;
-  border-radius: 999px;
+  padding: 8px 18px;       /* 横に少し余裕（丸さが綺麗に見える） */
+  border-radius: 9999px;   /* さらに丸く（見た目の印象UP） */
 
   background: #0b2f5b;
   color: #fff;
   text-decoration: none;
 
-  font-size: 0.9rem;
+  font-size: 0.86rem;      /* 少しだけ小さくして窮屈さ解消 */
   font-weight: 800;
   white-space: nowrap;
 }
+
 
 .email-button:hover{
   opacity: 0.9;
@@ -3206,7 +3217,7 @@ nav.sticky-nav .lang-btn{
 
       <!-- 右：問い合わせボタン -->
       <a class="email-button" href="mailto:lpkksb@gmail.com">
-        <span class="lang-ja">メールで問い合わせる</span>
+        <span class="lang-ja">メールで問い合わせ</span>
         <span class="lang-id">Kirim Email</span>
       </a>
     </div>
