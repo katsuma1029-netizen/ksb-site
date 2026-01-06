@@ -99,43 +99,57 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
 }
 
-.company-row {
-  display: flex;
-  gap: 24px;
-  padding: 10px 0;
-  border-bottom: 1px solid #eeeeee;
-   align-items: center;  /* ラベルと内容を縦方向で中央揃え */
-}
-/* ★ここを追加（PC/スマホ共通で上揃えしたい行に使う） */
-.company-row.top-align {
-  align-items: flex-start;
+.company-row{
+  display: grid;                         /* ← flex → gridで整列させる */
+  grid-template-columns: 180px 1fr;      /* ラベル列 / 内容列 */
+  gap: 16px;
+  padding: 12px 0;                      /* 縦の間延びを減らす */
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  align-items: start;                   /* ← 常に上揃え（所在地が特に効く） */
 }
 
-.company-row:last-child {
-  border-bottom: none;
-}
-    .company-label {
-  width: 160px;         /* ← ラベル幅を広くして折り返しを防ぐ */
-  min-width: 160px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #333;
-  background: #f3f5f8;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-align: center;
+.company-label{
+  width: auto;                          /* gridで幅管理するので解除 */
+  min-width: 0;
+
+  font-weight: 800;
+  font-size: 0.92rem;
+  color: #0b2f5b;
+
+  background: rgba(11,47,91,0.06);      /* 少し濃くして“ラベル”と分かる */
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  text-align: left;                     /* ← 中央揃えをやめるのが超重要 */
 }
 
-.company-value {
-  flex: 1;
-  font-size: 0.95rem;
-  line-height: 1.8;
+.company-value{
+  font-size: 0.97rem;
+  line-height: 1.65;                    /* 1.8 → 1.65で一覧性UP */
+  color: #222;
 }
 
-.company-list {
-  margin: 4px 0 0;
-  padding-left: 1.1em;
+/* 所在地の箇条書きを“揃えて”読みやすく */
+.company-list{
+  margin: 0;
+  padding-left: 0;                      /* 変なインデントを消す */
+  list-style: none;                     /* ・のズレ原因を消す */
 }
+
+.company-list li{
+  display: grid;                        /* ラベル（国）と本文を揃える */
+  grid-template-columns: 6.5em 1fr;     /* 「インドネシア：」等の幅 */
+  gap: 8px;
+  padding: 2px 0;
+}
+
+@media (max-width: 640px){
+  .company-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
 
 /* スマホ時は縦積み表示に */
 @media (max-width: 640px) {
