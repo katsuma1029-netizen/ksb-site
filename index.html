@@ -3208,6 +3208,12 @@ let suppressTimer = null;
 
   // ✅ 現在位置の判定用（header非表示制御などに使用）
   document.body.dataset.section = id;
+  // ★追加：homeだけヘッダースライドを動かす（軽量化）
+  if (id === "home") {
+    startHeaderSlideShow();
+  } else {
+    stopHeaderSlideShow();
+  }
 
   // ✅ URLに状態を残す（共有用）
   history.replaceState(null, "", "#" + id);
@@ -3353,9 +3359,25 @@ function updateHeaderBackground() {
 
 
 
-    // スライドショー開始
-    initHeaderSlide();
-    setInterval(updateHeaderBackground, 5000); // 5秒ごとにフェード切り替え
+    // ===== ヘッダー背景スライドショー（homeの時だけ動かす） =====
+let headerTimer = null;
+
+function startHeaderSlideShow(){
+  if (!headerEl) return;
+  if (headerTimer) return; // 二重起動防止
+  initHeaderSlide();
+  headerTimer = setInterval(updateHeaderBackground, 5000);
+}
+
+function stopHeaderSlideShow(){
+  if (!headerTimer) return;
+  clearInterval(headerTimer);
+  headerTimer = null;
+}
+
+// 初期は home なので開始
+startHeaderSlideShow();
+
          // ===== スクロールでタブナビを上部固定 =====
 
     function handleScrollNav() {
