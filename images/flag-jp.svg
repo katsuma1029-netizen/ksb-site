@@ -1,1 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="24" viewBox="0 0 36 24">
+  <!-- White background -->
+  <rect x="0" y="0" width="36" height="24" fill="#FFFFFF"/>
+  <!-- Red circle -->
+  <circle cx="18" cy="12" r="7" fill="#BC002D"/>
+</svg>
 
