@@ -106,10 +106,30 @@
    - 見出し行の“右が空いてる感”を消す
 ========================= */
 
-/* 連絡先エリア内の company-card は縦線を消す（見出しが2カラムじゃないため） */
-#contact .company-card::before{
-  display: none;
+/* ▼連絡先：縦線は基本「あり」 */
+/* （company-card::before はそのまま使う） */
+
+/* ▼ただし、タイトルがあるカードだけは縦線を消す */
+#contact .contact-card-title.no-divider{
+  position: relative;
+  background: #fff;          /* 縦線の上に白い帯を敷く */
+  display: block;
+  padding: 6px 0;
+  z-index: 2;
 }
+
+/* 縦線を“タイトルの高さの分だけ”隠す（上から被せる帯） */
+#contact .contact-card-title.no-divider::after{
+  content:"";
+  position:absolute;
+  top: -8px;
+  bottom: -8px;
+  left: calc(16px + 190px + 16px); /* company-card::before と同じ位置 */
+  width: 1px;
+  background: #fff;               /* 縦線部分を白で塗りつぶす */
+  z-index: 3;
+}
+
 
 /* 見出しを中央寄せにする */
 #contact .contact-card-title{
@@ -3066,10 +3086,11 @@ nav.sticky-nav .lang-btn{
 
   <!-- ★カード①：KSB日本（主） -->
   <div class="card company-card" style="margin-bottom:0;">
-    <h3 class="contact-card-title" style="margin:0 0 10px;">
+    <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
   <span class="lang-ja">【KSB日本】</span>
   <span class="lang-id">【KSB Jepang】</span>
 </h3>
+
 
 
     <div class="company-row">
@@ -3092,7 +3113,7 @@ nav.sticky-nav .lang-btn{
 
   <!-- ★カード②：KSBインドネシア（補） -->
   <div class="card company-card" style="margin-bottom:0;">
-   <h3 class="contact-card-title" style="margin:0 0 10px;">
+   <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
   <span class="lang-ja">【KSBインドネシア】</span>
   <span class="lang-id">【KSB Indonesia】</span>
 </h3>
