@@ -128,20 +128,61 @@
   line-height: 1.65;                    /* 1.8 → 1.65で一覧性UP */
   color: #222;
 }
+/* 行は揃える（上揃えにして所在地の段落が綺麗になる） */
+.company-row{
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  align-items: start;
+}
 
-/* 所在地の箇条書きを“揃えて”読みやすく */
+/* ラベルは左寄せ（表として読みやすい） */
+.company-label{
+  width: auto;
+  min-width: 0;
+  text-align: left;
+  font-weight: 800;
+  color: #0b2f5b;
+  background: rgba(11,47,91,0.06);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+/* 本文は少し詰めて一覧性UP */
+.company-value{
+  font-size: 0.97rem;
+  line-height: 1.65;
+  color: #222;
+}
+
+/* ✅ 箇条書きは“普通のリスト”に戻す（崩れ防止） */
 .company-list{
   margin: 0;
-  padding-left: 0;                      /* 変なインデントを消す */
-  list-style: none;                     /* ・のズレ原因を消す */
+  padding-left: 1.2em;     /* ●のインデント */
+  list-style: disc;
 }
 
 .company-list li{
-  display: grid;                        /* ラベル（国）と本文を揃える */
-  grid-template-columns: 6.5em 1fr;     /* 「インドネシア：」等の幅 */
-  gap: 8px;
   padding: 2px 0;
 }
+
+/* 住所みたいな長文の折り返し事故を減らす */
+.company-value,
+.company-list{
+  overflow-wrap: anywhere; /* どうしても長い時だけ折る */
+  word-break: normal;
+}
+
+@media (max-width: 640px){
+  .company-row{
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+
 
 @media (max-width: 640px){
   .company-row{
