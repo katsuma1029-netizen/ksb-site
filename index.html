@@ -95,13 +95,22 @@
    - 項目はそのまま
    - 見た目だけスクショ寄せ（整った2カラム表）
 ========================= */
+/* ✅ company-card 全体を貫く縦線（上下いっぱいで一本化） */
 .company-card{
-  padding: 22px 24px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background: #fff;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  position: relative; /* ← 追加：縦線の基準にする */
 }
+
+.company-card::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;                 /* ← これでカード最下部（送り出し許可番号まで） */
+  left: calc(190px + 24px);  /* ← ラベル幅(190) + gapの半分寄り調整 */
+  width: 1px;
+  background: rgba(0,0,0,0.10);
+  pointer-events: none;
+}
+
 
 /* 1行 = ラベル列 + 値列 */
 .company-row{
@@ -119,17 +128,10 @@
 }
 
 
-/* ★左（ラベル）と右（値）の間の縦線 */
+/* ★左（ラベル）と右（値）の間の縦線（一本化するので無効化） */
 .company-row::before{
-  content: "";
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 190px;                       /* ← ラベル幅と同じ値にする */
-  width: 1px;
-  background: rgba(0,0,0,0.10);
+  content: none;
 }
-
 
 /* 最後の行は下線を消してスッキリ */
 .company-row:last-child{
