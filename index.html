@@ -174,13 +174,17 @@
   overflow-wrap: anywhere;
 }
 
-/* 国旗 */
+/* 国旗（絵文字フォントを明示して確実に表示） */
 .flag{
   display: inline-block;
   margin-right: 0.5em;
-  font-size: 0.95em;        /* 絵文字は大きく見えやすいので少し小さめ */
-  vertical-align: baseline;
+  font-size: 1em;
+  vertical-align: -0.08em;
+
+  /* ★追加：絵文字フォント優先 */
+  font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji", system-ui, sans-serif;
 }
+
 
 
 .company-list li{
