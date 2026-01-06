@@ -100,6 +100,25 @@
   position: relative; /* ← 追加：縦線の基準にする */
 }
 
+/* =========================
+   連絡先カードの見出し調整
+   - 【KSB日本】【KSBインドネシア】は中央寄せ
+   - 見出し行の“右が空いてる感”を消す
+========================= */
+
+/* 連絡先エリア内の company-card は縦線を消す（見出しが2カラムじゃないため） */
+#contact .company-card::before{
+  display: none;
+}
+
+/* 見出しを中央寄せにする */
+#contact .contact-card-title{
+  text-align: center;
+  font-weight: 900;
+  color: #0b2f5b;
+}
+    
+    
 .company-card::before{
   content: "";
   position: absolute;
@@ -3047,10 +3066,11 @@ nav.sticky-nav .lang-btn{
 
   <!-- ★カード①：KSB日本（主） -->
   <div class="card company-card" style="margin-bottom:0;">
-    <h3 style="margin:0 0 10px;">
-      <span class="lang-ja">【KSB日本】</span>
-      <span class="lang-id">【KSB Jepang】</span>
-    </h3>
+    <h3 class="contact-card-title" style="margin:0 0 10px;">
+  <span class="lang-ja">【KSB日本】</span>
+  <span class="lang-id">【KSB Jepang】</span>
+</h3>
+
 
     <div class="company-row">
       <div class="company-label">
@@ -3072,10 +3092,11 @@ nav.sticky-nav .lang-btn{
 
   <!-- ★カード②：KSBインドネシア（補） -->
   <div class="card company-card" style="margin-bottom:0;">
-    <h3 style="margin:0 0 10px;">
-      <span class="lang-ja">【KSBインドネシア】</span>
-      <span class="lang-id">【KSB Indonesia】</span>
-    </h3>
+   <h3 class="contact-card-title" style="margin:0 0 10px;">
+  <span class="lang-ja">【KSBインドネシア】</span>
+  <span class="lang-id">【KSB Indonesia】</span>
+</h3>
+
 
     <div class="company-row">
       <div class="company-label">
