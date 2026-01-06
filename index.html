@@ -104,24 +104,33 @@
   content: "";
   position: absolute;
   top: 0;
-  bottom: 0;                 /* ← これでカード最下部（送り出し許可番号まで） */
-  left: calc(190px + 24px);  /* ← ラベル幅(190) + gapの半分寄り調整 */
+  bottom: 0;
+
+  /* ✅カード内padding(16px)分だけ右へ */
+  left: calc(16px + 190px + 24px);
+
   width: 1px;
   background: rgba(0,0,0,0.10);
   pointer-events: none;
 }
 
 
+
 /* 1行 = ラベル列 + 値列 */
 .company-row{
-  position: relative; /* ★縦線の基準 */
+  position: relative;
   display: grid;
-  grid-template-columns: 190px 1fr;  /* ラベル幅 */
-  gap: 24px;                         /* ★縦線が入るので少し広めに */
-  padding: 14px 0;
+  grid-template-columns: 190px 1fr;
+  gap: 24px;
+
+  /* ✅背景（グレー）をカード端まで伸ばす */
+  margin: 0 -16px;     /* ← カードの左右padding分を相殺 */
+  padding: 14px 16px;  /* ← 行の中身は今まで通り16px内側 */
+
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  align-items: center; /* ★start → center に変更 */
+  align-items: center;
 }
+
 /* ★複数行の項目だけ上揃えに戻す（所在地・代表など） */
 .company-row.top-align{
   align-items: start;
