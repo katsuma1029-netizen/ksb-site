@@ -136,7 +136,7 @@
   border-bottom: none;
 }
     .company-row:nth-child(even){
-  background: rgba(11,47,91,0.02);
+  background: rgba(11,47,91,0.05);
 }
 
 
@@ -167,13 +167,21 @@
   overflow-wrap: anywhere;
 }
 
-/* 箇条書き（所在地・代表など） */
 .company-list{
   margin: 0;
-  padding-left: 1.2em;
-  list-style: disc;
+  padding-left: 0;          /* ← 左のインデントを消す */
+  list-style: none;         /* ← 黒丸を消す */
   overflow-wrap: anywhere;
 }
+
+/* 国旗 */
+.flag{
+  display: inline-block;
+  margin-right: 0.5em;
+  font-size: 0.95em;        /* 絵文字は大きく見えやすいので少し小さめ */
+  vertical-align: baseline;
+}
+
 
 .company-list li{
   padding: 2px 0;
@@ -196,7 +204,7 @@
 
   .company-row{
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 8px;
     padding: 12px 0;
   }
 .company-row::before{
@@ -2346,34 +2354,32 @@ nav.sticky-nav .lang-btn{
           </div>
           <div class="company-value">
             <ul class="company-list">
-                <li>
-  <!-- インドネシア住所 -->
-  <span class="lang-ja">
-  インドネシア共和国 バンテン州 タンゲラン・スラタン市 セルポン・ウタラ区 ジュルパン地区 プサントレン通り 88B RT02／RW11(15323)<br>
-<span class="addr-note">
-(Banten – Tangerang Selatan – Serpong Utara – Jelupang, Jl. Pesantren No.88 B, RT.02/RW.11, 15323)
-</span>
-  </span>
+  <li>
+    <span class="flag" aria-hidden="true">🇮🇩</span>
+    <span class="lang-ja">
+      インドネシア共和国 バンテン州 タンゲラン・スラタン市 セルポン・ウタラ区 ジュルパン地区 プサントレン通り 88B RT02／RW11(15323)<br>
+      <span class="addr-note">
+        (Banten – Tangerang Selatan – Serpong Utara – Jelupang, Jl. Pesantren No.88 B, RT.02/RW.11, 15323)
+      </span>
+    </span>
 
-  <span class="lang-id">
-    Indonesia:  
-    Jl. Pesantren No.88 B, RT.02/RW.11, Jelupang, Kec. Serpong Utara,
-    Kota Tangerang Selatan, Banten 15323, Indonesia
-  </span>
-</li>
+    <span class="lang-id">
+      Jl. Pesantren No.88 B, RT.02/RW.11, Jelupang, Kec. Serpong Utara,
+      Kota Tangerang Selatan, Banten 15323, Indonesia
+    </span>
+  </li>
 
-              <li>
-                <!-- 日本住所 -->
-                <span class="lang-ja">
-                  日本：  
-                  京都府京都市伏見区葭島矢倉町4-45
-                </span>
-                <span class="lang-id">
-                  Jepang:  
-                  4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
-                </span>
-              </li>
-            </ul>
+  <li>
+    <span class="flag" aria-hidden="true">🇯🇵</span>
+    <span class="lang-ja">
+      京都府京都市伏見区葭島矢倉町4-45
+    </span>
+    <span class="lang-id">
+      4-45 Yoshijima-Yakuracho, Fushimi-ku, Kyoto, Japan
+    </span>
+  </li>
+</ul>
+
           </div>
         </div>
 
@@ -2385,16 +2391,15 @@ nav.sticky-nav .lang-btn{
           </div>
           <div class="company-value">
             <ul class="company-list">
-              <li>
-                <span class="lang-ja">インドネシア：</span>
-                <span class="lang-id">Indonesia:</span>
-                Ahmad Rozikin
-              </li>
-              <li>
-                <span class="lang-ja">日本：</span>
-                <span class="lang-id">Jepang:</span>
-                Koji Shimono（下野 浩二）
-              </li>
+             <li>
+  <span class="flag" aria-hidden="true">🇮🇩</span>
+  Ahmad Rozikin
+</li>
+<li>
+  <span class="flag" aria-hidden="true">🇯🇵</span>
+  Koji Shimono（下野 浩二）
+</li>
+
             </ul>
           </div>
         </div>
