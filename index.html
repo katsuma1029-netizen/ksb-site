@@ -111,8 +111,13 @@
   gap: 24px;                         /* ★縦線が入るので少し広めに */
   padding: 14px 0;
   border-bottom: 1px solid rgba(0,0,0,0.08);
+  align-items: center; /* ★start → center に変更 */
+}
+/* ★複数行の項目だけ上揃えに戻す（所在地・代表など） */
+.company-row.top-align{
   align-items: start;
 }
+
 
 /* ★左（ラベル）と右（値）の間の縦線 */
 .company-row::before{
@@ -199,6 +204,7 @@
   }
   .company-label{
     width: 100%;
+    white-space: normal; /* ★スマホだけ折り返しOK */
   }
 }
 
