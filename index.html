@@ -107,7 +107,7 @@
   bottom: 0;
 
   /* ✅カード内padding(16px)分だけ右へ */
-  left: calc(16px + 190px + 24px);
+ left: calc(16px + 190px + 16px); /* gap 24px → 16px 相当に */
 
   width: 1px;
   background: rgba(0,0,0,0.10);
@@ -172,8 +172,9 @@
 /* 右：値 */
 .company-value{
   font-size: 0.97rem;
-  line-height: 1.65;
+  line-height: 1.7;
   color: #222;
+  padding-left: 6px; /* ★これが“窮屈さ解消の決定打” */
   min-width: 0;                    /* 折り返し事故を減らす */
   overflow-wrap: anywhere;
 }
