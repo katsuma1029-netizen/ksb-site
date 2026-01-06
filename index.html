@@ -187,12 +187,19 @@
 
 /* 国旗を絵文字ではなく画像で表示（端末差をゼロに） */
 .flag-icon{
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 14px;              /* 国旗比率を意識（横長） */
   display: inline-block;
-  vertical-align: -0.15em;
-  margin-right: 0.5em;
+
+  vertical-align: -0.12em;   /* 文字との上下位置を微調整 */
+  margin-right: 0.6em;
+
+  border: 1px solid rgba(0,0,0,0.15); /* ★輪郭を付ける */
+  border-radius: 2px;        /* ★少しだけ角丸 */
+
+  background-color: #fff;    /* 背景に溶けないように */
 }
+
 
 
 .company-list li{
