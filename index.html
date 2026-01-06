@@ -109,26 +109,11 @@
 /* ▼連絡先：縦線は基本「あり」 */
 /* （company-card::before はそのまま使う） */
 
-/* ▼ただし、タイトルがあるカードだけは縦線を消す */
-#contact .contact-card-title.no-divider{
-  position: relative;
-  background: #fff;          /* 縦線の上に白い帯を敷く */
-  display: block;
-  padding: 6px 0;
-  z-index: 2;
+/* ✅連絡先カード：タイトルがある company-card だけ、縦線をタイトル下から開始 */
+#contact .company-card:has(.contact-card-title)::before{
+  top: 56px; /* ←ここがポイント（タイトル高さ分だけ下げる） */
 }
 
-/* 縦線を“タイトルの高さの分だけ”隠す（上から被せる帯） */
-#contact .contact-card-title.no-divider::after{
-  content:"";
-  position:absolute;
-  top: -8px;
-  bottom: -8px;
-  left: calc(16px + 190px + 16px); /* company-card::before と同じ位置 */
-  width: 1px;
-  background: #fff;               /* 縦線部分を白で塗りつぶす */
-  z-index: 3;
-}
 
 
 /* 見出しを中央寄せにする */
