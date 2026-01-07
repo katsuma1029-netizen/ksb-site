@@ -1959,11 +1959,34 @@ nav.sticky-nav .lang-btn{
    Emailカード：右に問い合わせボタン
 ========================= */
 
-/* Emailカードを半幅にして余白を抑える */
+/* =========================
+   Emailカード：横幅100% + 中央寄せ中身
+========================= */
+
+/* カード自体は100%（上段2枚と同じ幅） */
 .email-card{
-  max-width: 520px;   /* 好みで480〜600 */
-  margin: 0 auto;
+  max-width: none;      /* ← 制限を解除 */
+  margin: 24px 0 0;     /* 上段との間隔だけ調整 */
 }
+
+/* 中身を中央にまとめるラッパー */
+.email-card .company-row{
+  justify-content: center;  /* 中央寄せ */
+}
+
+/* 実際の中身（メール＋ボタン）を制限 */
+.email-card .email-value{
+  max-width: 520px;     /* ★ここが肝 */
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center; /* 中央配置 */
+}
+
+/* 中央寄せ用に文字も揃える */
+.email-card .email-address{
+  text-align: center;
+}
+
 /* ★追加：Emailカードだけ左ラベル幅を細くする（縦線も左へ） */
 .email-card .company-row{
   grid-template-columns: 120px 1fr; /* 190px → 120px */
