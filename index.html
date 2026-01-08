@@ -629,12 +629,6 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
 }
 
 
-    .nav-tab{
-  position: relative;   /* ← 追加（下線を::afterで描くため） */
-  padding: 8px 10px;    /* ← 追加（背景が見えるように左右も少し） */
-  border-radius: 10px;  /* ← 追加 */
-}
-
 /* ★アクティブ：今いる場所を強制的に目立たせる（非アクティブは薄くしない） */
 .nav-tab.active{
   color: #fff;
@@ -3389,12 +3383,7 @@ nav.sticky-nav .lang-btn{
     <script>
     // ===== 言語切り替え =====
     const langButtons = document.querySelectorAll(".lang-btn");
-    const jaElems = document.querySelectorAll(".lang-ja");
-    const idElems = document.querySelectorAll(".lang-id");
-      // ★追加：JSが動いている時だけタブ表示を有効化
-document.body.classList.add("js-enabled");
-
-
+        
     function setLanguage(lang) {
   document.body.dataset.lang = lang;
   localStorage.setItem("ksb_lang", lang);
@@ -3437,12 +3426,11 @@ window.addEventListener("load", () => {
   handleScrollNav(); // ★先に状態更新（高さ計算のズレ防止）
 
   const hash = (location.hash || "").replace("#", "");
-  const valid = ["home", "about", "trainees", "gallery", "contact"];
+  const valid = ["home", "about", "trainees", "contact", "gallery"];
   if (valid.includes(hash)) {
     setSection(hash);
   }
 });
-
 
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
