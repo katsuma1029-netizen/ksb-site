@@ -1244,13 +1244,93 @@ body.js-enabled .page-section { display: block; }
 
 .flow-summary{
   cursor: pointer;
-  font-weight: 800;
-  color: var(--main-blue);
-  background: #eef4ff;
-  padding: 10px 14px;
-  border-radius: 10px;
   list-style: none;
+
+  /* ボタン化 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+  border-radius: 14px;
+
+  /* “主役感” */
+  background: linear-gradient(180deg, #eef4ff, #e2ecff);
+  border: 1px solid rgba(11,74,143,0.18);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+
+  color: var(--main-blue);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+
+  position: relative;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
+
+/* ▼▼▼▼ を文字で入れずに“見た目だけ”作る（スマホでも崩れにくい） */
+.flow-summary::before,
+.flow-summary::after{
+  content: "▼▼▼";
+  font-weight: 900;
+  opacity: 0.85;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+}
+
+/* メインテキスト（主役） */
+.flow-summary-text{
+  font-size: 1.05rem;
+}
+
+/* 補助テキスト（クリック誘導） */
+.flow-summary-hint{
+  font-size: 0.82rem;
+  font-weight: 800;
+  opacity: 0.75;
+  margin-left: 6px;
+}
+
+/* ホバーで“押せる感” */
+.flow-summary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  filter: brightness(1.02);
+}
+
+/* 開いた時（details[open]）は見た目を切り替える */
+.flow-details[open] > .flow-summary{
+  background: linear-gradient(180deg, #ffedf2, #ffe3ea);
+  border-color: rgba(255,75,106,0.35);
+  color: #b8203b;
+}
+
+/* 開いた時は ▼ を ▲ にして「開いてる」感 */
+.flow-details[open] > .flow-summary::before,
+.flow-details[open] > .flow-summary::after{
+  content: "▲▲▲";
+}
+
+/* スマホは矢印を少し控えめにして詰まり防止 */
+@media (max-width: 640px){
+  .flow-summary{
+    padding: 14px 12px;
+    gap: 8px;
+  }
+  .flow-summary::before,
+  .flow-summary::after{
+    content: "▼";
+    letter-spacing: 0;
+    opacity: 0.75;
+  }
+  .flow-summary-text{
+    font-size: 1.0rem;
+  }
+  .flow-summary-hint{
+    display: none; /* スマホは情報量を減らしてスッキリ */
+  }
+}
+
 /* summary内のテキストが1行に混ざらないように（必要なら） */
 .flow-summary .lang-ja,
 .flow-summary .lang-id{
@@ -2729,9 +2809,12 @@ setelah kedatangan.
  <details class="flow-details">
 
   <summary class="flow-summary">
-    <span class="lang-ja">送り出しの流れを詳しく見る</span>
-    <span class="lang-id">Lihat detail alur pengiriman</span>
-  </summary>
+  <span class="flow-summary-text lang-ja">送り出しの流れを詳しく見る</span>
+  <span class="flow-summary-text lang-id">Lihat detail alur pengiriman</span>
+  <span class="flow-summary-hint lang-ja">クリックで開く</span>
+  <span class="flow-summary-hint lang-id">Klik untuk membuka</span>
+</summary>
+
 
   <h2 class="lang-ja">送り出しの流れ｜面接から日本入国まで</h2>
   <h2 class="lang-id">Alur Pengiriman Peserta｜Dari Wawancara hingga Tiba di Jepang</h2>
