@@ -1251,6 +1251,11 @@ body.js-enabled .page-section { display: block; }
   border-radius: 10px;
   list-style: none;
 }
+/* summary内のテキストが1行に混ざらないように（必要なら） */
+.flow-summary .lang-ja,
+.flow-summary .lang-id{
+  display: inline;
+}
 
 /* 三角アイコン非表示（Chrome/Safari） */
 .flow-summary::-webkit-details-marker{
@@ -2721,17 +2726,16 @@ setelah kedatangan.
 <!-- ▼▼ 送り出しの流れ（Flow：折りたたみ） ▼▼ -->
 <div class="flow-section">
 
-  <details class="flow-details">
+ <details class="flow-details">
 
-    <summary class="flow-summary lang-ja">
-      送り出しの流れを詳しく見る
-    </summary>
-    <summary class="flow-summary lang-id">
-      Lihat detail alur pengiriman
-    </summary>
+  <summary class="flow-summary">
+    <span class="lang-ja">送り出しの流れを詳しく見る</span>
+    <span class="lang-id">Lihat detail alur pengiriman</span>
+  </summary>
 
-    <h2 class="lang-ja">送り出しの流れ｜面接から日本入国まで</h2>
-    <h2 class="lang-id">Alur Pengiriman Peserta｜Dari Wawancara hingga Tiba di Jepang</h2>
+  <h2 class="lang-ja">送り出しの流れ｜面接から日本入国まで</h2>
+  <h2 class="lang-id">Alur Pengiriman Peserta｜Dari Wawancara hingga Tiba di Jepang</h2>
+
 
     <div class="flow-grid">
 
