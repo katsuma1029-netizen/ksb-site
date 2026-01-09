@@ -797,17 +797,11 @@ h3{
       overflow: hidden;
     }
 
-  /* 左側に細いアクセントバー（ただし「KSBの強み」のカードは除外） */
-   #home .card:not(.strength-card)::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, var(--main-blue), #3f8bff);
-      opacity: 0.9;
-    }
+  /* 左側に細いアクセントバー（「KSBの強み」「事業内容カード(service-card)」は除外） */
+/* ホーム内のカードは左の青線を使わない */
+#home .card::before {
+  content: none;
+}
 
     /* 「説明だけのカード」は少し柔らかく */
     #home .card.soft {
