@@ -1450,15 +1450,21 @@ body.js-enabled .page-section { display: block; }
 }
 /* ▲▲ ここまでSNSアイコンCSS ▲▲ */
 .about-intro-card {
-  background: linear-gradient(135deg, #fffefe, #fff3f7);
-  border: 1px solid #ffc6d5;
-  padding: 18px 22px;   /* ← ここだけ調整 */
-  border-radius: 14px;
-  margin-bottom: 32px;
+  /* 事業内容の補足説明カード（#home .card.soft）と同じ方向性に統一 */
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  box-shadow: none;
+
+  /* 形・余白は既存カードと同じ感を維持 */
+  padding: 18px 16px;
+  border-radius: 16px;
+
+  /* HTML側に style="margin-bottom: 20px;" があるので、ここは任意 */
+  margin-bottom: 0;
+
   line-height: 1.7;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  border-left: 6px solid var(--accent);
 }
+
 
 /* 「KSBの想い」サブタイトル用 */
 .about-intro-title {
