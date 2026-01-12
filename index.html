@@ -1317,6 +1317,65 @@ h3{
   grid-template-columns: 1fr; /* デフォルトは縦 */
   gap: 16px;
 }
+/* =========================
+   連絡先CTA（電話/メール/WhatsAppの大ボタン）
+========================= */
+.contact-actions{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.contact-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 11px 12px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(11,47,91,0.18);
+  background: #f3f7ff;
+  color: #0b2f5b;
+  text-decoration: none;
+
+  font-weight: 900;
+  font-size: 0.92rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+}
+
+.contact-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  opacity: 0.95;
+}
+
+/* 主ボタン（日本側：電話を主役に） */
+.contact-btn.primary{
+  background: linear-gradient(180deg, #0b4a8f, #003980);
+  color: #fff;
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* WhatsAppだけ色の意味を合わせる */
+.contact-btn.wa{
+  background: #eafff1;
+  border-color: rgba(37,211,102,0.30);
+  color: #0b2f5b;
+}
+.contact-btn.wa i{
+  color: #25D366;
+}
+
+/* スマホ：縦にして押しやすく */
+@media (max-width: 640px){
+  .contact-actions{
+    grid-template-columns: 1fr;
+  }
+}
 
 /* PC表示：左右に並べる（タブレット以上） */
 @media (min-width: 900px){
@@ -1853,86 +1912,7 @@ nav.sticky-nav .lang-btn{
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-.email-card{
-  max-width: none;  
-  margin: 24px 0 0;  
-}
 
-.email-card .company-row{
-  justify-content: center;  
-}
-
-.email-card .email-value{
-  max-width: 520px;    
-  width: 100%;
-  margin: 0 auto;
-  justify-content: center; 
-}
-
-.email-card .email-address{
-  text-align: center;
-}
-
-.email-card .company-row{
-  grid-template-columns: 120px 1fr; 
-  gap: 16px;  
-}
-
-.email-card.company-card::before{
-  left: calc(16px + 120px + 16px); 
-}
-/* メール行を左右に分ける */
-.email-value{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  width: 100%;
-}
-
-/* 左：メールアドレス */
-.email-address{
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-
-/* 右：問い合わせボタン */
-.email-button{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 8px 18px;  
-  border-radius: 9999px;  
-
-  background: #0b2f5b;
-  color: #fff;
-  text-decoration: none;
-
-  font-size: 0.86rem;  
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-
-.email-button:hover{
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
-
-/* スマホは縦並び */
-@media (max-width: 640px){
-  .email-card{
-    max-width: 100%;
-  }
-  .email-value{
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .email-button{
-    width: 100%;
-  }
-}
 
   </style>
   
@@ -2862,15 +2842,16 @@ setelah kedatangan.
     </h2>
   </div>
 
-  <!-- 企業向け補足文（任意） -->
-  <p class="lang-ja">
-    企業様・監理団体様へ：面接依頼、候補者情報の確認、提携のご相談などは
-    下記よりお気軽にお問い合わせください。
-  </p>
-  <p class="lang-id">
-    Untuk perusahaan Jepang / kumiai: permintaan wawancara, pengecekan
-    data kandidat, atau konsultasi kerja sama dapat dilakukan melalui kontak di bawah ini.
-  </p>
+ <!-- 企業向け補足文（任意） -->
+<p class="lang-ja">
+  企業様・監理団体様へ：面接依頼、候補者情報の確認、提携のご相談などは下記よりご連絡ください。<br>
+  <strong>「まずは相談だけ」でも問題ありません。</strong>内容を確認後、KSBより折り返しご連絡いたします。
+</p>
+<p class="lang-id">
+  Untuk perusahaan Jepang / kumiai: permintaan wawancara, pengecekan data kandidat, atau konsultasi kerja sama dapat dilakukan melalui kontak di bawah ini.<br>
+  <strong>Silakan hubungi kami untuk konsultasi saja juga tidak masalah.</strong> Setelah kami cek, tim KSB akan menghubungi Anda kembali.
+</p>
+
   
   <!-- ★PCは左右並びにするラッパー（日本＋インドネシア） -->
 <div class="contact-cards">
@@ -2896,6 +2877,20 @@ setelah kedatangan.
 </span>
 </div>
     </div>
+   <div class="contact-actions">
+  <a class="contact-btn primary" href="tel:+819038947779">
+    <i class="fa-solid fa-phone"></i>
+    <span class="lang-ja">電話する</span>
+    <span class="lang-id">Telepon</span>
+  </a>
+
+  <a class="contact-btn" href="mailto:lpkksb@gmail.com?subject=KSB%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%80%90%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%86%85%E5%AE%B9%E3%80%91%0A">
+    <i class="fa-solid fa-envelope"></i>
+    <span class="lang-ja">メールする</span>
+    <span class="lang-id">Kirim Email</span>
+  </a>
+</div>
+ 
   </div>
 
   <!-- ★カード②：KSBインドネシア（補） -->
@@ -2927,35 +2922,24 @@ setelah kedatangan.
 </span>
   </div>
 </div>
+   <div class="contact-actions">
+  <a class="contact-btn" href="tel:+62215376558">
+    <i class="fa-solid fa-phone"></i>
+    <span class="lang-ja">オフィスへ電話</span>
+    <span class="lang-id">Telepon Kantor</span>
+  </a>
+
+  <a class="contact-btn wa" href="https://wa.me/6281901173052" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="lang-ja">WhatsAppで連絡</span>
+    <span class="lang-id">Chat WhatsApp</span>
+  </a>
+</div>
+ 
   </div>
 
 </div>
 
-<!-- ★カード③：Email（共通） -->
-<div class="card company-card email-card">
-  <div class="company-row">
-    <div class="company-label">
-  <span class="lang-ja">メール</span>
-  <span class="lang-id">Email</span>
-</div>
-
-    <div class="company-value email-value">
-      <!-- 左：メールアドレス -->
-      <div class="email-address">
-        <i class="fa-solid fa-envelope" style="margin-right:6px;"></i>
-        <a href="mailto:lpkksb@gmail.com" class="auto-link">lpkksb@gmail.com</a>
-      </div>
-
-      <!-- 右：問い合わせボタン -->
-      <a class="email-button" href="mailto:lpkksb@gmail.com">
-        <span class="lang-ja">メールで問い合わせ</span>
-        <span class="lang-id">Kirim Email</span>
-      </a>
-    </div>
-
-  </div>
-</div>
-  
   <br>
 <!-- ▼▼ お問い合わせセクション ▼▼ -->
 <div class="contact-section">
