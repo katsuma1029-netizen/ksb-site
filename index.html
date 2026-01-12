@@ -82,7 +82,6 @@
     ]
   }
   </script>
-
   <style>
 
        /* =========================会社概要（company-card）最終版========================= */
@@ -97,20 +96,16 @@
   text-align: center;
   font-weight: 900;
   color: #0b2f5b;
-
-  /* ★追加：タイトルを少し大きく（やりすぎない） */
   font-size: 1.15rem;
   line-height: 1.25;
 }
 
-/* ★追加：国旗＋タイトルの横並び */
 #contact .contact-title-main{
   display: inline-flex;
   align-items: center;
   gap: 8px;
 }
 
-/* ★追加：連絡先カード見出し用の国旗アイコン */
 #contact .contact-flag{
   width: 22px;
   height: 16px;
@@ -122,7 +117,6 @@
   background: #fff;
 }
 
-/* ★追加：連絡先カードタイトルの2行目（対象の説明） */
 #contact .contact-card-subtitle{
   display: block;
   margin-top: 2px;
@@ -131,7 +125,6 @@
   color: rgba(11,47,91,0.80);
   line-height: 1.25;
 }
-
     
 #contact .company-card::before{
   content: none;
@@ -167,31 +160,25 @@
   display: grid;
   grid-template-columns: 190px 1fr;
   gap: 24px;
-
-  /* ✅背景（グレー）をカード端まで伸ばす */
-  margin: 0 -16px;     /* ← カードの左右padding分を相殺 */
-  padding: 14px 16px;  /* ← 行の中身は今まで通り16px内側 */
+  margin: 0 -16px; 
+  padding: 14px 16px;  
 
   border-bottom: 1px solid rgba(0,0,0,0.08);
   align-items: center;
 }
 
-/* ★複数行の項目だけ上揃えに戻す（所在地・代表など） */
 .company-row.top-align{
   align-items: start;
 }
-/* ★左（ラベル）と右（値）の間の縦線（一本化するので無効化） */
 .company-row::before{
   content: none;
 }
-/* 最後の行は下線を消してスッキリ */
 .company-row:last-child{
   border-bottom: none;
 }
     .company-row:nth-child(even){
   background: rgba(11,47,91,0.05);
 }
-/* 左：ラベル（フラットにして“資料感”を上げる） */
 .company-label{
   font-weight: 800;
   font-size: 0.92rem;
@@ -205,54 +192,48 @@
 
   text-align: left;
   line-height: 1.4;
-  white-space: nowrap; /* ラベル列は1行で固定して見栄えを安定 */
+  white-space: nowrap; 
 }
 .company-value{
   font-size: 0.97rem;
   line-height: 1.7;
   color: #222;
-  padding-left: 6px; /* ★これが原因で強調の決定打 */
-  min-width: 0;      /* ★折り返し事故を減らす */
+  padding-left: 6px; 
+  min-width: 0; 
   overflow-wrap: anywhere;
-
-  /* ▼ 追加：右カラムからはみ出さない安全装置 */
   box-sizing: border-box;
   overflow: hidden;
 }
 
 .company-list{
   margin: 0;
-  padding-left: 0;          /* ← 左のインデントを消す */
-  list-style: none;         /* ← 黒丸を消す */
+  padding-left: 0; 
+  list-style: none; 
   overflow-wrap: anywhere;
 }
-/* 国旗（絵文字フォントを明示して確実に表示） */
+
 .flag{
   display: inline-block;
   margin-right: 0.5em;
   font-size: 1em;
   vertical-align: -0.08em;
-  /* ★追加：絵文字フォント優先 */
-  font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji", system-ui, sans-serif;
+   font-family: "Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji", system-ui, sans-serif;
 }
-/* 国旗を絵文字ではなく画像で表示（端末差をゼロに） */
+
 .flag-icon{
   width: 20px;
-  height: 14px;              /* 国旗比率を意識（横長） */
+  height: 14px;    
   display: inline-block;
-
-  vertical-align: -0.12em;   /* 文字との上下位置を微調整 */
+  vertical-align: -0.12em;   
   margin-right: 0.6em;
-
-  border: 1px solid rgba(0,0,0,0.15); /* ★輪郭を付ける */
-  border-radius: 2px;        /* ★少しだけ角丸 */
-
-  background-color: #fff;    /* 背景に溶けないように */
+  border: 1px solid rgba(0,0,0,0.15); 
+  border-radius: 2px; 
+  background-color: #fff;   
 }
 .company-list li{
   padding: 2px 0;
 }
-/* 住所の括弧書きは必ず別行で見やすく */
+
 .addr-note{
   display: block;
   margin-top: 4px;
@@ -265,7 +246,6 @@
   .company-card{
     padding: 18px 16px;
   }
-/* ✅ 追加：スマホでは縦線を消す（本体） */
   .company-card::before{
     display: none;
   }
@@ -279,18 +259,15 @@
   }
   .company-label{
     width: 100%;
-    white-space: normal; /* ★スマホだけ折り返しOK */
+    white-space: normal; 
   }
 }
 
 .company-list li {
   margin-bottom: 3px;
 }
-/* 言語切替は body の data-lang で制御（チラ見えも防げる） */
 body[data-lang="ja"] .lang-id { display: none !important; }
 body[data-lang="id"] .lang-ja { display: none !important; }
-
-/* もし data-lang が無い場合は日本語を既定に */
 body:not([data-lang]) .lang-id { display: none !important; }
 
  :root {
@@ -299,8 +276,6 @@ body:not([data-lang]) .lang-id { display: none !important; }
   --border: #e0e0e0;
   --accent: #ff4b6a;
   --accent-soft: #ffe3ea;
-
-  /* ★A案：全セクション背景をトップと同系統の薄い青に統一 */
   --section-bg-a: linear-gradient(135deg, #f7f9fc, #eef4ff);
   --section-bg-b: linear-gradient(135deg, #f7f9fc, #eef4ff);
 }
@@ -309,7 +284,7 @@ body:not([data-lang]) .lang-id { display: none !important; }
     body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans",
     "Noto Sans JP", sans-serif;
-  line-height: 1.8; /* ★ 1.7 → 1.8 */
+  line-height: 1.8; 
   margin: 0;
   padding: 0;
   background: #ffffff;
@@ -327,7 +302,6 @@ header {
   overflow: hidden;
 }
 
-/* 写真＋グラデーションのレイヤー（ここをフェードさせる） */
 header::before {
   content: "";
   position: absolute;
@@ -366,8 +340,6 @@ header::before {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-
-  /* 行全体をヘッダーの中で中央寄せ */
   margin: 0 auto;
 }
 /* --- ヘッダータイトル強調 --- */
@@ -375,8 +347,6 @@ header h1 {
   font-size: 2.8rem;      /* ← 一行に収まるサイズのまま維持 */
   font-weight: 900;       /* ← 800 → 900 に強化（最も太い） */
   letter-spacing: 0.05em;
-
-  /* ← 立体感を強めるためのシャドウ（二段構成） */
   text-shadow:
       0 5px 14px rgba(0, 0, 0, 0.55),
       0 3px 6px rgba(0, 0, 0, 0.32);
@@ -388,14 +358,11 @@ header h1 {
   font-size: 2.6rem;
   font-weight: 900;
   margin: 20px 0 10px;
-
   display: inline-block;
   letter-spacing: 0.10em;
-
   text-shadow:
     0 8px 22px rgba(0,0,0,0.55),
     0 0 18px rgba(255,255,255,0.15);
-
   position: relative;
 }
 
@@ -454,11 +421,9 @@ header h1 {
   header h1 {
     font-size: 2rem;
   }
-  
-  .hero-catch { font-size: 1.25rem; }
+    .hero-catch { font-size: 1.25rem; }
   .hero-cert  { font-size: 0.82rem; padding: 6px 12px; }
   .hero-desc  { font-size: 0.92rem; }
-  
   .hero-title-wrap {
     flex-direction: column;
     align-items: flex-start;
@@ -476,7 +441,6 @@ header h1 {
 @media (min-width: 900px) {
   header::before {
    background-position: var(--header-pos, center top);
-
   }
 }
 
@@ -493,15 +457,11 @@ header h1 {
 .lang-btn {
   border-radius: 999px;
   border: 1px solid #ffffff66;
-
   width: 90px;    
   height: 32px;
-
   padding: 2px 6px;
-
   font-size: 0.75rem; 
   line-height: 1.1;   
-
   background: transparent;
   color: #fff;
   display: inline-flex;
@@ -587,10 +547,8 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
   color: #fff;
   background: rgba(255, 75, 106, 0.34);
   font-weight: 900;
-
   transform: translateY(-1px) scale(1.06);
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
-
   border-bottom-color: transparent; 
 }
 
@@ -600,7 +558,6 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
   left: 10px;
   right: 10px;
   bottom: -7px;
-
   height: 4px;                 
   border-radius: 999px;
   background: var(--accent);
@@ -616,7 +573,6 @@ body[data-section="home"] nav:not(.sticky-nav) .nav-tab{
 :root{
   --text-base: 1rem;
   --text-sm: 0.95rem;
-
   --space-1: 8px;
   --space-2: 12px;
   --space-3: 16px;
@@ -697,11 +653,11 @@ h3{
     }
   /* =========================事業内容カード（service-card）写真- 写真をカード上部の“ヘッダー”として統一- 画像比率の違いを object-fit: cover で吸収========================= */
 .service-card .service-photo{
-  margin: -18px -16px 12px; /* .card の padding(18px 16px) と整合 */
-  height: 170px;            /* 写真の主張は170がバランス良い（好みで150でもOK） */
+  margin: -18px -16px 12px; 
+  height: 170px; 
   overflow: hidden;
   border-radius: 16px 16px 0 0;
-  background: #eef3fb;      /* 画像読み込み前の下地（チラつき防止） */
+  background: #eef3fb; 
 }
 
 .service-card .service-photo img{
@@ -936,8 +892,8 @@ h3{
 
 .gallery-img {
   width: 100%;
-  height: 160px;          /* ★ここが統一の核心：教室A〜D基準の見た目に寄せる */
-  object-fit: cover;      /* ★縦横比が違っても、同じサイズでトリミング */
+  height: 160px;         
+  object-fit: cover;  
   display: block;
 }
 
@@ -950,12 +906,6 @@ h3{
 .gallery-caption.lang-id {
   color: #555;
 }
-   /* =========================
-   ② スマホ・タブレット用（崩れ防止）
-   - PC：4列（現状維持）
-   - タブレット：2列
-   - スマホ：1列
-========================= */
 
 /* タブレット（iPad縦〜小さめPC） */
 @media (max-width: 1024px) {
@@ -979,7 +929,6 @@ h3{
     height: 140px;
   }
 }
-
 
 /* ▲▲ ギャラリー用デザインここまで ▲▲ */
 
@@ -1028,7 +977,6 @@ h3{
       color: #25D366;
     }
 
-/* ✅ 大手ワンページ型：常に全セクションを表示（SEO安定） */
 .page-section{
   display: block;
   border-radius: 0;
@@ -1055,10 +1003,6 @@ h3{
     padding: 72px 0;
   }
 }
-/* =========================
-   余白調整：トップ以外の上余白を少し詰める
-   （帯の上が空きすぎる対策）
-========================= */
 .page-section:not(#home){
   padding-top: 40px;
 }
@@ -1093,7 +1037,6 @@ h3{
     font-size: 0.9rem;
   }
 
-  /* 言語切替＋SNSのかたまりを通常フローに */
   .header-right {
     position: static;      
     margin-top: 16px;
@@ -1101,35 +1044,32 @@ h3{
     max-width: 100%;      
   }
 
-  /* 言語ボタンを中央寄せ */
   .lang-switch {
     justify-content: center;
     width: 100%;
   }
 
-  /* SNSアイコンをボタンの下で中央寄せ＋少し余白 */
   .header-social {
     margin-top: 8px;
     justify-content: center;
   }
 }
     
-        /* 代表挨拶カード（写真付き） */
-    .rep-card {
+     .rep-card {
       display: flex;
       gap: 16px;
       align-items: flex-start;
       margin-bottom: 16px;
-      overflow: hidden; /* カードからのはみ出し防止 */
+      overflow: hidden; 
     }
 
     .rep-photo {
-  width: 140px;       /* ← 大きくする */
+  width: 140px;       
   height: 140px;
-  border-radius: 50%;  /* 丸型のまま */
+  border-radius: 50%; 
   object-fit: cover;
   flex-shrink: 0;
-  border: 3px solid #e0e0e0;  /* 縁も少し強調 */
+  border: 3px solid #e0e0e0; 
 }
 
  @media (max-width: 640px) {
@@ -1324,15 +1264,14 @@ h3{
   margin: 0;
 }
 
-/* ↓ の見た目（大きく、中央に） */
 .flow-arrow {
   text-align: center;
-  font-size: 1.4rem;       /* 2rem → 1.4rem（少し控えめ） */
+  font-size: 1.4rem;       
   color: #999;
   line-height: 1;
-  margin: -10px 0 -8px;    /* 上下を強めに詰める */
+  margin: -10px 0 -8px;    
   z-index: 3;
-  opacity: 0.65;           /* うるさくならない */
+  opacity: 0.65;          
 }
 
 /* スマホ表示の調整 */
@@ -1372,9 +1311,6 @@ h3{
   grid-template-columns: 1fr; /* デフォルトは縦 */
   gap: 16px;
 }
-/* =========================
-   連絡先CTA（電話/メール/WhatsAppの大ボタン）
-========================= */
 .contact-actions{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1537,7 +1473,6 @@ h3{
   line-height: 1.7;
 }
 
-
 /* 「KSBの想い」サブタイトル用 */
 .about-intro-title {
   color: #c02845;
@@ -1569,11 +1504,6 @@ h3{
   font-size: 0.8rem;
   font-weight: 700;
 }
-/* ---------------------------
-   KSBの想い 文章改善（A〜D）
-----------------------------*/
-
-/* A：文字色を少し濃く / B：サイズを少し大きく / C：段落の余白 */
 .about-intro-card p {
   color: #333;
   font-size: 1.05rem;
@@ -1626,14 +1556,12 @@ h3{
   margin: 8px 0 28px;
 }
 
-/* お問い合わせの見出しだけ左寄せ＆他のh2と同じ感じに */
 .contact-section h2 {
   text-align: left;
   display: inline-block;
   margin-bottom: 12px;
 }
 
-/* 問い合わせボタン内の3行レイアウト */
 .ksb-form-btn .btn-line1 {
   font-size: 1.0rem;
   font-weight: 700;
@@ -1654,15 +1582,13 @@ h3{
   background: #083b72;
   transform: translateY(-2px);
 }
-/* ▲▲ 問い合わせボタンここまで ▲▲ */
-/* ▼▼ お問い合わせボタン：1行目を赤色＆大きく ▼▼ */
+
 .ksb-form-btn .btn-line1 {
   color: #ff4b6a;
   font-size: 1.15rem;
   font-weight: 900;
 }
-/* ▲▲ ここまで ▲▲ */
-/* ▼▼ Access map: 余白・文字サイズ調整 ▼▼ */
+
 .map-card {
   padding-bottom: 22px;
 }
@@ -1701,9 +1627,6 @@ h3{
   gap: 8px;  
   white-space: nowrap; 
 }
-/* =========================
-   事業内容カード：2 + 3 構成
-========================= */
 
 .service-grid {
   display: grid;
@@ -1711,12 +1634,10 @@ h3{
   margin-bottom: 20px;
 }
 
-/* 上段：メイン2枚 */
 .feature-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* 下段：サブ3枚 */
 .sub-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1730,16 +1651,13 @@ h3{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-
 /* スマホ */
 @media (max-width: 640px) {
   .sub-grid {
     grid-template-columns: 1fr;
   }
 }
-/* =========================見出しの青ラインを「資料感 → Webデザイン」に改善========================= */
-/* 左側のアクセントバー（Webデザイン用） */
-/* メイン2枚は写真を少し大きく、サブ3枚は少し控えめ */
+
 .feature-grid .service-card .service-photo{
   height: 200px;
 }
@@ -1760,9 +1678,6 @@ h3{
   color: #333;
 }
 
-/* =========================見出し（h2）左ライン制御【最終版】========================= */
-
-/* 通常の h2（左ラインあり） */
 h2 {
   position: relative;
   color: var(--main-blue);
@@ -1775,7 +1690,6 @@ h2 {
   border-left: none;
 }
 
-/* 左側の青アクセントバー */
 h2::before {
   content: "";
   position: absolute;
@@ -1788,20 +1702,17 @@ h2::before {
   background: linear-gradient(180deg, #0b4a8f, #3f8bff);
 }
 
-/* ★ no-leftbar が付いた h2 だけ左ラインを消す */
 h2.no-leftbar::before {
   content: none !important;
 }
 
-/* ★ no-leftbar の余白も消す */
 h2.no-leftbar {
   padding-left: 0 !important;
 }
 
-/* 見出し内の区切り「｜」の余白調整 */
 .h2-sep{
   display: inline-block;
-  margin: 0 12px;   /* ← ここで広さ調整（8〜16くらいが無難） */
+  margin: 0 12px;   
   opacity: 0.9;
 }
 /* =========================KSBの強み（アイコン＋写真なし）========================= */
@@ -1933,9 +1844,6 @@ nav.sticky-nav .lang-btn{
   box-shadow: none;
 }
 
-
-/* =========================セクション見出し：左ラベルだけ背景色========================= */
-/* =========================セクション見出し：左ラベル（主役）濃いネイビー × 太さ × 面（背景）========================= */
 .section-label{
   display: inline-block;
   padding: 8px 14px;
@@ -1961,17 +1869,15 @@ nav.sticky-nav .lang-btn{
   letter-spacing: 0.01em;
 }
 
-/* 区切り記号の見た目（既存のh2-sepを活かす） */
 .h2-sep{
   margin: 0 10px;
 }
 
-/* section-band 内の h2 の間隔を整理（連続h2対策） */
 .section-band h2{
   margin: 0;
 }
 .section-band h2 + h2{
-  margin-top: 10px; /* ★「トップ｜KSBの概要」と「教育方針｜...」の間を少しだけ空ける */
+  margin-top: 10px; 
 }
 
 .page-section .container > h2{
@@ -1993,8 +1899,6 @@ nav.sticky-nav .lang-btn{
     /* 背景が透けて見えるのを防ぐ */
     background-color: #ffffff !important;
     background-image: none !important;
-
-    /* サブピクセルのにじみ/ヘアラインを抑える */
     overflow: hidden;
     background-clip: padding-box;
     transform: translateZ(0);
@@ -2002,8 +1906,7 @@ nav.sticky-nav .lang-btn{
     backface-visibility: hidden;
   }
 
-  /* “区切り線”を疑似要素で作っている場合に備えて無効化 */
-  .company-overview-card::before,
+   .company-overview-card::before,
   .company-overview-card::after,
   .company-card::before,
   .company-card::after,
@@ -2019,8 +1922,7 @@ nav.sticky-nav .lang-btn{
     display: none !important;
   }
 
-  /* もしカード内が2カラム→スマホで縦並びのとき、border-left が残って線になるケース */
-  .company-overview-card .col,
+   .company-overview-card .col,
   .company-card .col,
   .overview-card .col,
   .contact-card .col,
@@ -2066,12 +1968,8 @@ nav.sticky-nav .lang-btn{
 <!-- キャッチコピー（サブタイトル） -->
 <p class="hero-catch lang-ja">～ Attitude for Success ～</p>
 <p class="hero-catch lang-id">～ Attitude for Success ～</p>
-
-<!-- 認定バッジ（目立たせる） -->
 <div class="hero-cert lang-ja">【インドネシア労働省認定 正規送り出し機関】</div>
 <div class="hero-cert lang-id">【Lembaga Pengirim Resmi yang Diakui Kementerian Ketenagakerjaan Republik Indonesia】</div>
-
-<!-- 説明（短くメリハリ） -->
 <p class="hero-desc lang-ja">
   技能実習生・特定技能を中心に、インドネシア人材と日本企業をつなぐ送り出し機関です。
 </p>
@@ -2306,7 +2204,6 @@ nav.sticky-nav .lang-btn{
 </p>
 </div>
 </div>
-
 
       <!-- ▼ KSBの強み -->
       <h2 class="lang-ja">KSBの強み<span class="h2-sep">｜</span>技能実習生・特定技能サポートの特徴</h2>
@@ -3036,7 +2933,6 @@ setelah kedatangan.
     <span class="lang-id">Kirim Email</span>
   </a>
 </div>
- 
   </div>
 
   <!-- ★カード②：KSBインドネシア（補） -->
@@ -3087,9 +2983,7 @@ setelah kedatangan.
     <span class="lang-id">Chat WhatsApp</span>
   </a>
 </div>
- 
   </div>
-
 </div>
 
   <br>
@@ -3366,16 +3260,11 @@ setelah kedatangan.
     function setLanguage(lang) {
   document.body.dataset.lang = lang;
   localStorage.setItem("ksb_lang", lang);
-
-  // ★追加：htmlのlangも切替（アクセシビリティ改善）
   document.documentElement.lang = (lang === "id") ? "id" : "ja";
-
-  // ボタンの見た目
   langButtons.forEach((btn) =>
     btn.classList.toggle("active", btn.dataset.lang === lang)
   );
 
-  // ★追加：スクリーンリーダー向け状態
   langButtons.forEach((btn) =>
     btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang))
   );
@@ -3384,22 +3273,16 @@ setelah kedatangan.
     langButtons.forEach((btn) => {
       btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
     });
-    // 初期表示：保存があればそれを優先、なければ日本語
-const savedLang = localStorage.getItem("ksb_lang") || "ja";
+  const savedLang = localStorage.getItem("ksb_lang") || "ja";
      setLanguage(savedLang);
-      // ★追加：初期セクションはhome扱い
-document.body.dataset.section = "home";
-      
-// ★先に要素を取る（setSectionより前）
-const headerEl = document.querySelector("header");
+    document.body.dataset.section = "home";
+ const headerEl = document.querySelector("header");
 const navEl = document.getElementById("main-nav");
 const navPlaceholder = document.getElementById("nav-placeholder");
       
     // ===== タブ切り替え =====
-      // ===== 初期表示：URLハッシュがあればそのセクションを開く =====
 window.addEventListener("load", () => {
-  handleScrollNav(); // ★先に状態更新（高さ計算のズレ防止）
-
+  handleScrollNav(); 
   const hash = (location.hash || "").replace("#", "");
   const valid = ["home", "about", "trainees", "contact", "gallery"];
   if (valid.includes(hash)) {
@@ -3409,83 +3292,60 @@ window.addEventListener("load", () => {
 
     const tabs = document.querySelectorAll(".nav-tab");
     const sections = document.querySelectorAll(".page-section");
-    // ★追加：スクロール追従を一時停止するフラグ（タブクリック時の暴れ防止）
-let suppressObserver = false;
+ let suppressObserver = false;
 let suppressTimer = null;
-
    function setSection(id) {
-       // ★追加：タブクリック直後はObserverを一時停止（スムーズスクロール中のactiveブレ防止）
-  suppressObserver = true;
+    suppressObserver = true;
   clearTimeout(suppressTimer);
   suppressTimer = setTimeout(() => {
     suppressObserver = false;
   }, 900);
 
-  // ✅ タブの見た目だけを切替（セクションは消さない）
   tabs.forEach((tab) =>
     tab.classList.toggle("active", tab.dataset.section === id)
   );
 
-  // ✅ 現在位置の判定用（header非表示制御などに使用）
   document.body.dataset.section = id;
-  // ★追加：homeだけヘッダースライドを動かす（軽量化）
-  if (id === "home") {
+   if (id === "home") {
     startHeaderSlideShow();
   } else {
     stopHeaderSlideShow();
   }
 
-  // ✅ URLに状態を残す（共有用）
-  history.replaceState(null, "", "#" + id);
+   history.replaceState(null, "", "#" + id);
 
-  // ✅ スクロール移動（stickyナビ分だけ上に余白）
-  const target = document.getElementById(id);
+   const target = document.getElementById(id);
   if (!target) return;
 
-  // sticky ならナビの高さを引く（非stickyなら0）
-  const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
+   const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 
   if (id === "home") {
-    // homeは最上部へ（ヘッダー込みで一番安定）
-    window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
     const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
     window.scrollTo({ top: y, behavior: "smooth" });
   }
 
-  // 念のためsticky判定更新
   requestAnimationFrame(handleScrollNav);
 }
 
-// 初期化：最初にsticky判定だけ
+
 handleScrollNav();
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => setSection(tab.dataset.section));
     });
-// ===== スクロールでタブactiveを自動追従（確実版：scroll位置で判定） =====
 function setActiveTabOnly(id) {
   if (!id) return;
   tabs.forEach((tab) => tab.classList.toggle("active", tab.dataset.section === id));
-  // ★ここでは data-section と URL は触らない（クリック時だけ setSection が管理）
 }
 
-// ★判定対象セクション一覧（あなたのIDと一致）
 const observedIds = ["home", "about", "trainees", "contact", "gallery"];
-
-// ★スクロール位置から「今いるセクション」を判定
 function updateActiveByScroll() {
   if (suppressObserver) return;
-
-  // stickyの時はナビの高さ分だけ判定位置を下げる
   const navOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
-
-  // 画面上の“判定ライン”（少し上寄りが安定）
   const markerY = window.scrollY + navOffset + 120;
-
   let currentId = "home";
-
-  // 上から順に、markerY を超えた最後のセクションを現在地にする
   for (const id of observedIds) {
     const el = document.getElementById(id);
     if (!el) continue;
@@ -3493,12 +3353,9 @@ function updateActiveByScroll() {
   }
 
   setActiveTabOnly(currentId);
-
-  // ★追加：スクロールでも現在セクションを更新（header表示/ sticky判定に必要）
   document.body.dataset.section = currentId;
 }
 
-// ★スクロールで更新（軽量化：rAF）
 let activeTick = false;
 window.addEventListener("scroll", () => {
   if (!activeTick) {
@@ -3517,20 +3374,18 @@ window.addEventListener("load", () => {
 
     // ===== ヘッダー背景スライドショー（フェード） =====
    
-    // スライドに使う画像（ファイル名は今のまま）
-   // スライドに使う画像（PC用に表示位置もセット）
-const headerImages = [
+ const headerImages = [
   {
     src: "images/ogp-header.webp",
-    pos: "center 50%"   // ★1枚目：今の感じがベストなので真ん中付近
+    pos: "center 50%"  
   },
   {
     src: "images/header-ksb-building.webp",
-    pos: "center 70%"   // ★2枚目：少し下を多めに見せる
+    pos: "center 70%"  
   },
   {
     src: "images/header-classroom.webp",
-    pos: "center 75%"   // ★3枚目：人とホワイトボードがよく見えるように下寄り
+    pos: "center 75%"  
   },
 ];
 
@@ -3541,8 +3396,6 @@ const headerImages = [
   headerEl.style.setProperty("--header-img", `url("${first.src}")`);
   headerEl.style.setProperty("--header-pos", first.pos);
   headerEl.style.setProperty("--header-opacity", "1");
-
-  // ★追加：ズーム初期化（等倍スタート→少し拡大へ）
   headerEl.style.setProperty("--header-scale", "1");
   requestAnimationFrame(() => {
     headerEl.style.setProperty("--header-scale", "1.06");
@@ -3552,18 +3405,14 @@ const headerImages = [
 }
 
 function updateHeaderBackground() {
-  // ① フェードアウト＋ズームを戻す（次の画像のズーム準備）
   headerEl.style.setProperty("--header-opacity", "0");
   headerEl.style.setProperty("--header-scale", "1");
 
-  // ② 画像差し替え後にフェードイン＋ズーム開始
   setTimeout(() => {
     const item = headerImages[headerIndex];
     headerEl.style.setProperty("--header-img", `url("${item.src}")`);
     headerEl.style.setProperty("--header-pos", item.pos);
     headerEl.style.setProperty("--header-opacity", "1");
-
-    // ★追加：フェードイン後にゆっくり拡大
     requestAnimationFrame(() => {
       headerEl.style.setProperty("--header-scale", "1.06");
     });
@@ -3574,7 +3423,6 @@ function updateHeaderBackground() {
 
     // ===== ヘッダー背景スライドショー（homeの時だけ動かす） =====
 let headerTimer = null;
-
 function startHeaderSlideShow(){
   if (!headerEl) return;
   if (headerTimer) return; // 二重起動防止
@@ -3588,7 +3436,6 @@ function stopHeaderSlideShow(){
   headerTimer = null;
 }
 
-// 初期は home なので開始
 startHeaderSlideShow();
 
          // ===== スクロールでタブナビを上部固定 =====
@@ -3604,7 +3451,6 @@ startHeaderSlideShow();
           navPlaceholder.style.height = navHeight + "px";  // レイアウトのズレ防止
         }
       } else {
-  // ★追加：home以外はstickyを外さない（タブ切替直後の白チラつき防止）
   if (document.body.dataset.section === "home") {
     if (navEl.classList.contains("sticky-nav")) {
       navEl.classList.remove("sticky-nav");
