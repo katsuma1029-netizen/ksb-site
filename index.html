@@ -565,12 +565,18 @@ nav {
 }
 
 
-/* ★追加：ナビの中身を「header-innerと同じ幅」で中央に固定 */
+/* ★ナビの中身を「header-innerと同じ幅」で中央に固定 + 左右レイアウト */
 nav .nav-inner{
   max-width: 1100px;   /* header-inner と同じ */
   margin: 0 auto;
   padding: 0 16px;     /* container と同じ感覚の左右余白 */
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
 }
+
 
 /* ★ sticky のとき */
 nav.sticky-nav {
@@ -1346,11 +1352,6 @@ body.js-enabled .page-section { display: block; }
 .flow-summary::-webkit-details-marker{
   display: none;
 }
-
-.flow-summary:hover{
-  background: #e2ecff;
-}
-
 /* フロー全体を中央にまとめる */
 .flow-grid {
   position: relative;
@@ -1632,11 +1633,6 @@ body.js-enabled .page-section { display: block; }
   color: #ff4b6a;   /* 赤色で強調 */
   font-weight: 900; /* 太さ最大で強調 */
 }
-.ksb-highlight {
-  color: #ff4b6a;   /* 赤色で強調 */
-  font-weight: 900; /* 太さ最大で強調 */
-}
-
 /* ★追加：ビジョン/ミッションの強調 */
 .edu-highlight{
   color: #b8203b;      /* 教育方針（about-intro-card strong）と同じ色 */
@@ -1935,14 +1931,6 @@ body[data-section]:not([data-section="home"]) header {
 /* =========================
    STEP3: nav内 右側（言語＋SNS）レイアウト
 ========================= */
-
-/* nav-innerを左右に分ける（左：タブ / 右：言語+SNS） */
-nav .nav-inner{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
 
 /* 右側ブロック（nav-right）は常に“場所”を確保してレイアウト差を消す */
 .nav-right{
