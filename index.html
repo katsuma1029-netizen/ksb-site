@@ -1981,7 +1981,55 @@ nav.sticky-nav .lang-btn{
 .page-section + .page-section{
   border-top: 1px solid rgba(0,0,0,0.08);
 }
+/* ========= スマホだけ：カード内の“うっすら縦線”対策 ========= */
+@media (max-width: 768px) {
+  /* 会社概要カード全体（クラス名が違う場合は下の候補も追加してください） */
+  .company-overview-card,
+  .company-card,
+  .overview-card,
+  .contact-card,
+  .info-card,
+  .country-card {
+    /* 背景が透けて見えるのを防ぐ */
+    background-color: #ffffff !important;
+    background-image: none !important;
 
+    /* サブピクセルのにじみ/ヘアラインを抑える */
+    overflow: hidden;
+    background-clip: padding-box;
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* “区切り線”を疑似要素で作っている場合に備えて無効化 */
+  .company-overview-card::before,
+  .company-overview-card::after,
+  .company-card::before,
+  .company-card::after,
+  .overview-card::before,
+  .overview-card::after,
+  .contact-card::before,
+  .contact-card::after,
+  .info-card::before,
+  .info-card::after,
+  .country-card::before,
+  .country-card::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* もしカード内が2カラム→スマホで縦並びのとき、border-left が残って線になるケース */
+  .company-overview-card .col,
+  .company-card .col,
+  .overview-card .col,
+  .contact-card .col,
+  .info-card .col,
+  .country-card .col {
+    border-left: none !important;
+    border-right: none !important;
+  }
+}
 
 
   </style>
