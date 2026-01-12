@@ -97,6 +97,29 @@
   text-align: center;
   font-weight: 900;
   color: #0b2f5b;
+
+  /* ★追加：タイトルを少し大きく（やりすぎない） */
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+/* ★追加：国旗＋タイトルの横並び */
+#contact .contact-title-main{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ★追加：連絡先カード見出し用の国旗アイコン */
+#contact .contact-flag{
+  width: 22px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 2px;
+  background: #fff;
 }
 
 /* ★追加：連絡先カードタイトルの2行目（対象の説明） */
@@ -2904,14 +2927,16 @@ setelah kedatangan.
 <div class="contact-cards">
   <!-- ★カード①：KSB日本（主） -->
   <div class="card company-card has-title" style="margin-bottom:0;">
-    <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
-  <span class="lang-ja">【KSB日本】</span>
-  <span class="lang-id">【KSB Jepang】</span>
+ <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
+  <span class="contact-title-main">
+    <img class="contact-flag" src="images/flag-jp.svg" alt="Japan">
+    <span class="lang-ja">【KSB日本】</span>
+    <span class="lang-id">【KSB Jepang】</span>
+  </span>
 
   <span class="contact-card-subtitle lang-ja">監理団体様・企業様向け</span>
   <span class="contact-card-subtitle lang-id">Untuk Kumiai & Perusahaan</span>
 </h3>
-
 
 <!-- 電話（KSB日本） -->
 <div class="company-row">
@@ -2963,14 +2988,16 @@ setelah kedatangan.
 
   <!-- ★カード②：KSBインドネシア（補） -->
   <div class="card company-card has-title" style="margin-bottom:0;">
-   <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
-  <span class="lang-ja">【KSBインドネシア】</span>
-  <span class="lang-id">【KSB Indonesia】</span>
+  <h3 class="contact-card-title no-divider" style="margin:0 0 10px;">
+  <span class="contact-title-main">
+    <img class="contact-flag" src="images/flag-id.svg" alt="Indonesia">
+    <span class="lang-ja">【KSBインドネシア】</span>
+    <span class="lang-id">【KSB Indonesia】</span>
+  </span>
 
   <span class="contact-card-subtitle lang-ja">技能実習生・協業希望LPK様向け</span>
   <span class="contact-card-subtitle lang-id">Untuk Peserta & LPK yang ingin kerja sama</span>
 </h3>
-
 
     <div class="company-row">
       <div class="company-label">
