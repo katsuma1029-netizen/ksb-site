@@ -99,19 +99,24 @@
   color: #0b2f5b;
 }
     
-.company-card::before{
+#contact .company-card::before{
+  content: none;
+}
+#contact .company-row{
+  position: relative;
+}
+
+#contact .company-row::after{
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-
- left: calc(16px + 190px + 16px);
-
+  left: calc(16px + 190px + 16px);
   width: 1px;
   background: rgba(0,0,0,0.10);
   pointer-events: none;
 }
-/* 1行 = ラベル列 + 値列 */
+    
 .company-row{
   position: relative;
   display: grid;
@@ -1337,16 +1342,9 @@ h3{
   position: relative;
   background: #fff;
 }
-/* ✅ ボタン部分だけ「縦線」を消す（縦線の位置に白い板をかぶせる） */
-.contact-actions::before{
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: calc(16px + 190px + 16px);
-  width: 10px;
-  background: #fff;
-  pointer-events: none;
+
+#contact .contact-actions::before{
+  content: none;
 }
 
 .contact-btn{
