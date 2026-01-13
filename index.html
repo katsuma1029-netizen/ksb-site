@@ -1793,15 +1793,18 @@ body[data-section]:not([data-section="home"]) .nav-right{
 }
 
 /* nav内のSNSアイコンを少し小さく（ヘッダーより控えめに） */
-/* =========================Stickyナビ内 SNSアイコン色を固定========================= */
-.nav-social .fa-instagram {
+/* =========================SNSアイコン色を統一（ヘッダー/Sticky/フッター）========================= */
+.header-social .fa-instagram,
+.nav-social .fa-instagram,
+.footer-social .fa-instagram {
   color: #E1306C;
 }
 
-.nav-social .fa-whatsapp {
+.header-social .fa-whatsapp,
+.nav-social .fa-whatsapp,
+.footer-social .fa-whatsapp {
   color: #25D366;
 }
-
 /* nav内の言語ボタンを少し小さめに */
 body[data-section]:not([data-section="home"]) .lang-btn,
 nav.sticky-nav .lang-btn{
