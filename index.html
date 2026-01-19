@@ -20,9 +20,6 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <link rel="canonical" href="https://ksb-lpk.com/" />
-
-<link rel="alternate" href="https://ksb-lpk.com/" hreflang="ja" />
-<link rel="alternate" href="https://ksb-lpk.com/" hreflang="id" />
 <link rel="alternate" href="https://ksb-lpk.com/" hreflang="x-default" />
 
  <!-- OGP / SNS preview -->
@@ -298,7 +295,7 @@ header::before {
   background-image:
     linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
     linear-gradient(to right, rgba(0, 57, 128, 0.45), rgba(0, 57, 128, 0.45)),
-    var(--header-img, url("images/ogp-header.webp"));
+    var(--header-img, url("/images/ogp-header.webp"));
 
   background-position: center top;
   background-size: cover;
@@ -1933,7 +1930,7 @@ nav.sticky-nav .lang-btn{
   </style>
   
 <!-- ヘッダー画像：最初に表示される1枚だけ preload -->
-<link rel="preload" as="image" href="images/ogp-header.webp">
+<link rel="preload" as="image" href="/images/ogp-header.webp">
   
 </head>
 <body data-lang="ja" data-section="home">
@@ -1944,7 +1941,7 @@ nav.sticky-nav .lang-btn{
   <!-- 左側：ロゴ + タイトル + 説明 -->
   <div>
     <div class="hero-title-wrap">
-      <img src="images/ksb-logo.webp" alt="KSB Logo" class="hero-logo">
+      <img src="/images/ksb-logo.webp" alt="KSB Logo" class="hero-logo">
       <h1 class="hero-title">
   LPK 
   <span class="ksb-highlight">K</span>ARYA 
@@ -3368,21 +3365,20 @@ window.addEventListener("load", () => {
 
     // ===== ヘッダー背景スライドショー（フェード） =====
    
- const headerImages = [
+const headerImages = [
   {
-    src: "images/ogp-header.webp",
+    src: "/images/ogp-header.webp",
     pos: "center 50%"  
   },
   {
-    src: "images/header-ksb-building.webp",
+    src: "/images/header-ksb-building.webp",
     pos: "center 70%"  
   },
   {
-    src: "images/header-classroom.webp",
+    src: "/images/header-classroom.webp",
     pos: "center 75%"  
   },
 ];
-
     let headerIndex = 0;
 
    function initHeaderSlide() {
@@ -3434,25 +3430,30 @@ startHeaderSlideShow();
 
          // ===== スクロールでタブナビを上部固定 =====
 
-    function handleScrollNav() {
-      const headerHeight = headerEl.offsetHeight;           // header 全体の高さ
-      const navHeight = navEl.offsetHeight;
-
-      // ヘッダー下端を超えたら固定
-      if (window.scrollY >= headerHeight - navHeight) {
-        if (!navEl.classList.contains("sticky-nav")) {
-          navEl.classList.add("sticky-nav");
-          navPlaceholder.style.height = navHeight + "px";  // レイアウトのズレ防止
-        }
-      } else {
-  if (document.body.dataset.section === "home") {
+function handleScrollNav() {
+  const navHeight = navEl.offsetHeight;
+  const currentSection = document.body.dataset.section || "home";
+  if (currentSection !== "home") {
+    if (!navEl.classList.contains("sticky-nav")) {
+      navEl.classList.add("sticky-nav");
+      navPlaceholder.style.height = navHeight + "px";
+    }
+    return;
+  }
+  const headerHeight = headerEl.offsetHeight;
+  if (window.scrollY >= headerHeight - navHeight) {
+    if (!navEl.classList.contains("sticky-nav")) {
+      navEl.classList.add("sticky-nav");
+      navPlaceholder.style.height = navHeight + "px";
+    }
+  } else {
     if (navEl.classList.contains("sticky-nav")) {
       navEl.classList.remove("sticky-nav");
       navPlaceholder.style.height = "0";
-   }
+    }
   }
- }
 }
+
 
    let ticking = false;
 
