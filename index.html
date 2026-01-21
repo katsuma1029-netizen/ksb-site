@@ -3342,9 +3342,7 @@ function updateActiveByScroll() {
     if (!el) continue;
     if (el.offsetTop <= markerY) currentId = id;
   }
-
   setActiveTabOnly(currentId);
-  document.body.dataset.section = currentId;
 }
 
 let activeTick = false;
