@@ -404,6 +404,41 @@ header h1 {
   opacity: 0.95;
   text-shadow: 0 2px 6px rgba(0,0,0,0.18);
 }
+
+/* ヘッダー内：目的別ボタン */
+.hero-action-buttons{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hero-action-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.92);
+  color: #0b2f5b;
+  border: 1px solid rgba(255,255,255,0.55);
+  text-decoration: none;
+
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.25;
+
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+
+.hero-action-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.24);
+  opacity: 0.96;
+}
 /* ===== HERO ロゴ + タイトル横並び ===== */
 .hero-title-wrap {
   display: flex;
@@ -439,6 +474,19 @@ header h1 {
   }
   .hero-cert  { font-size: 0.82rem; padding: 6px 12px; }
   .hero-desc  { font-size: 0.92rem; }
+
+  .hero-action-buttons{
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .hero-action-btn{
+    width: 100%;
+    max-width: 320px;
+    padding: 9px 12px;
+    font-size: 0.86rem;
+  }
+
   .hero-title-wrap {
     flex-direction: column;
     align-items: flex-start;
@@ -2077,6 +2125,16 @@ nav.sticky-nav .lang-btn{
   Fokus pada program Pemagangan Teknis dan Tokutei Ginou,<br>
   KSB menghubungkan talenta Indonesia dengan perusahaan di Jepang.
 </p>
+
+<div class="hero-action-buttons">
+  <a href="#contact" class="hero-action-btn lang-ja">監理団体様・企業様向け</a>
+  <a href="#contact" class="hero-action-btn lang-ja">技能実習生・協業希望LPK向け</a>
+  <a href="#contact" class="hero-action-btn lang-ja">日本語学校入学希望の方</a>
+
+  <a href="#contact" class="hero-action-btn lang-id">Untuk Kumiai & Perusahaan</a>
+  <a href="#contact" class="hero-action-btn lang-id">Untuk Peserta Magang & LPK</a>
+  <a href="#contact" class="hero-action-btn lang-id">Pendaftaran Sekolah Bahasa Jepang</a>
+</div>
 
   </div>
 
