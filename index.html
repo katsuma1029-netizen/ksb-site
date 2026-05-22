@@ -405,41 +405,79 @@ header h1 {
   text-shadow: 0 2px 6px rgba(0,0,0,0.18);
 }
 
-/* ヘッダー内：目的別ボタン */
+/* ヘッダー内：目的別問い合わせボタン */
+.hero-action-area{
+  margin-top: 18px;
+}
+
+.hero-action-lead{
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+
+  color: #fff;
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.22);
+
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.4;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
 .hero-action-buttons{
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .hero-action-btn{
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 10px;
 
-  min-width: 210px;
-  min-height: 44px;
-  padding: 10px 18px;
+  min-width: 230px;
+  min-height: 46px;
+  padding: 10px 18px 10px 20px;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.94);
+  background: linear-gradient(180deg, #ffffff, #eef4ff);
   color: #0b2f5b;
-  border: 1px solid rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.75);
   text-decoration: none;
 
   font-size: 0.92rem;
   font-weight: 900;
   line-height: 1.25;
 
-  box-shadow: 0 8px 20px rgba(0,0,0,0.22);
-  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.26);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease, background .15s ease;
+}
+
+.hero-action-arrow{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  background: #0b4a8f;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  flex-shrink: 0;
 }
 
 .hero-action-btn:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.24);
-  opacity: 0.96;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.32);
+  opacity: 0.98;
+  background: linear-gradient(180deg, #ffffff, #e6efff);
 }
 /* ===== HERO ロゴ + タイトル横並び ===== */
 .hero-title-wrap {
@@ -477,16 +515,32 @@ header h1 {
   .hero-cert  { font-size: 0.82rem; padding: 6px 12px; }
   .hero-desc  { font-size: 0.92rem; }
 
+  .hero-action-area{
+    margin-top: 14px;
+  }
+
+  .hero-action-lead{
+    font-size: 0.78rem;
+    margin-bottom: 8px;
+  }
+
   .hero-action-buttons{
     gap: 8px;
-    margin-top: 14px;
+    margin-top: 0;
   }
 
   .hero-action-btn{
     width: 100%;
-    max-width: 320px;
-    padding: 9px 12px;
+    max-width: 330px;
+    min-height: 44px;
+    padding: 9px 14px 9px 16px;
     font-size: 0.86rem;
+  }
+
+  .hero-action-arrow{
+    width: 22px;
+    height: 22px;
+    font-size: 0.82rem;
   }
 
   .hero-title-wrap {
@@ -2128,14 +2182,41 @@ nav.sticky-nav .lang-btn{
   KSB menghubungkan talenta Indonesia dengan perusahaan di Jepang.
 </p>
 
-<div class="hero-action-buttons">
-  <a href="#contact" class="hero-action-btn lang-ja">監理団体様・企業様向け</a>
-  <a href="#contact" class="hero-action-btn lang-ja">技能実習生・協業希望LPK向け</a>
-  <a href="#contact" class="hero-action-btn lang-ja">日本語学校入学希望の方</a>
+<div class="hero-action-area">
+  <p class="hero-action-lead lang-ja">目的に合わせてお問い合わせください</p>
+  <p class="hero-action-lead lang-id">Silakan hubungi kami sesuai kebutuhan Anda</p>
 
-  <a href="#contact" class="hero-action-btn lang-id">Untuk Kumiai & Perusahaan</a>
-  <a href="#contact" class="hero-action-btn lang-id">Untuk Peserta Magang & LPK</a>
-  <a href="#contact" class="hero-action-btn lang-id">Pendaftaran Sekolah Bahasa Jepang</a>
+  <div class="hero-action-buttons">
+    <a href="#contact" class="hero-action-btn lang-ja">
+      <span>監理団体様・企業様はこちら</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="hero-action-btn lang-ja">
+      <span>実習生・LPKの方はこちら</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="hero-action-btn lang-ja">
+      <span>日本語学校希望の方はこちら</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="hero-action-btn lang-id">
+      <span>Untuk Kumiai & Perusahaan</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="hero-action-btn lang-id">
+      <span>Untuk Peserta Magang & LPK</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+
+    <a href="#contact" class="hero-action-btn lang-id">
+      <span>Untuk Sekolah Bahasa Jepang</span>
+      <span class="hero-action-arrow">→</span>
+    </a>
+  </div>
 </div>
 
   </div>
