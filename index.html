@@ -3405,7 +3405,7 @@ const navPlaceholder = document.getElementById("nav-placeholder");
 window.addEventListener("load", () => {
   handleScrollNav(); 
   const hash = (location.hash || "").replace("#", "");
-  const valid = ["home", "about", "trainees", "contact", "gallery"];
+ const valid = ["home", "about", "trainees", "contact"];
   if (valid.includes(hash)) {
     setSection(hash);
   }
@@ -3461,7 +3461,7 @@ function setActiveTabOnly(id) {
   tabs.forEach((tab) => tab.classList.toggle("active", tab.dataset.section === id));
 }
 
-const observedIds = ["home", "about", "trainees", "contact", "gallery"];
+const observedIds = ["home", "about", "trainees", "contact"];
 function updateActiveByScroll() {
   if (suppressObserver) return;
   const navOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
