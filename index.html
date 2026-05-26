@@ -3730,12 +3730,8 @@ let suppressTimer = null;
 
    const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
 
-  if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-  } else {
-    const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
-    window.scrollTo({ top: y, behavior: "smooth" });
-  }
+  const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
+  window.scrollTo({ top: y, behavior: "smooth" });
 
   requestAnimationFrame(handleScrollNav);
 }
