@@ -262,6 +262,133 @@
 .company-list li {
   margin-bottom: 3px;
 }
+
+/* =========================
+   LPKとは？（会社概要直後の折りたたみ説明）
+========================= */
+.lpk-info-details{
+  margin: 14px 0 32px;
+  border: 1px solid rgba(11,47,91,0.16);
+  border-radius: 14px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.lpk-info-summary{
+  cursor: pointer;
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #f3f7ff, #e8f0ff);
+  color: var(--main-blue);
+
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.lpk-info-summary::-webkit-details-marker{
+  display: none;
+}
+
+.lpk-info-summary::after{
+  content: "＋";
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--main-blue);
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.lpk-info-details[open] > .lpk-info-summary{
+  background: linear-gradient(180deg, #ffedf2, #ffe3ea);
+  color: #b8203b;
+}
+
+.lpk-info-details[open] > .lpk-info-summary::after{
+  content: "－";
+  background: #b8203b;
+}
+
+.lpk-info-summary-main{
+  font-size: 0.98rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.lpk-info-summary-sub{
+  margin-left: 8px;
+  font-size: 0.82rem;
+  color: #555;
+  font-weight: 800;
+}
+
+.lpk-info-body{
+  padding: 14px 16px 16px;
+  background: #fff;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.lpk-info-body p{
+  margin: 0 0 10px;
+  font-size: 0.94rem;
+  line-height: 1.8;
+  color: #333;
+}
+
+.lpk-info-body p:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px){
+  .lpk-info-details{
+    margin: 12px 0 28px;
+    border-radius: 12px;
+  }
+
+  .lpk-info-summary{
+    padding: 12px 14px;
+    align-items: flex-start;
+  }
+
+  .lpk-info-summary-main,
+  .lpk-info-summary-sub{
+    display: block;
+    margin-left: 0;
+  }
+
+  .lpk-info-summary-main{
+    font-size: 0.96rem;
+  }
+
+  .lpk-info-summary-sub{
+    margin-top: 2px;
+    font-size: 0.78rem;
+  }
+
+  .lpk-info-body{
+    padding: 13px 14px 15px;
+  }
+
+  .lpk-info-body p{
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+}
+
 body[data-lang="ja"] .lang-id { display: none !important; }
 body[data-lang="id"] .lang-ja { display: none !important; }
 body:not([data-lang]) .lang-id { display: none !important; }
@@ -2691,7 +2818,43 @@ nav.sticky-nav .lang-btn{
             2/2266/HK.03.01/V/2024
           </div>
         </div>
-      </div>
+           </div>
+
+<!-- ▼▼ LPKとは？（会社概要直後の折りたたみ説明） ▼▼ -->
+<details class="lpk-info-details">
+  <summary class="lpk-info-summary">
+    <span class="lpk-info-summary-main lang-ja">LPKとは？</span>
+    <span class="lpk-info-summary-main lang-id">Apa itu LPK?</span>
+
+    <span class="lpk-info-summary-sub lang-ja">インドネシアの職業訓練機関について</span>
+    <span class="lpk-info-summary-sub lang-id">Tentang Lembaga Pelatihan Kerja di Indonesia</span>
+  </summary>
+
+  <div class="lpk-info-body">
+    <p class="lang-ja">
+      LPKとは、インドネシア語の「Lembaga Pelatihan Kerja」の略で、日本語では「職業訓練機関」を意味します。
+      日本で働くことを目指す人材に対して、日本語教育、生活指導、出国前教育などを行う機関です。
+    </p>
+
+    <p class="lang-ja">
+      KSBは、インドネシア人材が日本で安心して働けるよう、教育・訓練・送り出し手続きをサポートしています。
+    </p>
+
+    <p class="lang-id">
+      LPK adalah singkatan dari “Lembaga Pelatihan Kerja”, yaitu lembaga
+      pelatihan kerja di Indonesia. LPK memberikan pendidikan bahasa Jepang,
+      pembinaan sikap kerja, bimbingan kehidupan, serta persiapan sebelum
+      keberangkatan bagi peserta yang ingin bekerja di Jepang.
+    </p>
+
+    <p class="lang-id">
+      KSB mendukung peserta Indonesia melalui pendidikan, pelatihan, dan
+      proses pengiriman agar mereka dapat bekerja di Jepang dengan aman dan siap.
+    </p>
+  </div>
+</details>
+<!-- ▲▲ LPKとは？ここまで ▲▲ -->
+
    <!-- ▼ 代表挨拶 -->         
 <h2 class="lang-ja">代表挨拶｜送り出し機関KSBからのメッセージ</h2>
 <h2 class="lang-id">Sambutan Direktur｜Pesan dari LPK KSB</h2>
