@@ -3706,7 +3706,7 @@ window.addEventListener("load", () => {
  let suppressObserver = false;
 let suppressTimer = null;
    function setSection(id) {
-    suppressObserver = true;
+  suppressObserver = true;
   clearTimeout(suppressTimer);
   suppressTimer = setTimeout(() => {
     suppressObserver = false;
@@ -3717,19 +3717,34 @@ let suppressTimer = null;
   );
 
   document.body.dataset.section = id;
-   if (id === "home") {
+
+  if (id === "home") {
     startHeaderSlideShow();
   } else {
     stopHeaderSlideShow();
   }
 
-   history.replaceState(null, "", "#" + id);
+  history.replaceState(null, "", "#" + id);
 
-   const target = document.getElementById(id);
+  const target = document.getElementById(id);
   if (!target) return;
 
-   const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
+  /*
+    トップタブを押した場合：
+    ヒーローを表示したまま、トップセクション（KSBの事業内容）へ移動する。
+    これにより、上へスクロールすればヒーローも見られる。
+  */
+  if (id === "home") {
+    requestAnimationFrame(() => {
+      const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
+      const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
+      window.scrollTo({ top: y, behavior: "smooth" });
+      requestAnimationFrame(handleScrollNav);
+    });
+    return;
+  }
 
+  const stickyOffset = navEl.classList.contains("sticky-nav") ? navEl.offsetHeight : 0;
   const y = target.getBoundingClientRect().top + window.scrollY - stickyOffset - 8;
   window.scrollTo({ top: y, behavior: "smooth" });
 
