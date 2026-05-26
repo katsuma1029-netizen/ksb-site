@@ -264,18 +264,18 @@
 }
 
 /* =========================
-   LPKとは？（会社概要直後の控えめな折りたたみ説明）
+   LPKとは？（会社概要直後の折りたたみ説明）
 ========================= */
 .lpk-info-details{
-  margin: 14px 0 32px;
+  margin: 16px 0 34px;
   width: fit-content;
   max-width: 760px;
 
-  border: 1px solid rgba(11,47,91,0.14);
-  border-radius: 12px;
+  border: 1px solid rgba(11,47,91,0.22);
+  border-radius: 14px;
   background: #ffffff;
   overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.035);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.055);
 }
 
 .lpk-info-summary{
@@ -285,14 +285,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 10px;
+  gap: 12px;
 
-  padding: 9px 12px 9px 14px;
-  background: #f3f7ff;
+  padding: 10px 14px 10px 16px;
+  background: linear-gradient(180deg, #eef4ff, #e4efff);
   color: var(--main-blue);
 
   font-weight: 900;
   line-height: 1.35;
+  transition: background .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.lpk-info-summary:hover{
+  background: linear-gradient(180deg, #e6f0ff, #dceaff);
+  transform: translateY(-1px);
 }
 
 .lpk-info-summary::-webkit-details-marker{
@@ -301,8 +307,8 @@
 
 .lpk-info-summary::after{
   content: "＋";
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
 
   display: inline-flex;
@@ -311,13 +317,13 @@
 
   background: var(--main-blue);
   color: #fff;
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   font-weight: 900;
   flex-shrink: 0;
 }
 
 .lpk-info-details[open] > .lpk-info-summary{
-  background: #eef4ff;
+  background: linear-gradient(180deg, #eef4ff, #e4efff);
   color: var(--main-blue);
 }
 
@@ -327,22 +333,23 @@
 }
 
 .lpk-info-summary-main{
-  font-size: 0.92rem;
+  font-size: 0.98rem;
   font-weight: 900;
   white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 .lpk-info-body{
   width: 100%;
-  padding: 13px 15px 15px;
+  padding: 14px 16px 16px;
   background: #fff;
   border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .lpk-info-body p{
   margin: 0 0 9px;
-  font-size: 0.9rem;
-  line-height: 1.75;
+  font-size: 0.92rem;
+  line-height: 1.8;
   color: #333;
 }
 
@@ -360,15 +367,15 @@
 
   .lpk-info-summary{
     width: 100%;
-    padding: 11px 13px;
+    padding: 11px 14px;
     align-items: center;
   }
 
   .lpk-info-summary-main{
-    font-size: 0.94rem;
+    font-size: 0.96rem;
   }
 
-    .lpk-info-body{
+  .lpk-info-body{
     padding: 13px 14px 15px;
   }
 
