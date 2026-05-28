@@ -506,20 +506,48 @@ header h1 {
 
 
 .hero-cert{
-  display: block;            
-  margin: 0 0 14px;
-  padding: 7px 16px;
-  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin: 2px 0 16px;
+  padding: 9px 18px;
+
+  font-size: 1.02rem;
   font-weight: 900;
   color: #003980;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+
   background: linear-gradient(180deg, #ffffff, #e8f0ff);
   border-radius: 999px;
-  border: 2px solid rgba(255,255,255,0.85);
+  border: 2px solid rgba(255,255,255,0.95);
+
   box-shadow:
-    0 8px 22px rgba(0,0,0,0.24),
-    inset 0 0 0 1px rgba(11,74,143,0.10);
+    0 10px 26px rgba(0,0,0,0.30),
+    0 0 0 1px rgba(255,255,255,0.35),
+    inset 0 0 0 1px rgba(11,74,143,0.12);
+
   width: fit-content;
-  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+
+.hero-cert::before{
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+
+  background: #0b4a8f;
+  color: #fff;
+
+  font-size: 0.85rem;
+  font-weight: 900;
+  flex-shrink: 0;
 }
 
 .hero-desc{
@@ -2379,8 +2407,8 @@ nav.sticky-nav .lang-btn{
 <p class="hero-catch-sub lang-ja">日本で働く力と、信頼される姿勢を育てる。</p>
 <p class="hero-catch-sub lang-id">Membentuk kemampuan kerja dan sikap yang dipercaya di Jepang.</p>
 
-<div class="hero-cert lang-ja">✓ インドネシア労働省認定 正規送り出し機関</div>
-<div class="hero-cert lang-id">✓ Lembaga Pengirim Resmi yang Diakui Kementerian Ketenagakerjaan Republik Indonesia</div>
+<div class="hero-cert lang-ja">インドネシア労働省認定 正規送り出し機関</div>
+<div class="hero-cert lang-id">Lembaga Pengirim Resmi yang Diakui Kementerian Ketenagakerjaan Republik Indonesia</div>
 <p class="hero-desc lang-ja">
   【日本企業・監理団体様向け】<br>
   技能実習生・特定技能を中心に、インドネシア人材と日本企業をつなぐ送り出し機関です。
