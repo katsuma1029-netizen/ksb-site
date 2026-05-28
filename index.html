@@ -508,45 +508,47 @@ header h1 {
 .hero-cert{
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
 
   margin: 2px 0 16px;
-  padding: 9px 18px;
+  padding: 9px 16px 9px 14px;
 
-  font-size: 1.02rem;
+  font-size: 1.0rem;
   font-weight: 900;
   color: #003980;
   line-height: 1.35;
   letter-spacing: 0.02em;
 
-  background: linear-gradient(180deg, #ffffff, #e8f0ff);
-  border-radius: 999px;
-  border: 2px solid rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.94);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.88);
+  border-left: 5px solid #0b4a8f;
 
   box-shadow:
-    0 10px 26px rgba(0,0,0,0.30),
-    0 0 0 1px rgba(255,255,255,0.35),
-    inset 0 0 0 1px rgba(11,74,143,0.12);
+    0 8px 20px rgba(0,0,0,0.24),
+    inset 0 0 0 1px rgba(11,74,143,0.10);
 
   width: fit-content;
   text-shadow: none;
 }
 
 .hero-cert::before{
-  content: "✓";
+  content: "認定";
   display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  width: 22px;
+  min-width: 42px;
   height: 22px;
-  border-radius: 50%;
+  padding: 0 7px;
+  border-radius: 4px;
 
   background: #0b4a8f;
   color: #fff;
 
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-weight: 900;
+  line-height: 1;
   flex-shrink: 0;
 }
 
@@ -666,7 +668,19 @@ header h1 {
     line-height: 1.55;
     margin-bottom: 12px;
   }
-  .hero-cert  { font-size: 0.82rem; padding: 6px 12px; }
+ .hero-cert{
+  font-size: 0.84rem;
+  padding: 7px 12px 7px 10px;
+  border-radius: 7px;
+  border-left-width: 4px;
+}
+
+.hero-cert::before{
+  min-width: 36px;
+  height: 20px;
+  padding: 0 6px;
+  font-size: 0.68rem;
+}
   .hero-desc  { font-size: 0.92rem; }
 
   .hero-action-area{
