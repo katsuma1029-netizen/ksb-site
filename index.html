@@ -1701,17 +1701,17 @@ h3{
 
 /* 連絡先の番号・メール横に置く小型アクションボタン */
 .contact-line{
-  display: inline-flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  flex-wrap: nowrap;
-  gap: 8px;
+  gap: 10px;
+  width: 100%;
   max-width: 100%;
   white-space: nowrap;
   overflow: visible;
 }
 
 .contact-line .phone-inline{
-  flex: 0 1 auto;
   min-width: 0;
 }
 
@@ -1720,6 +1720,10 @@ h3{
   max-width: 100%;
   overflow-wrap: normal;
   word-break: normal;
+}
+
+.contact-line .contact-inline-btn{
+  justify-self: end;
 }
 
 /* 下方向の影を使わず、切れて見えない小型ボタン */
@@ -1860,9 +1864,10 @@ h3{
   }
 
   .contact-line{
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 8px;
+    width: 100%;
     white-space: normal;
   }
 
