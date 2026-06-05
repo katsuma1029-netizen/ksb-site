@@ -1691,56 +1691,79 @@ h3{
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .contact-inline-btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 7px;
 
-  padding: 4px 10px;
+  min-height: 32px;
+  padding: 6px 14px;
   border-radius: 999px;
 
-  border: 1px solid rgba(11,47,91,0.18);
-  background: #f3f7ff;
+  border: 1px solid rgba(11,47,91,0.22);
+  background: linear-gradient(180deg, #ffffff, #eef4ff);
   color: #0b2f5b;
   text-decoration: none;
 
   font-weight: 900;
-  font-size: 0.78rem;
-  line-height: 1.3;
+  font-size: 0.82rem;
+  line-height: 1.2;
   white-space: nowrap;
 
-  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  box-shadow:
+    0 4px 0 rgba(11,47,91,0.18),
+    0 8px 16px rgba(0,0,0,0.10);
   transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
 }
 
+.contact-inline-btn i{
+  font-size: 0.9rem;
+}
+
 .contact-inline-btn:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.10);
-  opacity: 0.95;
+  transform: translateY(-2px);
+  box-shadow:
+    0 5px 0 rgba(11,47,91,0.20),
+    0 12px 22px rgba(0,0,0,0.14);
+  opacity: 0.96;
+}
+
+.contact-inline-btn:active{
+  transform: translateY(1px);
+  box-shadow:
+    0 2px 0 rgba(11,47,91,0.18),
+    0 5px 10px rgba(0,0,0,0.12);
 }
 
 /* 電話ボタン */
 .contact-inline-btn.call{
-  background: linear-gradient(180deg, #0b4a8f, #003980);
+  background: linear-gradient(180deg, #0f5aa5, #003980);
   color: #fff;
-  border-color: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.22);
+  box-shadow:
+    0 4px 0 #062b5a,
+    0 8px 16px rgba(0,0,0,0.14);
 }
 
 /* メールボタン */
 .contact-inline-btn.mail{
-  background: #f3f7ff;
+  background: linear-gradient(180deg, #ffffff, #eaf1ff);
   color: #0b2f5b;
+  border-color: rgba(11,47,91,0.24);
 }
 
 /* WhatsAppボタン */
 .contact-inline-btn.wa{
-  background: #eafff1;
-  border-color: rgba(37,211,102,0.30);
+  background: linear-gradient(180deg, #ecfff3, #d8fbe5);
+  border-color: rgba(37,211,102,0.38);
   color: #0b2f5b;
+  box-shadow:
+    0 4px 0 rgba(37,211,102,0.28),
+    0 8px 16px rgba(0,0,0,0.10);
 }
 
 .contact-inline-btn.wa i{
@@ -1788,11 +1811,13 @@ h3{
 
   .contact-line{
     display: flex;
+    gap: 8px;
   }
 
   .contact-inline-btn{
-    padding: 5px 10px;
-    font-size: 0.78rem;
+    min-height: 34px;
+    padding: 7px 13px;
+    font-size: 0.8rem;
   }
 }
 /* ▲▲ 電話番号レイアウトここまで ▲▲ */
