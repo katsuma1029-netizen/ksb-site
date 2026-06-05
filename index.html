@@ -1690,18 +1690,33 @@ h3{
 .contact-line{
   display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.contact-line .phone-inline{
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.contact-line .auto-link{
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .contact-inline-btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
 
-  min-height: 32px;
-  padding: 6px 14px;
+  flex: 0 0 auto;
+  min-height: 30px;
+  padding: 5px 12px;
   border-radius: 999px;
 
   border: 1px solid rgba(11,47,91,0.22);
@@ -1710,32 +1725,32 @@ h3{
   text-decoration: none;
 
   font-weight: 900;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   line-height: 1.2;
   white-space: nowrap;
 
   box-shadow:
-    0 4px 0 rgba(11,47,91,0.18),
-    0 8px 16px rgba(0,0,0,0.10);
+    0 3px 0 rgba(11,47,91,0.18),
+    0 7px 14px rgba(0,0,0,0.09);
   transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
 }
 
 .contact-inline-btn i{
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .contact-inline-btn:hover{
   transform: translateY(-2px);
   box-shadow:
-    0 5px 0 rgba(11,47,91,0.20),
-    0 12px 22px rgba(0,0,0,0.14);
+    0 4px 0 rgba(11,47,91,0.20),
+    0 11px 20px rgba(0,0,0,0.13);
   opacity: 0.96;
 }
 
 .contact-inline-btn:active{
   transform: translateY(1px);
   box-shadow:
-    0 2px 0 rgba(11,47,91,0.18),
+    0 1px 0 rgba(11,47,91,0.18),
     0 5px 10px rgba(0,0,0,0.12);
 }
 
@@ -1745,8 +1760,8 @@ h3{
   color: #fff;
   border-color: rgba(255,255,255,0.22);
   box-shadow:
-    0 4px 0 #062b5a,
-    0 8px 16px rgba(0,0,0,0.14);
+    0 3px 0 #062b5a,
+    0 7px 14px rgba(0,0,0,0.14);
 }
 
 /* メールボタン */
@@ -1762,8 +1777,8 @@ h3{
   border-color: rgba(37,211,102,0.38);
   color: #0b2f5b;
   box-shadow:
-    0 4px 0 rgba(37,211,102,0.28),
-    0 8px 16px rgba(0,0,0,0.10);
+    0 3px 0 rgba(37,211,102,0.28),
+    0 7px 14px rgba(0,0,0,0.09);
 }
 
 .contact-inline-btn.wa i{
@@ -1811,7 +1826,14 @@ h3{
 
   .contact-line{
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
+    white-space: normal;
+  }
+
+  .contact-line .auto-link{
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .contact-inline-btn{
@@ -3361,8 +3383,8 @@ nav.sticky-nav .lang-btn{
 
       <a class="contact-inline-btn mail" href="mailto:lpkksb@gmail.com?subject=KSB%E3%81%B8%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%80%90%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%86%85%E5%AE%B9%E3%80%91%0A">
         <i class="fa-solid fa-envelope"></i>
-        <span class="lang-ja">メールする</span>
-        <span class="lang-id">Kirim Email</span>
+        <span class="lang-ja">メール</span>
+<span class="lang-id">Email</span>
       </a>
     </span>
   </div>
