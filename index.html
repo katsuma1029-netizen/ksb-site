@@ -195,7 +195,6 @@
   line-height: 1.7;
   color: #222;
   padding-left: 6px; 
-  padding-bottom: 2px;
   min-width: 0; 
   overflow-wrap: anywhere;
   box-sizing: border-box;
@@ -1696,7 +1695,6 @@ h3{
   max-width: 100%;
   white-space: nowrap;
   overflow: visible;
-  padding-bottom: 2px;
 }
 
 .contact-line .phone-inline{
@@ -1711,6 +1709,7 @@ h3{
   word-break: normal;
 }
 
+/* 下方向の影を使わず、切れて見えない小型ボタン */
 .contact-inline-btn{
   display: inline-flex;
   align-items: center;
@@ -1719,11 +1718,11 @@ h3{
 
   flex: 0 0 auto;
   min-height: 30px;
-  padding: 5px 12px;
+  padding: 5px 13px;
   border-radius: 999px;
 
-  border: 1px solid rgba(11,47,91,0.22);
-  background: linear-gradient(180deg, #ffffff, #eef4ff);
+  border: 1px solid rgba(11,47,91,0.28);
+  background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 48%, #e7f0ff 100%);
   color: #0b2f5b;
   text-decoration: none;
 
@@ -1733,9 +1732,11 @@ h3{
   white-space: nowrap;
 
   box-shadow:
-    0 3px 0 rgba(11,47,91,0.18),
-    0 7px 14px rgba(0,0,0,0.09);
-  transition: transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -1px 0 rgba(11,47,91,0.12),
+    0 0 0 1px rgba(255,255,255,0.55);
+
+  transition: transform .15s ease, opacity .15s ease, background .15s ease, border-color .15s ease;
 }
 
 .contact-inline-btn i{
@@ -1743,45 +1744,63 @@ h3{
 }
 
 .contact-inline-btn:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 4px 0 rgba(11,47,91,0.20),
-    0 11px 20px rgba(0,0,0,0.13);
+  transform: translateY(-1px);
   opacity: 0.96;
+  background: linear-gradient(180deg, #ffffff 0%, #eef5ff 48%, #dceaff 100%);
+  border-color: rgba(11,47,91,0.38);
 }
 
 .contact-inline-btn:active{
-  transform: translateY(1px);
-  box-shadow:
-    0 1px 0 rgba(11,47,91,0.18),
-    0 5px 10px rgba(0,0,0,0.12);
+  transform: translateY(0);
+  background: linear-gradient(180deg, #dceaff 0%, #eef5ff 100%);
 }
 
 /* 電話ボタン */
 .contact-inline-btn.call{
-  background: linear-gradient(180deg, #0f5aa5, #003980);
+  background: linear-gradient(180deg, #1768b5 0%, #0b4a8f 48%, #003980 100%);
   color: #fff;
-  border-color: rgba(255,255,255,0.22);
+  border-color: rgba(0,57,128,0.65);
   box-shadow:
-    0 3px 0 #062b5a,
-    0 7px 14px rgba(0,0,0,0.14);
+    inset 0 1px 0 rgba(255,255,255,0.28),
+    inset 0 -1px 0 rgba(0,0,0,0.18),
+    0 0 0 1px rgba(255,255,255,0.35);
+}
+
+.contact-inline-btn.call:hover{
+  background: linear-gradient(180deg, #1d73c7 0%, #0d529d 48%, #003f8c 100%);
+  border-color: rgba(0,57,128,0.80);
 }
 
 /* メールボタン */
 .contact-inline-btn.mail{
-  background: linear-gradient(180deg, #ffffff, #eaf1ff);
+  background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 48%, #e7f0ff 100%);
   color: #0b2f5b;
-  border-color: rgba(11,47,91,0.24);
+  border-color: rgba(11,47,91,0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -1px 0 rgba(11,47,91,0.12),
+    0 0 0 1px rgba(255,255,255,0.55);
+}
+
+.contact-inline-btn.mail:hover{
+  background: linear-gradient(180deg, #ffffff 0%, #eef5ff 48%, #dceaff 100%);
+  border-color: rgba(11,47,91,0.38);
 }
 
 /* WhatsAppボタン */
 .contact-inline-btn.wa{
-  background: linear-gradient(180deg, #ecfff3, #d8fbe5);
-  border-color: rgba(37,211,102,0.38);
+  background: linear-gradient(180deg, #f4fff8 0%, #e9fff0 48%, #d8fbe5 100%);
+  border-color: rgba(37,211,102,0.45);
   color: #0b2f5b;
   box-shadow:
-    0 3px 0 rgba(37,211,102,0.28),
-    0 7px 14px rgba(0,0,0,0.09);
+    inset 0 1px 0 rgba(255,255,255,0.95),
+    inset 0 -1px 0 rgba(37,211,102,0.18),
+    0 0 0 1px rgba(255,255,255,0.55);
+}
+
+.contact-inline-btn.wa:hover{
+  background: linear-gradient(180deg, #f8fffb 0%, #e0ffea 48%, #c9f6d8 100%);
+  border-color: rgba(37,211,102,0.58);
 }
 
 .contact-inline-btn.wa i{
@@ -1840,8 +1859,8 @@ h3{
   }
 
   .contact-inline-btn{
-    min-height: 34px;
-    padding: 7px 13px;
+    min-height: 32px;
+    padding: 6px 12px;
     font-size: 0.8rem;
   }
 }
