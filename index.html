@@ -88,6 +88,21 @@
 #contact .company-card.has-title::before{
   top: 56px; 
 }
+
+/* ▼▼ お問い合わせカード：左右の段の高さをそろえる ▼▼ */
+#contact .company-card{
+  display: grid;
+  grid-template-rows:
+    auto
+    minmax(105px, auto)
+    minmax(84px, auto);
+}
+
+#contact .company-card > .company-row{
+  height: 100%;
+}
+/* ▲▲ お問い合わせカード：左右の段の高さをそろえる ▲▲ */
+
 #contact .contact-card-title{
   text-align: center;
   font-weight: 900;
@@ -258,6 +273,11 @@
   .company-card::before{
     display: none;
   }
+
+  #contact .company-card{
+    display: block;
+  }
+
   .company-row{
     grid-template-columns: 1fr;
     gap: 8px;
