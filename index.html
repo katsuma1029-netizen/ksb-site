@@ -163,6 +163,19 @@
   align-items: center;
 }
 
+/* お問い合わせカードだけ右側を少し広くする */
+#contact .company-row{
+  grid-template-columns: 155px 1fr;
+}
+
+#contact .company-row::after{
+  left: calc(16px + 155px + 16px);
+}
+
+#contact .company-value{
+  padding-left: 0;
+}
+
 .company-row.top-align{
   align-items: start;
 }
