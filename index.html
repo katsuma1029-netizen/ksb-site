@@ -2068,9 +2068,9 @@ h3{
    日本国内提携先（登録支援機関）カード：コンパクト版
 ========================= */
 .support-partner-card{
-  width: 100%;
-  max-width: 100%;
-  margin: 14px 0 0;
+  width: min(100%, 1100px);
+  max-width: 1100px;
+  margin: 14px auto 0;
   padding: 12px 18px;
 
   border: 1px solid rgba(11,47,91,0.14);
@@ -2113,10 +2113,23 @@ h3{
 .support-partner-name{
   margin: 0 0 7px;
 
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+
   color: #0b2f5b;
+  line-height: 1.35;
+}
+
+.support-partner-name-label{
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.support-partner-company{
   font-size: 1.05rem;
   font-weight: 900;
-  line-height: 1.35;
 }
 
 .support-partner-details{
@@ -3738,9 +3751,7 @@ nav.sticky-nav .lang-btn{
   </div>
 </div>
   </div>
-</div>
-
-</div>
+  </div>
 
 <!-- ▼▼ 日本国内提携先（登録支援機関）カード ▼▼ -->
 <div class="card support-partner-card">
@@ -3757,8 +3768,9 @@ nav.sticky-nav .lang-btn{
   </div>
 
   <div class="support-partner-name">
-  <span class="lang-ja">提携先企業名　auns En_SUPPORT</span>
-  <span class="lang-id">Nama Perusahaan Mitra: auns En_SUPPORT</span>
+  <span class="support-partner-name-label lang-ja">提携先企業名</span>
+  <span class="support-partner-name-label lang-id">Nama Perusahaan Mitra</span>
+  <span class="support-partner-company">auns En_SUPPORT</span>
 </div>
 
   <div class="support-partner-details">
