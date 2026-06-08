@@ -276,12 +276,19 @@
   .company-card{
     padding: 18px 16px;
   }
+
   .company-card::before{
     display: none;
   }
 
   #contact .company-card{
     display: block;
+    overflow: visible;
+  }
+
+  #contact .company-card > .company-row{
+    height: auto;
+    min-height: 0;
   }
 
   .company-row{
@@ -289,12 +296,52 @@
     gap: 8px;
     padding: 12px 0;
   }
-.company-row::before{
+
+  #contact .company-row{
+    margin: 0;
+    padding: 14px 0;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .company-row::before{
     content: none;
   }
+
+  #contact .company-row::after{
+    display: none;
+  }
+
   .company-label{
     width: 100%;
     white-space: normal; 
+  }
+
+  #contact .company-value{
+    width: 100%;
+    padding-left: 0;
+    overflow: visible;
+  }
+
+  #contact .contact-line{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    white-space: normal;
+  }
+
+  #contact .contact-line .auto-link{
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  #contact .contact-line .contact-inline-btn{
+    align-self: flex-start;
+    width: auto;
+    min-width: 128px;
   }
 }
 
