@@ -2063,6 +2063,154 @@ h3{
   padding: 0;
   border-radius: 0; 
 }
+
+/* =========================
+   日本国内提携先（登録支援機関）カード
+========================= */
+.support-partner-card{
+  margin: 18px 0 0;
+  padding: 18px 20px;
+
+  border: 1px solid rgba(11,47,91,0.16);
+  border-left: 6px solid var(--main-blue);
+  border-radius: 16px;
+
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.045);
+}
+
+.support-partner-head{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.support-partner-badge{
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 999px;
+
+  background: #eef4ff;
+  border: 1px solid rgba(11,47,91,0.16);
+  color: #0b2f5b;
+
+  font-size: 1.02rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.support-partner-title{
+  color: #0b2f5b;
+  font-size: 1.12rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.support-partner-name{
+  margin: 4px 0 12px;
+
+  color: #0b2f5b;
+  font-size: 1.18rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.support-partner-details{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+
+.support-partner-row{
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+
+  padding: 10px 0;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.support-partner-row.wide{
+  grid-column: 1 / -1;
+}
+
+.support-partner-label{
+  color: #0b2f5b;
+  font-size: 0.92rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.support-partner-value{
+  min-width: 0;
+  color: #222;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.support-partner-value .contact-line{
+  white-space: normal;
+}
+
+/* スマホ：提携先カードは完全に縦並び */
+@media (max-width: 640px){
+  .support-partner-card{
+    margin-top: 16px;
+    padding: 16px 14px;
+    border-radius: 14px;
+  }
+
+  .support-partner-badge{
+    font-size: 0.96rem;
+    padding: 5px 11px;
+  }
+
+  .support-partner-title{
+    font-size: 1.02rem;
+  }
+
+  .support-partner-name{
+    font-size: 1.08rem;
+  }
+
+  .support-partner-details{
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .support-partner-row{
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 11px 0;
+  }
+
+  .support-partner-row.wide{
+    grid-column: auto;
+  }
+
+  .support-partner-label{
+    white-space: normal;
+  }
+
+  .support-partner-value .contact-line{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .support-partner-value .contact-inline-btn{
+    align-self: flex-start;
+    width: auto;
+    min-width: 128px;
+  }
+}
+
+/* ▼▼ Googleフォームへの問い合わせボタン ▼▼ */
     
 /* ▼▼ Googleフォームへの問い合わせボタン ▼▼ */
 .ksb-form-buttons {
@@ -3563,6 +3711,87 @@ nav.sticky-nav .lang-btn{
   </div>
 </div>
 
+</div>
+
+<!-- ▼▼ 日本国内提携先（登録支援機関）カード ▼▼ -->
+<div class="card support-partner-card">
+  <div class="support-partner-head">
+    <div class="support-partner-badge">
+      <span class="lang-ja">特定技能の受け入れ企業様・監理団体様向け</span>
+      <span class="lang-id">Untuk Perusahaan Jepang & Kumiai yang Ingin Menerima Pekerja SSW</span>
+    </div>
+
+    <div class="support-partner-title">
+      <span class="lang-ja">日本国内提携先（登録支援機関）</span>
+      <span class="lang-id">Mitra di Jepang untuk Dukungan Pekerja Tokutei Ginou</span>
+    </div>
+  </div>
+
+  <div class="support-partner-name">
+    auns En_SUPPORT
+  </div>
+
+  <div class="support-partner-details">
+
+    <div class="support-partner-row wide">
+      <div class="support-partner-label">
+        <span class="lang-ja">住所</span>
+        <span class="lang-id">Alamat</span>
+      </div>
+      <div class="support-partner-value">
+        <span class="lang-ja">〒564-0003 大阪府吹田市天道町4番24号 En_TENDO</span>
+        <span class="lang-id">4-24 Tendōchō, Suita-shi, Osaka 564-0003, Japan / En_TENDO</span>
+      </div>
+    </div>
+
+    <div class="support-partner-row">
+      <div class="support-partner-label">
+        <span class="lang-ja">電話</span>
+        <span class="lang-id">Telepon</span>
+      </div>
+      <div class="support-partner-value">
+        <span class="contact-line">
+          <span class="phone-inline">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+81664446444" class="auto-link">06-6444-6444</a>
+          </span>
+
+          <a class="contact-inline-btn call" href="tel:+81664446444">
+            <i class="fa-solid fa-phone"></i>
+            <span class="lang-ja">電話する</span>
+            <span class="lang-id">Telepon</span>
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div class="support-partner-row">
+      <div class="support-partner-label">
+        <span class="lang-ja">メール</span>
+        <span class="lang-id">Email</span>
+      </div>
+      <div class="support-partner-value">
+        <span class="contact-line">
+          <span class="phone-inline">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:en_support@auns.biz" class="auto-link">en_support@auns.biz</a>
+          </span>
+
+          <a class="contact-inline-btn mail" href="mailto:en_support@auns.biz?subject=KSB%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92%E8%A6%8B%E3%81%A6%E3%81%AE%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B&body=%E3%80%90%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%94%E6%8B%85%E5%BD%93%E8%80%85%E6%A7%98%E5%90%8D%E3%80%91%0A%E3%80%90%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%86%85%E5%AE%B9%E3%80%91%0A">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="lang-ja">メール</span>
+            <span class="lang-id">Email</span>
+          </a>
+        </span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- ▲▲ 日本国内提携先（登録支援機関）カードここまで ▲▲ -->
+
+<!-- ▼▼ フォームからのお問い合わせ ▼▼ -->
+    
 <!-- ▼▼ フォームからのお問い合わせ ▼▼ -->
 <div class="contact-form-mini">
   <p class="text-sm lang-ja">※下記フォームからもご連絡いただけます。</p>
