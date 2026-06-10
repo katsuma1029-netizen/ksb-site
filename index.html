@@ -608,7 +608,7 @@ header h1 {
   font-weight: 900;
   margin: 20px 0 6px;
   display: inline-block;
-  letter-spacing: 0.10em;
+  letter-spacing: 0.03em;
   text-shadow:
     0 8px 22px rgba(0,0,0,0.55),
     0 0 18px rgba(255,255,255,0.15);
@@ -619,6 +619,9 @@ header h1 {
 .hero-letter-reveal{
   opacity: 1;
   white-space: nowrap;
+  letter-spacing: 0.03em;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
 }
 
 .hero-letter-reveal span{
@@ -626,7 +629,7 @@ header h1 {
   opacity: 0;
   transform: translateY(12px);
   animation: heroLetterReveal 0.45s ease forwards;
-  animation-delay: calc(0.30s + var(--i) * 0.035s);
+  animation-delay: calc(0.30s + var(--i) * 0.032s);
 }
 
 @keyframes heroLetterReveal{
