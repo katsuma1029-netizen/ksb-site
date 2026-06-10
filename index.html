@@ -604,14 +604,14 @@ header h1 {
 /* キャッチコピー（現状のサイズ感を維持） */
 .hero-catch{
   color: #fff; /* ★追加：p{color:#222}に負けない */
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   font-weight: 900;
   margin: 20px 0 6px;
   display: inline-block;
   letter-spacing: 0;
   text-shadow:
-    0 8px 22px rgba(0,0,0,0.55),
-    0 0 18px rgba(255,255,255,0.15);
+    0 6px 16px rgba(0,0,0,0.45),
+    0 1px 5px rgba(0,0,0,0.28);
   position: relative;
 }
 
@@ -628,9 +628,18 @@ header h1 {
   display: inline-block;
   opacity: 0;
   transform: translateY(12px);
-  margin-right: -0.015em;
+  margin-right: -0.018em;
   animation: heroLetterReveal 0.45s ease forwards;
   animation-delay: calc(0.30s + var(--i) * 0.03s);
+}
+
+/* 「～」だけ少し細く・控えめにする */
+.hero-letter-reveal .hero-wave{
+  font-size: 0.9em;
+  font-weight: 700;
+  opacity: 0;
+  margin: 0 0.18em;
+  transform: translateY(10px);
 }
 
 @keyframes heroLetterReveal{
@@ -3052,7 +3061,7 @@ nav.sticky-nav .lang-btn{
 
 <!-- キャッチコピー（サブタイトル） -->
 <p class="hero-catch hero-letter-reveal lang-ja" aria-label="～ Attitude for Success ～">
-  <span style="--i:1">～</span>
+  <span class="hero-wave" style="--i:1">～</span>
   <span style="--i:2">&nbsp;</span>
   <span style="--i:3">A</span>
   <span style="--i:4">t</span>
@@ -3075,7 +3084,7 @@ nav.sticky-nav .lang-btn{
   <span style="--i:21">s</span>
   <span style="--i:22">s</span>
   <span style="--i:23">&nbsp;</span>
-  <span style="--i:24">～</span>
+  <span class="hero-wave" style="--i:24">～</span>
 </p>
 
 <p class="hero-catch hero-letter-reveal lang-id" aria-label="～ Attitude for Success ～">
