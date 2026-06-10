@@ -2837,6 +2837,74 @@ nav.sticky-nav .lang-btn{
   }
 }
 
+/* =========================
+   トップに戻るボタン
+========================= */
+.back-to-top{
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9999;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,0.45);
+  background: linear-gradient(180deg, #1768b5 0%, #0b4a8f 48%, #003980 100%);
+  color: #ffffff;
+
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.28);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  transition:
+    opacity .18s ease,
+    visibility .18s ease,
+    transform .18s ease,
+    background .18s ease;
+}
+
+.back-to-top.is-show{
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover{
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #1d73c7 0%, #0d529d 48%, #003f8c 100%);
+}
+
+.back-to-top:active{
+  transform: translateY(0);
+}
+
+@media (max-width: 640px){
+  .back-to-top{
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.35rem;
+  }
+}
+
 
   </style>
   
@@ -4188,8 +4256,11 @@ nav.sticky-nav .lang-btn{
 
   </main>
 
-  <!-- ▼ フッターここから ▼ -->
-  <footer>
+<button type="button" class="back-to-top" id="backToTop" aria-label="トップに戻る">
+  ↑
+</button>
+
+<footer>
     <div class="footer-content">
       <p class="footer-copy">
         © 2025 LPK KARYA SEJAHTERA BERSAMA. All rights reserved.
@@ -4427,17 +4498,41 @@ function handleScrollNav() {
 }
 
 
-   let ticking = false;
+     let ticking = false;
+
+const backToTopBtn = document.getElementById("backToTop");
+
+function handleBackToTopButton(){
+  if (!backToTopBtn) return;
+
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add("is-show");
+  } else {
+    backToTopBtn.classList.remove("is-show");
+  }
+}
+
+if (backToTopBtn) {
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+}
 
 window.addEventListener("scroll", () => {
   if (!ticking) {
     window.requestAnimationFrame(() => {
       handleScrollNav();
+      handleBackToTopButton();
       ticking = false;
     });
     ticking = true;
   }
 }, { passive: true });
+
+handleBackToTopButton();
 
   </script>
 </body>
