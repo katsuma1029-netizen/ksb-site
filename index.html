@@ -615,6 +615,31 @@ header h1 {
   position: relative;
 }
 
+/* ヒーローキャッチ：一文字ずつ表示 */
+.hero-letter-reveal{
+  opacity: 1;
+  white-space: nowrap;
+}
+
+.hero-letter-reveal span{
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: heroLetterReveal 0.45s ease forwards;
+  animation-delay: calc(0.30s + var(--i) * 0.035s);
+}
+
+@keyframes heroLetterReveal{
+  from{
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Attitude for Success の一言説明 */
 .hero-catch-sub{
   color: #fff;
@@ -796,7 +821,6 @@ header h1 {
 
 
 .hero-title-wrap,
-.hero-catch,
 .hero-catch-sub,
 .hero-cert,
 .hero-desc,
@@ -810,12 +834,8 @@ header h1 {
   animation-delay: 0.10s;
 }
 
-.hero-catch{
-  animation-delay: 0.25s;
-}
-
 .hero-catch-sub{
-  animation-delay: 0.38s;
+  animation-delay: 1.18s;
 }
 
 .hero-cert{
@@ -2984,6 +3004,7 @@ nav.sticky-nav .lang-btn{
 @media (prefers-reduced-motion: reduce){
   .hero-title-wrap,
   .hero-catch,
+  .hero-catch span,
   .hero-catch-sub,
   .hero-cert,
   .hero-desc,
@@ -3026,8 +3047,59 @@ nav.sticky-nav .lang-btn{
     </div>
 
 <!-- キャッチコピー（サブタイトル） -->
-<p class="hero-catch lang-ja">～ Attitude for Success ～</p>
-<p class="hero-catch lang-id">～ Attitude for Success ～</p>
+<p class="hero-catch hero-letter-reveal lang-ja" aria-label="～ Attitude for Success ～">
+  <span style="--i:1">～</span>
+  <span style="--i:2">&nbsp;</span>
+  <span style="--i:3">A</span>
+  <span style="--i:4">t</span>
+  <span style="--i:5">t</span>
+  <span style="--i:6">i</span>
+  <span style="--i:7">t</span>
+  <span style="--i:8">u</span>
+  <span style="--i:9">d</span>
+  <span style="--i:10">e</span>
+  <span style="--i:11">&nbsp;</span>
+  <span style="--i:12">f</span>
+  <span style="--i:13">o</span>
+  <span style="--i:14">r</span>
+  <span style="--i:15">&nbsp;</span>
+  <span style="--i:16">S</span>
+  <span style="--i:17">u</span>
+  <span style="--i:18">c</span>
+  <span style="--i:19">c</span>
+  <span style="--i:20">e</span>
+  <span style="--i:21">s</span>
+  <span style="--i:22">s</span>
+  <span style="--i:23">&nbsp;</span>
+  <span style="--i:24">～</span>
+</p>
+
+<p class="hero-catch hero-letter-reveal lang-id" aria-label="～ Attitude for Success ～">
+  <span style="--i:1">～</span>
+  <span style="--i:2">&nbsp;</span>
+  <span style="--i:3">A</span>
+  <span style="--i:4">t</span>
+  <span style="--i:5">t</span>
+  <span style="--i:6">i</span>
+  <span style="--i:7">t</span>
+  <span style="--i:8">u</span>
+  <span style="--i:9">d</span>
+  <span style="--i:10">e</span>
+  <span style="--i:11">&nbsp;</span>
+  <span style="--i:12">f</span>
+  <span style="--i:13">o</span>
+  <span style="--i:14">r</span>
+  <span style="--i:15">&nbsp;</span>
+  <span style="--i:16">S</span>
+  <span style="--i:17">u</span>
+  <span style="--i:18">c</span>
+  <span style="--i:19">c</span>
+  <span style="--i:20">e</span>
+  <span style="--i:21">s</span>
+  <span style="--i:22">s</span>
+  <span style="--i:23">&nbsp;</span>
+  <span style="--i:24">～</span>
+</p>
 
 <p class="hero-catch-sub lang-ja">日本で働く力と、信頼される姿勢を育てる。</p>
 <p class="hero-catch-sub lang-id">Membentuk kemampuan kerja dan sikap yang dipercaya di Jepang.</p>
