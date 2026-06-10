@@ -2504,6 +2504,60 @@ h3{
   color: #333;
 }
 
+/* =========================
+   事業内容カード内：問い合わせボタン
+========================= */
+.service-card-action{
+  margin-top: 16px;
+}
+
+.service-card-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 14px 9px 16px;
+  border-radius: 999px;
+
+  background: linear-gradient(180deg, #ffffff, #eef4ff);
+  color: #0b2f5b;
+  border: 1px solid rgba(11,47,91,0.20);
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1.25;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease, background .15s ease;
+}
+
+.service-card-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+  opacity: 0.96;
+  background: linear-gradient(180deg, #ffffff, #e6efff);
+}
+
+.service-card-btn-arrow{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+
+  background: #0b4a8f;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
 h2 {
   position: relative;
   color: var(--main-blue);
@@ -2825,11 +2879,6 @@ nav.sticky-nav .lang-btn{
       <span class="hero-action-arrow">→</span>
     </a>
 
-    <a href="#contact" class="hero-action-btn lang-ja">
-      <span>日本語学校希望の方はこちら</span>
-      <span class="hero-action-arrow">→</span>
-    </a>
-
     <a href="#contact" class="hero-action-btn lang-id">
       <span>Untuk Kumiai & Perusahaan</span>
       <span class="hero-action-arrow">→</span>
@@ -2837,11 +2886,6 @@ nav.sticky-nav .lang-btn{
 
     <a href="#contact" class="hero-action-btn lang-id">
       <span>Untuk Peserta Magang & LPK</span>
-      <span class="hero-action-arrow">→</span>
-    </a>
-
-    <a href="#contact" class="hero-action-btn lang-id">
-      <span>Untuk Sekolah Bahasa Jepang</span>
       <span class="hero-action-arrow">→</span>
     </a>
   </div>
@@ -2995,7 +3039,7 @@ nav.sticky-nav .lang-btn{
     </p>
   </div>
 
-  <div class="card service-card">
+    <div class="card service-card">
     <div class="service-photo">
       <img src="images/日本語学校.webp" alt="日本語学校" loading="lazy">
     </div>
@@ -3010,6 +3054,18 @@ nav.sticky-nav .lang-btn{
       Kami menyediakan pendidikan bahasa Jepang tingkat N5–N3, serta membina
       kemampuan komunikasi dan etika yang diperlukan untuk kerja/magang di Jepang.
     </p>
+
+    <div class="service-card-action">
+      <a href="#contact" class="service-card-btn lang-ja">
+        <span>日本語を学びたい方はこちら</span>
+        <span class="service-card-btn-arrow">→</span>
+      </a>
+
+      <a href="#contact" class="service-card-btn lang-id">
+        <span>Saya ingin belajar bahasa Jepang</span>
+        <span class="service-card-btn-arrow">→</span>
+      </a>
+    </div>
   </div>
 
 </div>
